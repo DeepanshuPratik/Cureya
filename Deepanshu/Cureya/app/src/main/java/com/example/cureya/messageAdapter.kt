@@ -7,13 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NewsListAdapter(): RecyclerView.Adapter<MessageViewHolder>() {
+class MessageListAdapter(): RecyclerView.Adapter<MessageViewHolder>() {
 
     private val items: ArrayList<messageInfo> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.message_layout, parent, false)
-        val viewHolder = MessageViewHolder(view)
-        return viewHolder
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.message_layout, parent, false)
+        return MessageViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
