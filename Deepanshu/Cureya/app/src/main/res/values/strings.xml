@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cureya</string>
+    <string name="start_chat_value">| Write Message</string>
+    <string name="attach_value">Attach</string>
+</resources>
