@@ -49,8 +49,18 @@
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_marginEnd="8dp"
-                android:layout_alignParentEnd="true"
+                android:layout_toStartOf="@id/contextual_menu"
                 tools:src="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/contextual_menu"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="?attr/actionBarItemBackground"
+                android:layout_marginEnd="8dp"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/menu_icon"
+                tools:tint="@color/black"/>
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -88,8 +98,10 @@
         android:orientation="vertical"
         android:paddingHorizontal="22dp"
         android:paddingVertical="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view"
+        tools:listitem="@layout/card_vertical_recycler_view"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
