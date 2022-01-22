@@ -2,6 +2,7 @@ package com.example.cureya
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -20,6 +21,19 @@ class MainActivity : AppCompatActivity() {
         url = "TODO"     // Add API HERE.
         fetchData()
         madapter = MessageListAdapter()
+
+        findViewById<ImageView>(R.id.attach).setOnClickListener {
+            attach()
+        }
+        findViewById<ImageView>(R.id.emoji).setOnClickListener {
+            emoji()
+        }
+        findViewById<ImageView>(R.id.camera).setOnClickListener {
+            camera()
+        }
+        findViewById<ImageView>(R.id.mic).setOnClickListener {
+            mic()
+        }
 
     }
     private fun fetchData()  {
@@ -60,4 +74,17 @@ class MainActivity : AppCompatActivity() {
 
         queue.add(getRequest)
     }
+    private fun emoji(){
+
+    }
+    private fun attach(){
+
+    }
+    private fun camera(){
+
+    }
+    private fun mic(){
+
+    }
+
 }
