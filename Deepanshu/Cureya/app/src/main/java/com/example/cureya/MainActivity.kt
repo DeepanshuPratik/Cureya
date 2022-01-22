@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 //madapter.updatemessage(newsArray)
             },
-            Response.ErrorListener { error ->
+            Response.ErrorListener {
 
             }
         ) {

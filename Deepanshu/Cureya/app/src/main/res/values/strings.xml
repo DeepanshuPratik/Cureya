@@ -12,4 +12,10 @@
     <string name="forget_password">Forget Password?</string>
     <string name="don_t_have_an_account">Don\'t have an account? </string>
     <string name="register">Register</string>
+    <string name="emoji_button">Emoji Button</string>
+    <string name="camera_button">camera button</string>
+    <string name="mic_button">Mic button</string>
+    <string name="chat_bot_image">Chat BOT Image</string>
+    <string name="back_button">Back button</string>
+    <string name="options_button">Options Button</string>
 </resources>
