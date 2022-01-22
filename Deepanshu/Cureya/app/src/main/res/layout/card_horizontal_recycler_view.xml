@@ -27,6 +27,13 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:background="@tools:sample/backgrounds/scenic">
 
+            <ImageView
+                android:id="@+id/background_person_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@drawable/cureya_brand_image" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/card_content_holder"
                 android:layout_width="match_parent"
