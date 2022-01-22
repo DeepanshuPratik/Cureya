@@ -6,97 +6,138 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        android:paddingTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cureya_logo" />
 
     <TextView
         android:id="@+id/edtRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="184dp"
-        android:text="Log in"
+        android:text="@string/log_in"
         android:textColor="@color/black"
         android:textSize="34sp"
+        android:layout_marginTop="32dp"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/edtLogInEmail"
-        android:layout_width="250dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="116dp"
-        android:ems="10"
-        android:hint="Email ID"
-        android:inputType="textEmailAddress"
-        android:paddingStart="8dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_edit_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_id"
+        android:paddingHorizontal="36dp"
+        android:layout_marginTop="16dp"
+        android:animateLayoutChanges="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edtRegister" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtRegister"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <EditText
-        android:id="@+id/edtLogInPassword"
-        android:layout_width="247dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="116dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingStart="8dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtLogInEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:paddingHorizontal="36dp"
+        android:layout_marginTop="16dp"
+        android:animateLayoutChanges="true"
+        app:endIconDrawable="@drawable/ic_see_password"
+        app:endIconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLogInEmail" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_edit_text_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtLogInPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forget_password"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="36dp"
+        app:layout_constraintEnd_toEndOf="@id/email_password_layout"
+        app:layout_constraintTop_toBottomOf="@id/email_password_layout" />
 
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="35dp"
-        android:text="Login"
+        android:layout_height="54dp"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:backgroundTint="@color/sky_blue"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLogInPassword" />
+        app:layout_constraintTop_toBottomOf="@id/forget_password" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/btnOr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="34dp"
+        android:paddingVertical="16dp"
+        android:layout_marginHorizontal="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogIn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogIn"
         app:srcCompat="@drawable/or" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/Login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOr" />
+
+    <LinearLayout
+        android:id="@+id/bottom_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="140dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOr" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Login">
 
+        <TextView
+            android:id="@+id/edtAlready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/don_t_have_an_account"/>
 
-    <TextView
-        android:id="@+id/edtAlready"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="140dp"
-        android:text="Registered Already?  Register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOr" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="385dp"
-        android:layout_height="214dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cureya_logo" />
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/register"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

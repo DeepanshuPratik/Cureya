@@ -30,8 +30,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
 
-        val binding = ActivityLogInBinding.inflate(layoutInflater)
-
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(CLIENT_ID)
             .requestEmail()
@@ -45,27 +43,7 @@ class LoginActivity : AppCompatActivity() {
         binding.Login.setOnClickListener {
             signIn()
         }
-
-
     }
-
-     /*private fun register() {
-        binding.btnLogIn.setOnClickListener {
-            if (binding.edtLogInEmail.text.toString() == "" || binding.edtLogInPassword.text.toString() == "") {
-                Toast.makeText(this, "Signup not possible", Toast.LENGTH_SHORT).show()
-            } else if (binding.edtLogInPassword.text != binding.edtLogInPassword) {
-                Toast.makeText(this, "Check the password and re enter the password", Toast.LENGTH_SHORT)
-                    .show()
-            }else if(binding.edtLogInEmail!=binding.edtSignUpEmail) {
-                Toast.makeText(this, "Check the email and re enter the email", Toast.LENGTH_SHORT).show()
-            }
-            else {
-
-                val ActivityIntent = Intent(this, StartActivity::class.java)
-                startActivity(ActivityIntent)
-                finish()
-            }
-        } */
 
     fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
@@ -90,7 +68,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -109,7 +86,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -125,8 +101,6 @@ class LoginActivity : AppCompatActivity() {
                     updateUI(null)
                 }
             }
-
-
     }
 
 }
