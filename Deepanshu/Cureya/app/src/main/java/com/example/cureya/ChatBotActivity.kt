@@ -19,7 +19,7 @@ class ChatBotActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatbotBinding
     private lateinit var madapter: MessageListAdapter
-    val REQUEST_CODE = 200
+    private val REQUEST_CODE = 200
     private var message = ""    // message to be sent
     private var url = ""        // api url
     private var sender= ""      // sender name
