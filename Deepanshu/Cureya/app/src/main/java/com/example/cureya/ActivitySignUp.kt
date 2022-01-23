@@ -23,14 +23,12 @@ class ActivitySignUp: AppCompatActivity() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private val binding = ActivitySignUpBinding.inflate(layoutInflater)
-
-    private var RC_SIGN_IN = 100
-    private var TAG = "GOOGLE_SIGN_IN_TAG"
+    private lateinit var binding: ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(CLIENT_ID)
@@ -39,29 +37,28 @@ class ActivitySignUp: AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this,gso)
 
-
         auth = Firebase.auth
 
-        binding.btnRegister.setOnClickListener {
-            register()
-        }
+        binding.btnRegister.setOnClickListener { register() }
 
-        binding.SignIn.setOnClickListener {
-            signIn()
-
-        }
+        binding.SignIn.setOnClickListener { signIn() }
     }
 
 
     private fun register(){
         binding.btnRegister.setOnClickListener {
-            if (binding.edtSignUpEmail.text.toString() == "" || binding.edtName.text.toString() == "" || binding.edtPassword.text.toString() == "") {
+            if ( binding.edtSignUpEmail.text.toString() == "" ||
+                 binding.edtName.text.toString() == "" ||
+                 binding.edtPassword.text.toString() == ""
+            ) {
                 Toast.makeText(this, "Signup not possible", Toast.LENGTH_SHORT).show()
             } else if (binding.edtPassword.text.length < 10) {
-                Toast.makeText(this, "enter password in more than 10 letters", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(
+                    this,
+                    "enter password in more than 10 letters",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
-
                 val ActivityIntent = Intent(this, SplashScreenActivity::class.java)
                 startActivity(ActivityIntent)
                 finish()
@@ -127,5 +124,10 @@ class ActivitySignUp: AppCompatActivity() {
                     updateUI(null)
                 }
             }
+    }
+
+    companion object {
+        val RC_SIGN_IN = 100
+        val TAG = "GOOGLE_SIGN_IN_TAG"
     }
 }

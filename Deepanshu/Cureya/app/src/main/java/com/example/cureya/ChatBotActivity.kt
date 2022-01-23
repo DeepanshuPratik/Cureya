@@ -2,39 +2,38 @@ package com.example.cureya
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.cureya.databinding.ActivityChatbotBinding
 
 class ChatBotActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityChatbotBinding
     private lateinit var madapter: MessageListAdapter
-    private var message =""    // message to be sent
+    private var message = ""    // message to be sent
     private var url = ""        // api url
-    private var sender=""       // sender name
+    private var sender= ""      // sender name
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        url = "TODO"     // Add API HERE.
-        fetchData()
+        setContentView(R.layout.activity_chatbot)
+
+        binding = ActivityChatbotBinding.inflate(layoutInflater)
         madapter = MessageListAdapter()
+        // Add API HERE.
+        url = "TODO"
+        fetchData()
 
-        findViewById<ImageView>(R.id.attach).setOnClickListener {
-            attach()
+        binding.apply {
+            attach.setOnClickListener { attach() }
+            emoji.setOnClickListener { emoji() }
+            camera.setOnClickListener { camera() }
+            mic.setOnClickListener { mic() }
         }
-        findViewById<ImageView>(R.id.emoji).setOnClickListener {
-            emoji()
-        }
-        findViewById<ImageView>(R.id.camera).setOnClickListener {
-            camera()
-        }
-        findViewById<ImageView>(R.id.mic).setOnClickListener {
-            mic()
-        }
-
     }
 
     private fun fetchData()  {
@@ -87,5 +86,4 @@ class ChatBotActivity : AppCompatActivity() {
     private fun mic(){
 
     }
-
 }

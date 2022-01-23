@@ -18,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ChatBotActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Cureya">
+        </activity>
     </application>
 
 </manifest>

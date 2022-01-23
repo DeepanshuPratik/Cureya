@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.cureya.ActivitySignUp.Companion.RC_SIGN_IN
+import com.example.cureya.ActivitySignUp.Companion.TAG
 import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
 import com.example.cureya.databinding.ActivityLogInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -20,15 +22,14 @@ import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLogInBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private val binding = ActivityLogInBinding.inflate(layoutInflater)
-    private val RC_SIGN_IN = 100
-    private val TAG = "GOOGLE_SIGN_IN_TAG"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+        binding = ActivityLogInBinding.inflate(layoutInflater)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(CLIENT_ID)
@@ -72,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         var currentUser = auth.getCurrentUser()
-        updateUI(currentUser);
+        updateUI(currentUser)
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
