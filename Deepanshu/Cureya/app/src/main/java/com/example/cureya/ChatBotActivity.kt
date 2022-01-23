@@ -1,7 +1,11 @@
 package com.example.cureya
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -15,6 +19,7 @@ class ChatBotActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatbotBinding
     private lateinit var madapter: MessageListAdapter
+    val REQUEST_CODE = 200
     private var message = ""    // message to be sent
     private var url = ""        // api url
     private var sender= ""      // sender name
@@ -37,6 +42,13 @@ class ChatBotActivity : AppCompatActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE && data != null){
+            //data.extras?.get("data") as Bitmap
+            // here we have to send it as message. It is left as we dont have API config.
+        }
+    }
     private fun fetchData()  {
 
         val queue = Volley.newRequestQueue(this)
@@ -82,7 +94,8 @@ class ChatBotActivity : AppCompatActivity() {
 
     }
     private fun camera(){
-
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(cameraIntent, REQUEST_CODE)
     }
     private fun mic(){
 
