@@ -76,12 +76,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
-        if(currentUser!=null){
+        if(currentUser!=null) {
             Toast.makeText(this,"Sign clicked", Toast.LENGTH_SHORT).show()
             val profileActivityIntent= Intent(this, SplashScreenActivity::class.java)
             startActivity(profileActivityIntent)
             finish()
-        } else{
+        } else {
             Toast.makeText(this,"not possible", Toast.LENGTH_SHORT).show()
         }
     }
