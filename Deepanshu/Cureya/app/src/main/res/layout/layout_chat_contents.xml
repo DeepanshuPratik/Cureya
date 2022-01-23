@@ -9,6 +9,9 @@
         android:layout_height="wrap_content"
         android:padding="4dp">
 
+        <include layout="@layout/layout_user_chat_intro"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/chat_date_time"
             android:layout_width="wrap_content"

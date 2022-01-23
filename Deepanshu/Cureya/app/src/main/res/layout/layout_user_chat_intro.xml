@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/current_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1 Feb, 2020" />
+
+        <TextView
+            android:id="@+id/current_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/current_date"
+            tools:text="06:45 A.M" />
+
+        <FrameLayout
+            android:id="@+id/chat_user_image_background"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/chat_profile_pic_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/current_time"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/chat_profile_pic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:outlineProvider="background"
+                android:background="@drawable/chat_profile_pic_background"
+                tools:src="@drawable/ic_account_profile"
+                tools:tint="@android:color/darker_gray"
+                tools:backgroundTint="@color/white" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/chat_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chat_user_image_background"
+            tools:text="User Name" />
+
+        <TextView
+            android:id="@+id/chat_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chat_user_name"
+            tools:text="You're friends on Cureya" />
+
+        <FrameLayout
+            android:id="@+id/overlapping_imageview_container"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chat_info">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_sender"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:contentDescription="@string/user_account_profile_picture"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_receiver"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:contentDescription="@string/user_account_profile_picture"
+                tools:srcCompat="@tools:sample/avatars" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/chat_invite_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overlapping_imageview_container"
+            tools:text="Say hi to your new Cureya friend" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
