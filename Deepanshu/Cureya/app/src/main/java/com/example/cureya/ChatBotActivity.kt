@@ -2,13 +2,14 @@ package com.example.cureya
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.cureya.adapter.MessageListAdapter
 import com.example.cureya.databinding.ActivityChatbotBinding
+import com.example.cureya.model.messageInfo
 
 class ChatBotActivity : AppCompatActivity() {
 

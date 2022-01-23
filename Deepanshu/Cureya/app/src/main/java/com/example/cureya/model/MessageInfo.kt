@@ -1,4 +1,4 @@
-package com.example.cureya
+package com.example.cureya.model
 
 import androidx.annotation.Keep
 

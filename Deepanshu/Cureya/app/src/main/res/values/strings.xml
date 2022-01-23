@@ -18,4 +18,5 @@
     <string name="chat_bot_image">Chat BOT Image</string>
     <string name="back_button">Back button</string>
     <string name="options_button">Options Button</string>
+    <string name="chat_image">Chat Image</string>
 </resources>

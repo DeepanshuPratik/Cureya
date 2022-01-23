@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/text_chat_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/chat_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="06:45 A.M" />
+
+        <TextView
+            android:id="@+id/text_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="260dp"
+            android:paddingHorizontal="4dp"
+            android:background="@drawable/search_bar_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/white"
+            tools:text="Loren ipsum dolor\nsir amit,\nconsectetur adipiscing elit\nEst dui, tincidunt ut morbi" />
+
+        <ImageView
+            android:id="@+id/image_chat"
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/search_bar_background"
+            android:outlineProvider="background"
+            android:backgroundTint="@android:color/transparent"
+            android:visibility="gone"
+            android:contentDescription="@string/chat_image"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
