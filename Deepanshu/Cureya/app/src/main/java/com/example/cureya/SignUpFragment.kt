@@ -3,10 +3,13 @@ package com.example.cureya
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
-import com.example.cureya.databinding.ActivitySignUpBinding
+import com.example.cureya.databinding.FragmentSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -17,25 +20,32 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class ActivitySignUp: AppCompatActivity() {
+class SignUpFragment: Fragment() {
 
     private val PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: ActivitySignUpBinding
+    private lateinit var binding: FragmentSignUpBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        binding = ActivitySignUpBinding.inflate(layoutInflater)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(CLIENT_ID)
             .requestEmail()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this,gso)
+        googleSignInClient = GoogleSignIn.getClient(requireActivity() ,gso)
 
         auth = Firebase.auth
 
@@ -44,24 +54,24 @@ class ActivitySignUp: AppCompatActivity() {
         binding.SignIn.setOnClickListener { signIn() }
     }
 
-
     private fun register(){
         binding.btnRegister.setOnClickListener {
             if ( binding.edtSignUpEmail.text.toString() == "" ||
                  binding.edtName.text.toString() == "" ||
                  binding.edtPassword.text.toString() == ""
             ) {
-                Toast.makeText(this, "Signup not possible", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Signup not possible", Toast.LENGTH_SHORT).show()
             } else if (binding.edtPassword.text.length < 10) {
                 Toast.makeText(
-                    this,
+                    context,
                     "enter password in more than 10 letters",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                val ActivityIntent = Intent(this, SplashScreenActivity::class.java)
+                /* In terms of fragments, navigation is yet to be implemented
+                val ActivityIntent = Intent(this, SplashScreenFragment::class.java)
                 startActivity(ActivityIntent)
-                finish()
+                finish() */
             }
         }
     }
@@ -93,18 +103,19 @@ class ActivitySignUp: AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        var currentUser = auth.getCurrentUser()
+        val currentUser = auth.getCurrentUser()
         updateUI(currentUser);
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if(currentUser!=null){
-            Toast.makeText(this,"Sign clicked", Toast.LENGTH_SHORT).show()
-            val profileActivityIntent= Intent(this, SplashScreenActivity::class.java)
+            Toast.makeText(context,"Sign clicked", Toast.LENGTH_SHORT).show()
+            /* Navigation is yet to be implemented
+            val profileActivityIntent= Intent(this, SplashScreenFragment::class.java)
             startActivity(profileActivityIntent)
-            finish()
+            finish() */
         } else{
-            Toast.makeText(this,"not possible", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"not possible", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -112,7 +123,7 @@ class ActivitySignUp: AppCompatActivity() {
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
+            .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")

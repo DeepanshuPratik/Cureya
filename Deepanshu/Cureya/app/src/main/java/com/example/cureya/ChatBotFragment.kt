@@ -1,29 +1,39 @@
 package com.example.cureya
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.cureya.adapter.MessageListAdapter
-import com.example.cureya.databinding.ActivityChatbotBinding
+import com.example.cureya.databinding.FragmentChatbotBinding
 import com.example.cureya.model.messageInfo
 
-class ChatBotActivity : AppCompatActivity() {
+class ChatBotFragment : Fragment() {
 
-    private lateinit var binding: ActivityChatbotBinding
+    private lateinit var binding: FragmentChatbotBinding
     private lateinit var madapter: MessageListAdapter
     private var message = ""    // message to be sent
     private var url = ""        // api url
     private var sender= ""      // sender name
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chatbot)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentChatbotBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = ActivityChatbotBinding.inflate(layoutInflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         madapter = MessageListAdapter()
         // Add API HERE.
         url = "TODO"
@@ -39,7 +49,7 @@ class ChatBotActivity : AppCompatActivity() {
 
     private fun fetchData()  {
 
-        val queue = Volley.newRequestQueue(this)
+        val queue = Volley.newRequestQueue(context)
         val getRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.GET,
             url,

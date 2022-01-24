@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChatBotActivity"
+        <activity android:name=".ChatBotFragment"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.Cureya">
         </activity>
