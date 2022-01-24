@@ -12,23 +12,29 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.cureya.adapter.MessageListAdapter
-import com.example.cureya.databinding.ActivityChatbotBinding
+import com.example.cureya.databinding.FragmentChatbotBinding
 import com.example.cureya.model.messageInfo
 
-class ChatBotActivity : AppCompatActivity() {
+class ChatBotActivity : Fragment() {
 
-    private lateinit var binding: ActivityChatbotBinding
+    private lateinit var binding: FragmentChatbotBinding
     private lateinit var madapter: MessageListAdapter
-    private val REQUEST_CODE = 200
     private var message = ""    // message to be sent
     private var url = ""        // api url
     private var sender= ""      // sender name
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chatbot)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentChatbotBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = ActivityChatbotBinding.inflate(layoutInflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         madapter = MessageListAdapter()
         // Add API HERE.
         url = "TODO"
@@ -44,7 +50,7 @@ class ChatBotActivity : AppCompatActivity() {
 
     private fun fetchData()  {
 
-        val queue = Volley.newRequestQueue(this)
+        val queue = Volley.newRequestQueue(context)
         val getRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.GET,
             url,
@@ -64,7 +70,7 @@ class ChatBotActivity : AppCompatActivity() {
                     )
                     messageArray.add(message)
                 }
-                //madapter.updatemessage(newsArray)
+                // madapter.updatemessage(newsArray)
             },
             Response.ErrorListener { error ->
 
@@ -80,17 +86,43 @@ class ChatBotActivity : AppCompatActivity() {
 
         queue.add(getRequest)
     }
-    private fun emoji(){
+
+    /**
+     * In terms fragments, we have to use findNavController()
+     * to navigate through screens
+     */
+    private fun emoji() {
 
     }
-    private fun attach(){
+
+    private fun attach() {
+        // val intent = Intent()
+        // intent.type = "*/*"
+        /* intent.action = Intent.ACTION_GET_CONTENT
+        intent.putExtra("return-data", true)
+        startActivityForResult(Intent.createChooser(intent, "Complete action using"), pickFromGallery) */
+    }
+
+    private fun camera() {
+        /* val intent = Intent("android.media.action.IMAGE_CAPTURE")
+        startActivity(intent) */
+    }
+
+    private fun mic() {
 
     }
-    private fun camera(){
-        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(cameraIntent, REQUEST_CODE)
-    }
-    private fun mic(){
 
+    /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == pickFromGallery && resultCode == RESULT_OK) {
+            if (data != null) {
+                url = data.data?.toString()!!
+            }
+        }
+    } */
+
+    companion object {
+        private val REQUEST_CODE = 200
+        private val PICK_UP_FROM_GALLERY = 101
     }
 }
