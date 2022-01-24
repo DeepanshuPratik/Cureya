@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/homeFragment"
+    android:title="Home"
+    android:icon="@drawable/ic_home_black_24dp"
+    />
+
+
+    <item
+        android:id="@+id/chatFragment"
+        android:title="Chat"
+        android:icon="@drawable/ic_chat_bubble_outline"
+        />
+    <item
+        android:id="@+id/chatbotFragment"
+        android:title="ChatBot"
+        android:icon="@drawable/ic_chatbot"
+        />
+    <item
+        android:id="@+id/communityFragment"
+        android:title="Community"
+        android:icon="@drawable/ic_community"
+        />
+
+    <item
+      android:id="@+id/relaxationFragment"
+        android:title="Relaxation"
+        android:icon="@drawable/ic_relax"
+        />
+
+
+
+
+
+
+
+
+
+
+
+</menu>

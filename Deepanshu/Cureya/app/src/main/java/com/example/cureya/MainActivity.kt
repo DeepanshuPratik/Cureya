@@ -2,62 +2,81 @@ package com.example.cureya
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.cureya.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var madapter: MessageListAdapter
-    private var message =""    // message to be sent
-    private var url = ""        // api url
-    private var sender=""       // sender name
 
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        url = "TODO"     // Add API HERE.
-        fetchData()
-        madapter = MessageListAdapter()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        val appBarConfiguration = AppBarConfiguration(
+
+            setOf(
+
+                R.id.homeFragment,
+                R.id.chatFragment,
+                R.id.chatbotFragment,
+                R.id.communityFragment,
+                R.id.relaxationFragment
+
+
+            )
+        )
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
 
     }
-    private fun fetchData()  {
 
-        val queue = Volley.newRequestQueue(this)
-        val getRequest: JsonObjectRequest = object : JsonObjectRequest(
-            Request.Method.GET,
-            url,
-            null,
-            Response.Listener{
 
-                val chatJsonArray = it.getJSONArray("articles")
-                val messageArray = ArrayList<messageInfo>()
-                for(i in 0 until chatJsonArray.length()){
-                    val chatJsonObject=  chatJsonArray.getJSONObject(i)
-                    val message = messageInfo(
-                        chatJsonObject.getString("title"),
-                        chatJsonObject.getString("author"),
-//                        chatJsonObject.getString("url"),
-//                        chatJsonObject.getString("urlToImage"),
-//                        chatJsonObject.getString("description")
-                    )
-                    messageArray.add(message)
-                }
-                //madapter.updatemessage(newsArray)
-            },
-            Response.ErrorListener { error ->
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_menu,menu)
 
+        return true
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.aboutUsfragment -> {
+                val navController: NavController =
+                    Navigation.findNavController(this, R.id.nav_host_fragment_activity_main)
+                navController.navigateUp()
+                navController.navigate(R.id.aboutUsFragment)
+                true
             }
-        ) {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> {
-                val params: MutableMap<String, String> = HashMap()
-                params["User-Agent"] = "Mozilla/5.0"
-                return params
-            }
+            else -> super.onOptionsItemSelected(item)
+
         }
-
-        queue.add(getRequest)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return (Navigation.findNavController(this, R.id.nav_host_fragment_activity_main).navigateUp()
+                || super.onSupportNavigateUp())
+    }
+
+
+
 }
