@@ -127,20 +127,22 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/chat_emoji"
                 />
-            <EditText
+            <com.vanniktech.emoji.EmojiEditText
                 android:id="@+id/chatbar"
                 android:hint="@string/start_chat_value"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="260dp"
+                android:layout_width="0dp"
+                app:emojiSize="30sp"
                 android:layout_height="40dp"
-                app:layout_constraintLeft_toRightOf="@id/emoji"
-                app:layout_constraintRight_toLeftOf="@id/attach"
+                app:layout_constraintStart_toEndOf="@id/emoji"
+                app:layout_constraintEnd_toStartOf="@id/attach"
                 android:inputType="text"
                 android:autofillHints="name" />
             <ImageView
                 android:id="@+id/attach"
                 app:layout_constraintLeft_toRightOf="@id/chatbar"
+                app:layout_constraintEnd_toStartOf="@id/camera"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:clickable="true"
@@ -152,6 +154,7 @@
             <ImageView
                 android:id="@+id/camera"
                 app:layout_constraintLeft_toRightOf="@id/attach"
+                app:layout_constraintEnd_toStartOf="@id/mic"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="wrap_content"
@@ -160,9 +163,9 @@
                 android:contentDescription="@string/camera_button" />
             <ImageView
                 android:id="@+id/mic"
-                app:layout_constraintLeft_toRightOf="@id/camera"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/chat_mic"
