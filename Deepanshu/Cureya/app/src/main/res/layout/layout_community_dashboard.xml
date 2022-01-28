@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/tools_dashboard_image">
+
+        <ImageButton
+            android:id="@+id/dashboard_back_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|start"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="Back Button"
+            app:tint="@color/black"
+            app:srcComapt="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/community_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_gravity="top|center_horizontal"
+            tools:text="Happy Rangers" />
+
+        <ImageButton
+            android:id="@+id/dashboard_menu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|end"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="Menu"
+            app:tint="@color/black"
+            app:srcComapt="@drawable/menu_icon" />
+
+        <LinearLayout
+            android:id="@+id/join_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="96dp"
+            android:padding="8dp"
+            android:layout_gravity="bottom|start">
+
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:padding="16dp"
+                android:contentDescription="Join community"
+                android:background="@drawable/asset_community_join_bg"
+                app:srcCompat="@drawable/asset_join_group" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:text="@string/join_the_n_community" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/counselor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="96dp"
+            android:padding="8dp"
+            android:layout_gravity="bottom|end">
+
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:contentDescription="Counselor Therapy"
+                app:srcCompat="@drawable/asset_counselor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:text="Counselor\nTherapy" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>

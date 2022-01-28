@@ -4,5 +4,5 @@ data class Community(
     val name: String,
     val dashboardImage: String,
     val leader: Int,
-    val members: Int,
+    val members: Int
 )

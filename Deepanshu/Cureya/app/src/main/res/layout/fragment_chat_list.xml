@@ -56,11 +56,11 @@
                 android:id="@+id/contextual_menu"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-                android:background="?attr/actionBarItemBackground"
-                android:layout_marginEnd="8dp"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/actionBarItemBackground"
                 app:srcCompat="@drawable/menu_icon"
-                tools:tint="@color/black"/>
+                tools:tint="@color/black" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
