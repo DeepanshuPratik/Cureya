@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/aboutUsFg"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AboutUsFragment">
+
+    <ImageView
+        android:id="@+id/logoView"
+        android:layout_width="201dp"
+        android:layout_height="91dp"
+        android:background="@drawable/img1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/aboutUsHeading"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/about_us"
+        android:layout_marginTop="10dp"
+android:textColor="@color/black"
+        android:textSize="34sp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoView" />
+
+    <TextView
+        android:id="@+id/aboutusText"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/aboutus"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+android:layout_marginStart="28dp"
+
+        android:layout_marginEnd="28dp"
+        android:textColor="#5E5B5B"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutUsHeading" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/aboutusText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:gravity="left"
+        android:text="view more"
+        android:textColor="@color/colorPr"
+        android:layout_marginStart="28dp"
+        android:textSize="16sp"/>
+
+
+    <ImageView
+        android:id="@+id/madeinindia_image"
+        android:layout_width="215dp"
+        android:layout_height="95dp"
+        android:src="@drawable/ic_img_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutusText"
+
+        />
+
+    <TextView
+        android:layout_width="228dp"
+        android:layout_height="38dp"
+        android:text="@string/madeinindia"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/madeinindia_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
