@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="16dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/post_card_community_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintBottom_toBottomOf="@id/user_image"
+                    app:layout_constraintStart_toEndOf="@id/user_image"
+                    app:layout_constraintTop_toTopOf="@id/user_image"
+                    tools:text="Happy Rangers" />
+
+                <TextView
+                    android:id="@+id/post_card_user_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/user_image"
+                    app:layout_constraintStart_toStartOf="@id/post_card_community_name"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_community_name"
+                    tools:text="04:12." />
+
+                <TextView
+                    android:id="@+id/post_card_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/user_image"
+                    app:layout_constraintStart_toStartOf="@id/post_card_community_name"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_community_name"
+                    tools:text="04:12." />
+
+                <TextView
+                    android:id="@+id/post_card_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/user_image"
+                    app:layout_constraintStart_toEndOf="@id/post_card_user_time"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_community_name"
+                    tools:text="Rachel" />
+
+                <ImageButton
+                    android:id="@+id/post_menu_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/actionBarItemBackground"
+                    app:layout_constraintBottom_toBottomOf="@id/user_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/user_image"
+                    app:srcCompat="@drawable/menu_icon"
+                    app:tint="@color/black" />
+
+                <ImageView
+                    android:id="@+id/post_card_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/user_image"
+                    tools:srcCompat="@drawable/asset_post_card_image" />
+
+                <TextView
+                    android:id="@+id/post_card_post_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginVertical="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_image"
+                    tools:text="Radiation by wireless charging will badly effect your memory that will lead to brain cancer." />
+
+                <FrameLayout
+                    android:id="@+id/post_card_like_frame"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_post_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/post_card_love_frame" >
+
+                    <ImageView
+                        android:id="@+id/post_card_like"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="start"
+                        app:srcCompat="@drawable/asset_like" />
+
+                    <TextView
+                        android:id="@+id/post_like_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        tools:text="24" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/post_card_love_frame"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_post_title"
+                    app:layout_constraintStart_toEndOf="@id/post_card_like_frame"
+                    app:layout_constraintEnd_toStartOf="@id/post_card_comment_frame">
+
+                    <ImageView
+                        android:id="@+id/post_card_love"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="start"
+                        app:srcCompat="@drawable/asset_love" />
+
+                    <TextView
+                        android:id="@+id/post_love_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        tools:text="24" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/post_card_comment_frame"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintEnd_toStartOf="@id/post_card_share"
+                    app:layout_constraintStart_toEndOf="@id/post_card_love_frame"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_post_title">
+
+                    <ImageView
+                        android:id="@+id/post_card_comment"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="start"
+                        app:srcCompat="@drawable/asset_comment" />
+
+                    <TextView
+                        android:id="@+id/post_comment_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        tools:text="24" />
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/post_card_share"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginVertical="16dp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/post_card_comment_frame"
+                    app:layout_constraintTop_toBottomOf="@id/post_card_post_title"
+                    app:srcCompat="@drawable/asset_share" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
