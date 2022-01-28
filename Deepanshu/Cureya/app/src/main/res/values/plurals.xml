@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="member_count">
+        <item quantity="one"><b>1</b> member</item>
+        <item quantity="other"><b>%d</b> members</item>
+    </plurals>
+    <plurals name="leader_count">
+        <item quantity="one"><b>1</b> leader</item>
+        <item quantity="other"><b>%d</b> leaders</item>
+    </plurals>
+</resources>
