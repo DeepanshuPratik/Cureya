@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.cureya.home.HomeFragment"
+        android:label="Cureya"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.cureya.chat.ChatFragment"
+        android:label="Cureya"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/chatbotFragment"
+        android:name="com.example.cureya.chatbot.ChatbotFragment"
+        android:label="Cureya"
+        tools:layout="@layout/fragment_chatbot" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.cureya.community.CommunityFragment"
+        android:label="Cureya"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/relaxationFragment"
+        android:name="com.example.cureya.relaxation.RelaxationFragment"
+        android:label="Cureya"
+        tools:layout="@layout/fragment_relaxation" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.cureya.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us" />
+</navigation>
