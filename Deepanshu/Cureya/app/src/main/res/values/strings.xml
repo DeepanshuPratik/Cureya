@@ -22,4 +22,14 @@
     <string name="user_to_chat">User to chat</string>
     <string name="user_account_profile_picture">User account profile picture</string>
     <string name="join_the_n_community">Join the\nCommunity</string>
+    <string name="search_the_community">Search the community</string>
+    <string name="stress">Stress</string>
+    <string name="anxiety">Anxiety</string>
+    <string name="paranoia">Paranoia</string>
+    <string name="psychosis">Psychosis</string>
+    <string name="depression">Depression</string>
+    <string name="more">More</string>
+    <string name="posts">Posts</string>
+    <string name="members">Members</string>
+    <string name="about">About</string>
 </resources>
