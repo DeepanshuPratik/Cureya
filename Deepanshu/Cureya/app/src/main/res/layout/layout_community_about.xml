@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/community_about_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="24dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:text="@string/about_us" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="@string/follow_on" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:textSize="16sp"
+            android:drawablePadding="16dp"
+            app:drawableStartCompat="@drawable/ic_facebook"
+            tools:text="happy_rangers1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:textSize="16sp"
+            android:drawablePadding="16dp"
+            app:drawableStartCompat="@drawable/ic_twitter"
+            tools:text="\@happy_rangers" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:textSize="16sp"
+            android:drawablePadding="16dp"
+            app:drawableStartCompat="@drawable/ic_instagram"
+            tools:text="Happy Rangers" />
+    </LinearLayout>
+
+</layout>
