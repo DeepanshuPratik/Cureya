@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cureya.SignUpFragment.Companion.RC_SIGN_IN
 import com.example.cureya.SignUpFragment.Companion.TAG
 import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
@@ -85,14 +86,15 @@ class LoginActivity : Fragment() {
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if(currentUser!=null) {
-            Toast.makeText(context,"Sign clicked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Signed In Successfully", Toast.LENGTH_SHORT).show()
             /* In terms of fragments directions is yet to be implemented
             val profileActivityIntent= Intent(context, SplashScreenFragment::class.java)
             startActivity(profileActivityIntent)
             finish() */
         } else {
-            Toast.makeText(context,"not possible", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Login Failed", Toast.LENGTH_SHORT).show()
         }
+        findNavController().navigate(R.id.action_loginActivity_to_homeFragment2)
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {

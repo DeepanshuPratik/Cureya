@@ -9,5 +9,18 @@
         android:id="@+id/loginActivity"
         android:name="com.example.cureya.LoginActivity"
         android:label="fragment_log_in"
-        tools:layout="@layout/fragment_log_in" />
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_loginActivity_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.cureya.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
 </navigation>
