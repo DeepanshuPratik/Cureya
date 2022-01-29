@@ -144,7 +144,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="8dp" />
+                android:layout_height="4dp"
+                android:background="@color/gray_100"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/post_recycler_view"

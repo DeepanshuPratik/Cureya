@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/feed_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="22dp"
+        android:paddingHorizontal="16dp"
+        android:text="@string/my_feed"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="28dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/feed_user_image"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            tools:src="@tools:sample/avatars" />
+
+        <EditText
+            android:id="@+id/feed_search_box"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginHorizontal="8dp"
+            android:paddingHorizontal="8dp"
+            android:elevation="24dp"
+            android:layout_weight="1"
+            android:outlineProvider="paddedBounds"
+            android:background="@drawable/search_bar_background"
+            android:backgroundTint="@color/white"
+            android:hint="@string/share_your_thoughts" />
+
+        <ImageView
+            android:id="@+id/feed_group"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/asset_group" />
+
+        <ImageView
+            android:id="@+id/feed_love"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/asset_love" />
+
+        <ImageView
+            android:id="@+id/feed_notification"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/asset_notification" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/gray_100" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/card_post" />
+</LinearLayout>
