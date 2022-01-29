@@ -15,8 +15,7 @@
             android:layout_gravity="top|start"
             android:background="?attr/actionBarItemBackground"
             android:contentDescription="Back Button"
-            app:tint="@color/black"
-            app:srcComapt="@drawable/back_icon" />
+            app:srcCompat="@drawable/asset_back" />
 
         <TextView
             android:id="@+id/community_name"
@@ -34,8 +33,7 @@
             android:layout_gravity="top|end"
             android:background="?attr/actionBarItemBackground"
             android:contentDescription="Menu"
-            app:tint="@color/black"
-            app:srcComapt="@drawable/menu_icon" />
+            app:srcCompat="@drawable/asset_menu" />
 
         <LinearLayout
             android:id="@+id/join_frame"
