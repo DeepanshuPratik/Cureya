@@ -14,16 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-
     <!-- My custom theme set this theme from manifest file -->
-
     <style name="Apptheme" parent="Theme.AppCompat.Light.DarkActionBar">
-
         <item name="colorPrimary">@color/colorPr</item>
         <item name="colorPrimaryDark">@color/colorPr</item>
-
-
-
     </style>
 
 </resources>

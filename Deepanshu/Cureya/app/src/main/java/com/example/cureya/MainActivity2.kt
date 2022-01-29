@@ -70,7 +70,6 @@ class MainActivity2 : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
-
         }
     }
 
@@ -78,6 +77,4 @@ class MainActivity2 : AppCompatActivity() {
         return (Navigation.findNavController(this, R.id.nav_host_fragment_activity_main).navigateUp()
                 || super.onSupportNavigateUp())
     }
-
-
 }
