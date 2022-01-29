@@ -4,176 +4,178 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:baselineAligned="false"
+    tools:context=".MainActivity"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/app_bar"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="10dp"
-        android:background= "@drawable/rectangle"
-        >
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background= "@drawable/rectangle">
+
         <ImageView
-            android:layout_marginStart="15dp"
             android:id="@+id/back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/back_icon"
+            android:contentDescription="@string/back_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_icon"
-            android:contentDescription="@string/back_button" />
+            app:layout_constraintBottom_toBottomOf="parent" />
+
         <ImageView
+            android:id="@+id/cureya"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/chatbot"
+            android:layout_marginVertical="4dp"
+            android:contentDescription="@string/chat_bot_image"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:id="@+id/cureya"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/chatbot"
-            android:contentDescription="@string/chat_bot_image" />
+            app:layout_constraintBottom_toBottomOf="parent" />
+
         <ImageView
-            android:layout_marginEnd="15dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/menu"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:src="@drawable/menu_icon"
             android:contentDescription="@string/options_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/welcome_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/welcome_message"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
         android:layout_below="@id/app_bar"
-        >
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp">
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/layout_message"
             android:visibility="gone"
-            />
+            tools:listitem="@layout/layout_message" />
+
         <TextView
             android:id="@+id/time"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toTopOf="@id/welcome_message"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:text="Time"
-            />
+            app:layout_constraintTop_toTopOf="@id/welcome_message"
+            tools:text="Time" />
+
         <TextView
             android:id="@+id/welcome"
-            android:layout_marginTop="6dp"
-            app:layout_constraintTop_toBottomOf="@id/time"
-            android:textColor="@color/black"
-            android:textSize="13sp"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:text="Welcome Username"
-            />
+            app:layout_constraintTop_toBottomOf="@id/time"
+            tools:text="Welcome Username" />
+
         <ImageView
             android:id="@+id/chatbot"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             android:layout_marginTop="15dp"
+            android:contentDescription="@string/chat_bot_image"
+            android:src="@drawable/chatbot"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/welcome"
-            android:layout_height="100dp"
-            android:src="@drawable/chatbot"
-            android:contentDescription="@string/chat_bot_image" />
+            app:layout_constraintTop_toBottomOf="@id/welcome" />
+
         <TextView
             android:id="@+id/Intro"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:textColor="@color/black"
             android:textSize="13sp"
-            app:layout_constraintTop_toBottomOf="@id/chatbot"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:text="My name bot name, I am here to help you  with the problems "
-            />
+            app:layout_constraintTop_toBottomOf="@id/chatbot"
+            tools:text="My name bot name, I am here to help you  with the problems " />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_height="wrap_content">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
             <ImageView
-                android:contentDescription="@string/emoji_button"
                 android:id="@+id/emoji"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/emoji_button"
                 android:src="@drawable/chat_emoji"
-                />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/chatbar"
-                android:hint="@string/start_chat_value"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:autofillHints="name"
                 android:background="@drawable/search_bar_background"
                 android:backgroundTint="@color/white"
-                app:emojiSize="30sp"
-                android:layout_height="40dp"
-                app:layout_constraintStart_toEndOf="@id/emoji"
-                app:layout_constraintEnd_toStartOf="@id/attach"
+                android:hint="@string/start_chat_value"
                 android:inputType="text"
-                android:autofillHints="name" />
+                app:emojiSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/attach"
+                app:layout_constraintStart_toEndOf="@id/emoji"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/attach"
-                app:layout_constraintLeft_toRightOf="@id/chatbar"
-                app:layout_constraintEnd_toStartOf="@id/camera"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:clickable="true"
-                android:focusable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="@string/attach_value"
+                android:focusable="true"
                 android:src="@drawable/chat_attach"
-                android:contentDescription="@string/attach_value" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/camera"
+                app:layout_constraintLeft_toRightOf="@id/chatbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/camera"
-                app:layout_constraintLeft_toRightOf="@id/attach"
-                app:layout_constraintEnd_toStartOf="@id/mic"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/camera_button"
                 android:src="@drawable/ic_camera"
-                android:contentDescription="@string/camera_button" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/mic"
+                app:layout_constraintLeft_toRightOf="@id/attach"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/mic"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/mic_button"
                 android:src="@drawable/chat_mic"
-                android:contentDescription="@string/mic_button" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

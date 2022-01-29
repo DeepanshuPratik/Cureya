@@ -1,8 +1,11 @@
 package com.example.cureya
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
@@ -23,17 +26,22 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,
-                R.id.chatFragment,
-                R.id.chatbotFragment,
-                R.id.communityFragment,
-                R.id.relaxationFragment
-            )
-        )
-
         bottomNavView.setupWithNavController(navController)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.aboutUsfragment -> {
+                navController.navigate(R.id.aboutUsFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
