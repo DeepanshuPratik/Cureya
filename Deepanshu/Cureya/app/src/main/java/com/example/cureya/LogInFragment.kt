@@ -53,8 +53,12 @@ class LoginActivity : Fragment() {
 
         auth = Firebase.auth
 
-        binding.btnLogIn.setOnClickListener { signIn() }
-        binding.Login.setOnClickListener { signIn() }
+        binding.apply {
+
+            btnLogIn.setOnClickListener { signIn() }
+            Login.setOnClickListener { signIn() }
+            register.setOnClickListener { goToSignUpFragment() }
+        }
     }
 
     fun signIn() {
@@ -89,7 +93,6 @@ class LoginActivity : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        (activity as AppCompatActivity).supportActionBar?.hide()
         val bottomView = (activity as AppCompatActivity)
             .findViewById<BottomNavigationView>(R.id.nav_view)
         bottomView.visibility = View.GONE
@@ -97,7 +100,6 @@ class LoginActivity : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        (activity as AppCompatActivity).supportActionBar?.show()
         val bottomView = (activity as AppCompatActivity)
             .findViewById<BottomNavigationView>(R.id.nav_view)
         bottomView.visibility = View.VISIBLE
@@ -110,6 +112,8 @@ class LoginActivity : Fragment() {
             Toast.makeText(context,"Login Failed", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun goToSignUpFragment() = findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/asset_comment.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/asset_google.xml" value="0.23703703703703705" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/asset_share.xml" value="0.24351851851851852" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/back_icon.xml" value="0.25" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/chat_profile_pic_background.xml" value="0.24259259259259258" />
@@ -34,8 +35,9 @@
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_community_dashboard.xml" value="0.264" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_feed.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_home.xml" value="0.2210144927536232" />
-        <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_log_in.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_log_in.xml" value="0.264" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_one_on_one_chat.xml" value="0.176" />
+        <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_register.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_relaxation.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_sign_up.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_splash_screen.xml" value="0.2259963768115942" />

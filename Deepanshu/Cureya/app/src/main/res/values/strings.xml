@@ -48,4 +48,6 @@
     <string name="follow_on">Follow on</string>
     <string name="my_feed">My Feed</string>
     <string name="share_your_thoughts">Share your thoughts</string>
+    <string name="registered_already">Registered already?</string>
+    <string name="name">Name</string>
 </resources>

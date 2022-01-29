@@ -7,13 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
 import com.example.cureya.databinding.FragmentSignUpBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -52,19 +55,21 @@ class SignUpFragment: Fragment() {
         binding.btnRegister.setOnClickListener { register() }
 
         binding.SignIn.setOnClickListener { signIn() }
+
+        binding.logIn.setOnClickListener { goToLogInFragment() }
     }
 
-    private fun register(){
+    private fun register() {
         binding.btnRegister.setOnClickListener {
-            if ( binding.edtSignUpEmail.text.toString() == "" ||
-                 binding.edtName.text.toString() == "" ||
-                 binding.edtPassword.text.toString() == ""
+            if ( binding.edtLogInEmail.text.toString() == "" ||
+                 binding.nameEditText.text.toString() == "" ||
+                 binding.edtLogInPassword.text.toString() == ""
             ) {
-                Toast.makeText(context, "Signup not possible", Toast.LENGTH_SHORT).show()
-            } else if (binding.edtPassword.text.length < 10) {
+                Toast.makeText(context, "Please fill required text fields", Toast.LENGTH_SHORT).show()
+            } else if (binding.edtLogInPassword.text!!.length < 8) {
                 Toast.makeText(
                     context,
-                    "enter password in more than 10 letters",
+                    "Password should be at least 8 characters long",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
@@ -107,6 +112,20 @@ class SignUpFragment: Fragment() {
         updateUI(currentUser);
     }
 
+    override fun onResume() {
+        super.onResume()
+        val bottomView = (activity as AppCompatActivity)
+            .findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomView.visibility = View.GONE
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val bottomView = (activity as AppCompatActivity)
+            .findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomView.visibility = View.VISIBLE
+    }
+
     private fun updateUI(currentUser: FirebaseUser?) {
         if(currentUser!=null){
             Toast.makeText(context,"Sign clicked", Toast.LENGTH_SHORT).show()
@@ -118,6 +137,8 @@ class SignUpFragment: Fragment() {
             Toast.makeText(context,"not possible", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun goToLogInFragment() = findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
 
 
     private fun firebaseAuthWithGoogle(idToken: String) {
