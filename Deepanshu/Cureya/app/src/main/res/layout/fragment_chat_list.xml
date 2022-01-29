@@ -50,7 +50,7 @@
                 android:layout_height="42dp"
                 android:layout_marginEnd="8dp"
                 android:layout_toStartOf="@id/contextual_menu"
-                tools:src="@tools:sample/avatars" />
+                app:srcCompat="@drawable/asset_account_image" />
 
             <ImageButton
                 android:id="@+id/contextual_menu"
@@ -59,8 +59,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="8dp"
                 android:background="?attr/actionBarItemBackground"
-                app:srcCompat="@drawable/menu_icon"
-                tools:tint="@color/black" />
+                app:srcCompat="@drawable/asset_menu" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -94,14 +93,16 @@
         android:id="@+id/vertical_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="22dp"
         android:paddingVertical="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontal_recycler_view"
-        tools:listitem="@layout/card_vertical_recycler_view"/>
+        tools:listitem="@layout/card_vertical_recycler_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

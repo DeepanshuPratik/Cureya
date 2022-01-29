@@ -18,7 +18,7 @@
         android:id="@+id/chatFragment"
         android:name="com.example.cureya.chat.ChatFragment"
         android:label="Cureya"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat_list" />
     <fragment
         android:id="@+id/chatbotFragment"
         android:name="com.example.cureya.chatbot.ChatbotFragment"
@@ -28,7 +28,7 @@
         android:id="@+id/communityFragment"
         android:name="com.example.cureya.community.CommunityFragment"
         android:label="Cureya"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_community_dashboard" />
     <fragment
         android:id="@+id/relaxationFragment"
         android:name="com.example.cureya.relaxation.RelaxationFragment"
