@@ -106,10 +106,8 @@ class LoginActivity : Fragment() {
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
-        if(currentUser!=null) {
+        if(currentUser != null) {
             findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
-        } else {
-            Toast.makeText(context,"Login Failed", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -121,7 +119,7 @@ class LoginActivity : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(context, "Sign in successful", Toast.LENGTH_LONG)
+                    Toast.makeText(context, "Logged in as ${auth.currentUser?.displayName}", Toast.LENGTH_LONG)
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     updateUI(user)

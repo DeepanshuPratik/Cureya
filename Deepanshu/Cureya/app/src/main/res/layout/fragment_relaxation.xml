@@ -10,11 +10,9 @@
         android:layout_width="match_parent"
         android:textSize="36sp"
         android:gravity="center"
-
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
         android:layout_height="match_parent"
         android:text="@string/relaxation_fragment"
-
         />
 
 </FrameLayout>

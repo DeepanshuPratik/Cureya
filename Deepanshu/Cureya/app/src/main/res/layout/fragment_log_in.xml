@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/email_id"
             android:paddingHorizontal="36dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:animateLayoutChanges="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,9 +105,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
-            android:layout_marginHorizontal="36dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/Login"
+            app:layout_constraintStart_toStartOf="@id/Login"
             app:layout_constraintTop_toBottomOf="@id/btnLogIn"
             app:srcCompat="@drawable/or" />
 
@@ -140,7 +139,7 @@
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="8dp"
+                android:paddingHorizontal="4dp"
                 android:textStyle="bold"
                 android:text="@string/register"/>
         </LinearLayout>
