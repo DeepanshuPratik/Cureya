@@ -16,16 +16,23 @@ object BotResponse {
     fun basicResponses(_message: String): String {
 
         val random = (0..2).random()
-        val message =_message.toLowerCase()
+        val message = _message.lowercase(Locale.getDefault())
 
         return when {
 
-            //Flips a coin
-            message.contains("flip") && message.contains("coin") -> {
-                val r = (0..1).random()
-                val result = if (r == 0) "heads" else "tails"
+            //Headache
+            message.contains("headache") -> {
 
-                "I flipped a coin and it landed on $result"
+                " Headache can be reduced by doing following things:\n".plus(
+                    "1. Rest in a quiet, dark room\n").plus(
+                    "2. Hot or cold compresses to your head or neck\n").plus(
+                    "3. Massage and small amounts of caffeine\n").plus(
+                    "4. Over-the-counter medications such as ibuprofen (Advil, Motrin IB, others), acetaminophen (Tylenol, others) and aspirin\n").plus(
+                    "5.Prescription medications including triptans, such as  sumatriptan (Imitrex) and zolmitriptan (Zomig)\n").plus(
+                    "6.Preventive medications such as metoprolol (Lopressor), propranolol (Innopran, Inderal, others), amitriptyline, divalproex (Depakote), topiramate (Qudexy XR, Trokendi XR ,Topamax) or erenumab-aooe (Aimovig)")
+            }
+            message.contains("ok fine")->{
+                "You can start exercising daily to prevent stress and headaches.\n Take Yoga Classes from \n Card Details"
             }
 
             //Math calculations
@@ -45,7 +52,7 @@ object BotResponse {
                 when (random) {
                     0 -> "Hello there!"
                     1 -> "Sup"
-                    2 -> "Buongiorno!"
+                    2 -> "Bonjour!"
                     else -> "error" }
             }
 
@@ -53,8 +60,8 @@ object BotResponse {
             message.contains("how are you") -> {
                 when (random) {
                     0 -> "I'm doing fine, thanks!"
-                    1 -> "I'm hungry..."
-                    2 -> "Pretty good! How about you?"
+                    1 -> "I'm fine. How's you? Is your health going great?"
+                    2 -> "Pretty good! How about you? Do you need any medication advice?"
                     else -> "error"
                 }
             }
@@ -76,6 +83,20 @@ object BotResponse {
             //Search on the internet
             message.contains("search")-> {
                 OPEN_SEARCH
+            }
+
+            // Diseases
+            //FEVER
+            message.contains("fever") && message.contains("a day") || message.contains("1 day")-> {
+
+                    " If you have fever for more than a day, " +
+                            "please take Ibugesic Plus two times and wait for a day\n"}
+
+            message.contains("fever") && message.contains("two days") || message.contains("2 days")-> {
+                " If you have fever for more than two days, then please consult a doctor \n" }
+            message.contains("fever") && message.contains("seven days") || message.contains("week")-> {
+                "If you have fever for more than a week and have cold and cough, then please have a COVID test and consult a doctor"
+
             }
 
             //When the programme doesn't understand...

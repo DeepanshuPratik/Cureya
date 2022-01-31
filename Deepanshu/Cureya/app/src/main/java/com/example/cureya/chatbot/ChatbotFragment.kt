@@ -27,18 +27,14 @@ class ChatbotFragment : Fragment() {
     private lateinit var etmessage : EditText
     private var messagesList = mutableListOf<Message>()
     private lateinit var adapter: MessagingAdapter
-    private val botList = listOf("Peter", "Francesca", "Luigi", "Igor")
+    private val botList = listOf("Deepanshu", "Divyansh", "Ronnie", "Anmol")
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //        recyclerView()
-//        clickEvents()
-//        val random = (0..3).random()
-//        customBotMessage("Hello! Today you're speaking with ${botList[random]}, how may I help?")
-        return inflater.inflate(R.layout.fragment_chatbot, container, false)
+       return inflater.inflate(R.layout.fragment_chatbot, container, false)
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -49,6 +45,12 @@ class ChatbotFragment : Fragment() {
         recyclerView()
         clickEvents()
         val random = (0..3).random()
+        GlobalScope.launch {
+            delay(4000)
+        }
+        requireView().findViewById<TextView>(R.id.welcome).visibility= View.GONE
+        requireView().findViewById<ImageView>(R.id.chatbot).visibility= View.GONE
+        requireView().findViewById<TextView>(R.id.Intro).visibility= View.GONE
         customBotMessage("Hello! Today you're speaking with ${botList[random]}, how may I help?")
     }
 
@@ -57,9 +59,7 @@ class ChatbotFragment : Fragment() {
 
         //Send a message
         view?.findViewById<ImageView>(R.id.send_button)?.setOnClickListener {
-            requireView().findViewById<TextView>(R.id.welcome).visibility= View.GONE
-            requireView().findViewById<ImageView>(R.id.chatbot).visibility= View.GONE
-            requireView().findViewById<TextView>(R.id.Intro).visibility= View.GONE
+
             sendMessage()
         }
 
