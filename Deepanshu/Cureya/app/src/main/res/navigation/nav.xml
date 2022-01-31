@@ -20,10 +20,10 @@
         android:label="Cureya"
         tools:layout="@layout/fragment_chat_list" />
     <fragment
-        android:id="@+id/chatbotFragment"
-        android:name="com.example.cureya.chatbot.ChatbotFragment"
-        android:label="Cureya"
-        tools:layout="@layout/fragment_chatbot" />
+        android:id="@+id/chatBotFragment"
+        android:name="com.example.cureya.chatbot.ChatBotFragment"
+        android:label="ChatBotFragment"
+        tools:layout="@layout/fragment_chatbot"/>
     <fragment
         android:id="@+id/communityFragment"
         android:name="com.example.cureya.community.CommunityFragment"
@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_about_us" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.cureya.SignUpFragment"
+        android:name="com.example.cureya.register.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
-        android:name="com.example.cureya.LoginActivity"
+        android:name="com.example.cureya.register.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" >
         <action

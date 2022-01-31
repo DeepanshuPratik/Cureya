@@ -1,7 +1,6 @@
-package com.example.cureya
+package com.example.cureya.chatbot
 
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,7 @@ import com.example.cureya.adapter.MessageListAdapter
 import com.example.cureya.databinding.FragmentChatbotBinding
 import com.example.cureya.model.messageInfo
 
-class ChatBotActivity : Fragment() {
+class ChatBotFragment : Fragment() {
 
     private lateinit var binding: FragmentChatbotBinding
     private lateinit var madapter: MessageListAdapter

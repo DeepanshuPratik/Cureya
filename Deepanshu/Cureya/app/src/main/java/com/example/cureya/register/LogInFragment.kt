@@ -1,4 +1,4 @@
-package com.example.cureya
+package com.example.cureya.register
 
 import android.content.ContentValues
 import android.content.Intent
@@ -11,10 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.cureya.SignUpFragment.Companion.RC_SIGN_IN
-import com.example.cureya.SignUpFragment.Companion.TAG
-import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
-import com.example.cureya.SignUpFragment.Companion.USER_LIST
+import com.example.cureya.register.SignUpFragment.Companion.RC_SIGN_IN
+import com.example.cureya.register.SignUpFragment.Companion.TAG
+import com.example.cureya.R
+import com.example.cureya.register.SignUpFragment.Companion.USER_LIST
 import com.example.cureya.databinding.FragmentLogInBinding
 import com.example.cureya.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -23,7 +23,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -32,9 +31,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlin.math.log
 
-class LoginActivity : Fragment() {
+class LogInFragment : Fragment() {
 
     private lateinit var binding: FragmentLogInBinding
     private lateinit var googleSignInClient: GoogleSignInClient
