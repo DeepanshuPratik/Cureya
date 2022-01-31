@@ -30,7 +30,7 @@ object BotResponse {
 
             //Math calculations
             message.contains("solve") -> {
-                val equation: String? = message.substringAfterLast("solve")
+                val equation: String = message.substringAfterLast("solve")
                 return try {
                     val answer = SolveMath.solveMath(equation ?: "0")
                     "$answer"

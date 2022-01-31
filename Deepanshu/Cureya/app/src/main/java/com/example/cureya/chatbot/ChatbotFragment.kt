@@ -1,19 +1,18 @@
 package com.example.cureya.chatbot
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cureya.R
@@ -23,21 +22,11 @@ import com.example.cureya.chatbot.Constants.RECEIVE_ID
 import com.example.cureya.chatbot.Constants.SEND_ID
 import kotlinx.coroutines.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatbotFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatbotFragment : Fragment() {
 
     private var rvmessages = view?.findViewById<RecyclerView>(R.id.rv_messages)
-    private var et_message = view?.findViewById<EditText>(R.id.et_message)
-    var messagesList = mutableListOf<Message>()
+    private var etmessage = view?.findViewById<EditText>(R.id.et_message)
+    private var messagesList = mutableListOf<Message>()
     private lateinit var adapter: MessagingAdapter
     private val botList = listOf("Peter", "Francesca", "Luigi", "Igor")
 
@@ -57,12 +46,15 @@ class ChatbotFragment : Fragment() {
     private fun clickEvents() {
 
         //Send a message
-        view?.findViewById<TextView>(R.id.send_button)?.setOnClickListener {
+        view?.findViewById<ImageView>(R.id.send_button)?.setOnClickListener {
+            requireView().findViewById<TextView>(R.id.welcome).visibility= View.GONE
+            requireView().findViewById<ImageView>(R.id.chatbot).visibility= View.GONE
+            requireView().findViewById<TextView>(R.id.Intro).visibility= View.GONE
             sendMessage()
         }
 
         //Scroll back to correct position when user clicks on text view
-        et_message?.setOnClickListener {
+        etmessage?.setOnClickListener {
             GlobalScope.launch {
                 delay(100)
 
@@ -94,13 +86,14 @@ class ChatbotFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun sendMessage() {
-        val message = et_message?.text.toString()
+        val message = etmessage?.text.toString()
         val timeStamp = Time.timeStamp()
 
         if (message.isNotEmpty()) {
             //Adds it to our local list
+
             messagesList.add(Message(message, SEND_ID, timeStamp))
-            et_message?.setText("")
+            etmessage?.setText("")
 
             adapter.insertMessage(Message(message, SEND_ID, timeStamp))
             rvmessages?.scrollToPosition(adapter.itemCount - 1)
