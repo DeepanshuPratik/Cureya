@@ -50,4 +50,6 @@
     <string name="share_your_thoughts">Share your thoughts</string>
     <string name="registered_already">Registered already?</string>
     <string name="name">Name</string>
+    <string name="sample_message">This is a sample message that will appear</string>
+    <string name="send_button">send button</string>
 </resources>
