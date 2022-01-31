@@ -32,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlin.math.log
 
 class LoginActivity : Fragment() {
 
@@ -63,13 +64,31 @@ class LoginActivity : Fragment() {
 
         binding.apply {
 
-            btnLogIn.setOnClickListener { signIn() }
-            Login.setOnClickListener { signIn() }
+            logIn.setOnClickListener { handleLogIn() }
+            googleLogIn.setOnClickListener { launchSignInIntent() }
             register.setOnClickListener { goToSignUpFragment() }
         }
     }
 
-    fun signIn() {
+    private fun handleLogIn() {
+        val email = binding.edtLogInEmail.text.toString().trim()
+        val password = binding.edtLogInPassword.text.toString().trim()
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    goToHomeFragment()
+                } else {
+                    Toast.makeText(
+                        context,
+                        "Please check your credentials",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+    }
+
+    private fun launchSignInIntent() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
@@ -114,9 +133,11 @@ class LoginActivity : Fragment() {
     private fun updateUI() {
         val currentUser = auth.currentUser
         if(currentUser != null) {
-            findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+            goToHomeFragment()
         }
     }
+
+    private fun goToHomeFragment() = findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
 
     private fun goToSignUpFragment() = findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
 

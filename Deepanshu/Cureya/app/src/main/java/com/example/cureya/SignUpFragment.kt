@@ -53,7 +53,7 @@ class SignUpFragment: Fragment() {
 
         binding.btnRegister.setOnClickListener { prepareToRegister() }
 
-        binding.SignIn.setOnClickListener { handleGoogleSignIn() }
+        binding.googleSignIn.setOnClickListener { handleGoogleSignIn() }
 
         binding.logInTextView.setOnClickListener { goToLogInFragment() }
     }
@@ -65,9 +65,9 @@ class SignUpFragment: Fragment() {
     }
 
     private fun register() {
-        val name = binding.nameEditText.text.toString()
-        val email = binding.edtLogInEmail.text.toString()
-        val password = binding.edtLogInPassword.text.toString()
+        val name = binding.nameEditText.text.toString().trim()
+        val email = binding.edtLogInEmail.text.toString().trim()
+        val password = binding.edtLogInPassword.text.toString().trim()
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -76,6 +76,9 @@ class SignUpFragment: Fragment() {
                     val user = User(name, email, null)
                     addToUserBase(user)
                 }
+            }
+            .addOnFailureListener {
+                it.printStackTrace()
             }
     }
 
@@ -104,7 +107,6 @@ class SignUpFragment: Fragment() {
             passwordField.error = "Password should be at least 8 characters long"
             passwordField.requestFocus()
         }
-
         return nameFieldCheck && emailFieldCheck && passwordFieldCheck
     }
 
@@ -216,7 +218,7 @@ class SignUpFragment: Fragment() {
             }
     }
 
-    fun showToast(text: String) {
+    private fun showToast(text: String) {
         Toast.makeText(
             context,
             text,
@@ -227,8 +229,8 @@ class SignUpFragment: Fragment() {
 
     companion object {
         const val RC_SIGN_IN = 100
-        const val TAG = "GOOGLE_SIGN_IN_TAG"
         const val USER_LIST = "users"
+        const val TAG = "GOOGLE_SIGN_IN_TAG"
         private const val PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
     }
 }
