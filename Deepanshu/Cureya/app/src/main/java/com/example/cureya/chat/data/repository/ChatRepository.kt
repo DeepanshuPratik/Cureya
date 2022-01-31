@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.cureya.chat.data.models.Chat
 
 interface ChatRepository {
-    fun getChatById(chatId: String): LiveData<Chat>
+//    fun getChatById(chatId: String): LiveData<Chat>
     fun getAllChats(): LiveData<List<Chat>>
 //    fun sendMessage(message: String, receiverId: String)
 //    fun getChats(): LiveData<List<String>>

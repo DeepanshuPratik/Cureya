@@ -19,11 +19,13 @@ class ChatRepositoryImpl(
 
     private val chats = MutableLiveData<List<Chat>>()
     private val chatIds = MutableLiveData<List<String>>()
+    private val userChat = MutableLiveData<Chat>()
 
     suspend fun sendMessage(message: Message) {
         database.child("chats").child(getChatId(message.receiverId!!)).child("messages").push()
             .setValue(message).await()
-        database.child("chats").child(getChatId(message.receiverId)).child("updatedAt").setValue(Date())
+        database.child("chats").child(getChatId(message.receiverId)).child("updatedAt")
+            .setValue(Date())
 
     }
 
@@ -43,9 +45,34 @@ class ChatRepositoryImpl(
         database.child("users").child("chats").addValueEventListener(userValueListener)
     }
 
-    override fun getChatById(chatId: String): LiveData<Chat> {
-        TODO("Not yet implemented")
+    private fun listenForChatValueChanges(receiverId: String) {
+        val chatValueListener = object : ValueEventListener {
+            override fun onCancelled(databaseError: DatabaseError) {}
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    val dbUsers = dataSnapshot.children
+                        .mapNotNull { it.getValue(Chat::class.java) }.toList()
+                    chats.postValue(dbUsers)
+                } else {
+                    chats.postValue(emptyList())
+                }
+            }
+        }
+        database.child("chats").child(getChatId(receiverId))
+            .addValueEventListener(chatValueListener)
     }
+
+    suspend fun getChatByReceiverId(receiverId: String): LiveData<Chat> {
+        database.child("users").child(auth.uid!!).child("chats").child(receiverId).setValue(" ")
+            .await()
+        listenForChatValueChanges(receiverId)
+        return userChat
+    }
+
+//    override fun getChatById(chatId: String): LiveData<Chat> {
+//
+//    }
+
 
 //    override fun createChat() {
 //
