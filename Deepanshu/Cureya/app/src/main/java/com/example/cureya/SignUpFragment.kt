@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
 import com.example.cureya.databinding.FragmentSignUpBinding
 import com.example.cureya.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -21,16 +20,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class SignUpFragment: Fragment() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseDatabase
     private lateinit var binding: FragmentSignUpBinding
 
     override fun onCreateView(
@@ -69,19 +73,8 @@ class SignUpFragment: Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.w("SignUpFragment","Firebase auth successful")
-                    val user = User(name, email)
-
-                    FirebaseDatabase.getInstance().getReference(USER_PATH)
-                        .child(auth.currentUser!!.uid)
-                        .setValue(user)
-                        .addOnCompleteListener { task ->
-                            Log.w("SignUpFragment","got reference to database")
-                            if (task.isSuccessful) {
-                                Toast.makeText(context, "Sign In successful", Toast.LENGTH_LONG).show()
-                            } else {
-                                Toast.makeText(context, "Sign in failed", Toast.LENGTH_LONG).show()
-                            }
-                        }
+                    val user = User(name, email, null)
+                    addToUserBase(user)
                 }
             }
     }
@@ -123,6 +116,24 @@ class SignUpFragment: Fragment() {
 
     private fun isPasswordLong(str: String) = str.length > 7
 
+    private fun addToUserBase(user: User) {
+        db = Firebase.database
+        val newChildKey = auth.currentUser?.uid!!
+
+        db.reference.child(USER_LIST).child(newChildKey)
+            .addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.value == null) {
+                        db.reference.child(USER_LIST).child(newChildKey).setValue(user)
+                        Log.w(TAG, "New user inserted to database")
+                    } else Log.w(TAG, "User already exists")
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e(TAG, "Inside addToUserList()", error.toException())
+                }
+            })
+    }
+
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
@@ -130,13 +141,12 @@ class SignUpFragment: Fragment() {
 
     private fun handleGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(CLIENT_ID)
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity() ,gso)
         signIn()
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -157,9 +167,7 @@ class SignUpFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.getCurrentUser()
-        updateUI(currentUser);
+        updateUI()
     }
 
     override fun onResume() {
@@ -176,11 +184,13 @@ class SignUpFragment: Fragment() {
         bottomView.visibility = View.VISIBLE
     }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if(currentUser!=null) {
+
+    private fun updateUI() {
+        val currentUser = auth.currentUser
+        if(currentUser != null) {
             findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
         } else {
-            Toast.makeText(context,"not possible", Toast.LENGTH_SHORT).show()
+            showToast("Please register to continue")
         }
     }
 
@@ -193,20 +203,32 @@ class SignUpFragment: Fragment() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
+                    val user = User(
+                        auth.currentUser?.displayName,
+                        auth.currentUser?.email,
+                        auth.currentUser?.photoUrl.toString()
+                    )
+                    addToUserBase(user)
+                    updateUI()
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    updateUI(null)
+                    showToast("Unexpected error occurred")
                 }
             }
     }
 
+    fun showToast(text: String) {
+        Toast.makeText(
+            context,
+            text,
+            Toast.LENGTH_LONG
+        ).show()
+        return
+    }
+
     companion object {
-        val RC_SIGN_IN = 100
-        val TAG = "GOOGLE_SIGN_IN_TAG"
-        private val USER_PATH = "Users"
-        private val PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
+        const val RC_SIGN_IN = 100
+        const val TAG = "GOOGLE_SIGN_IN_TAG"
+        const val USER_LIST = "users"
+        private const val PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
     }
 }

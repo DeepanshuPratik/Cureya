@@ -14,7 +14,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.cureya.SignUpFragment.Companion.RC_SIGN_IN
 import com.example.cureya.SignUpFragment.Companion.TAG
 import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
+import com.example.cureya.SignUpFragment.Companion.USER_LIST
 import com.example.cureya.databinding.FragmentLogInBinding
+import com.example.cureya.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,6 +26,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : Fragment() {
@@ -31,6 +38,7 @@ class LoginActivity : Fragment() {
     private lateinit var binding: FragmentLogInBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -86,9 +94,7 @@ class LoginActivity : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
+        updateUI()
     }
 
     override fun onResume() {
@@ -105,7 +111,8 @@ class LoginActivity : Fragment() {
         bottomView.visibility = View.VISIBLE
     }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
+    private fun updateUI() {
+        val currentUser = auth.currentUser
         if(currentUser != null) {
             findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
         }
@@ -119,16 +126,36 @@ class LoginActivity : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(context, "Logged in as ${auth.currentUser?.displayName}", Toast.LENGTH_LONG)
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
+                    val user = User(
+                        auth.currentUser?.displayName,
+                        auth.currentUser?.email,
+                        auth.currentUser?.photoUrl.toString()
+                    )
+                    addToUserBase(user)
+                    updateUI()
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    updateUI(null)
+                    Toast.makeText(context, "Unexpected error occurred", Toast.LENGTH_LONG).show()
                 }
             }
+    }
+
+    private fun addToUserBase(user: User) {
+        db = Firebase.database
+        val newChildKey = auth.currentUser?.uid!!
+
+        db.reference.child(USER_LIST).child(newChildKey)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.value == null) {
+                    db.reference.child(USER_LIST).child(newChildKey).setValue(user)
+                    Log.w(TAG, "New user inserted to database")
+                } else Log.w(TAG, "User already exists")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e(TAG, "inside addToUserList()", error.toException())
+            }
+        })
     }
 
 }

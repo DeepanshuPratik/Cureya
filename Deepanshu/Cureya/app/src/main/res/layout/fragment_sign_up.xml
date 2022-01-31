@@ -113,7 +113,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/email_password_layout" />
 
-            <ImageView
+             <ImageView
                 android:id="@+id/btnOr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                     android:id="@+id/edtAlready"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/registered_already"/>
+                    android:text="@string/registered_already" />
 
                 <TextView
                     android:id="@+id/log_in_text_view"
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="4dp"
                     android:textStyle="bold"
-                    android:text="@string/log_in"/>
+                    android:text="@string/log_in" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
