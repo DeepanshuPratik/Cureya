@@ -58,8 +58,9 @@
         android:visibility="visible"
         >
         <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toTopOf="@id/message_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/rv_messages"
             android:visibility="visible"
             tools:listitem="@layout/chatbot_messageitem" />
