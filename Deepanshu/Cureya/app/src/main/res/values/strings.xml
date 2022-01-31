@@ -50,4 +50,10 @@
     <string name="share_your_thoughts">Share your thoughts</string>
     <string name="registered_already">Registered already?</string>
     <string name="name">Name</string>
+    <string name="confirm_user_details">Confirm User Details</string>
+    <string name="continue_label">Continue</string>
+    <string name="pin">PIN</string>
+    <string name="change_password">Change Password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
 </resources>
