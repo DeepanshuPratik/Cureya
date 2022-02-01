@@ -75,6 +75,7 @@ class SignUpFragment: Fragment() {
                     Log.w("SignUpFragment","Firebase auth successful")
                     val user = User(name, email, null)
                     addToUserBase(user)
+                    goToHomeFragment()
                 }
             }
             .addOnFailureListener {
@@ -125,18 +126,20 @@ class SignUpFragment: Fragment() {
         db = Firebase.database
         val newChildKey = auth.currentUser?.uid!!
 
-        db.reference.child(USER_LIST).child(newChildKey)
-            .addListenerForSingleValueEvent(object: ValueEventListener {
+        db.reference.child(USER_LIST).child(newChildKey).apply {
+            addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.value == null) {
-                        db.reference.child(USER_LIST).child(newChildKey).setValue(user)
+                        this@apply.setValue(user)
                         Log.w(TAG, "New user inserted to database")
                     } else Log.w(TAG, "User already exists")
                 }
+
                 override fun onCancelled(error: DatabaseError) {
                     Log.e(TAG, "Inside addToUserList()", error.toException())
                 }
             })
+        }
     }
 
     private fun signIn() {
@@ -200,6 +203,8 @@ class SignUpFragment: Fragment() {
     }
 
     private fun goToLogInFragment() = findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
+
+    private fun goToHomeFragment() = findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)

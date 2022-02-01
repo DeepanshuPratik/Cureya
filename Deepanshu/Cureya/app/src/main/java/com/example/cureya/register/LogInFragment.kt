@@ -65,6 +65,7 @@ class LogInFragment : Fragment() {
             logIn.setOnClickListener { handleLogIn() }
             googleLogIn.setOnClickListener { launchSignInIntent() }
             register.setOnClickListener { goToSignUpFragment() }
+            forgetPassword.setOnClickListener { goToForgetPassFragment() }
         }
     }
 
@@ -81,7 +82,7 @@ class LogInFragment : Fragment() {
             .addOnFailureListener {
                 when (it.message) {
                     WRONG_PASSWORD_ERROR -> showToast("Password Incorrect")
-                    USER_VOID_ERROR -> showToast("User isn't registerred with us")
+                    USER_VOID_ERROR -> showToast("User isn't registered with us")
                     else -> showToast("Please check your credentials")
                 }
                 Log.e("LogInFragment", "Log in failure", it)
@@ -149,6 +150,8 @@ class LogInFragment : Fragment() {
 
     private fun goToSignUpFragment() = findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
 
+    private fun goToForgetPassFragment() = findNavController().navigate(R.id.action_logInFragment_to_forgetPasswordFragment)
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -172,11 +175,11 @@ class LogInFragment : Fragment() {
         db = Firebase.database
         val newChildKey = auth.currentUser?.uid!!
 
-        db.reference.child(USER_LIST).child(newChildKey)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+        db.reference.child(USER_LIST).child(newChildKey).apply {
+            addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.value == null) {
-                        db.reference.child(USER_LIST).child(newChildKey).setValue(user)
+                        this@apply.setValue(user)
                         Log.w(TAG, "New user inserted to database")
                     } else Log.w(TAG, "User already exists")
                 }
@@ -185,6 +188,7 @@ class LogInFragment : Fragment() {
                     Log.e(TAG, "inside addToUserList()", error.toException())
                 }
             })
+        }
     }
 
     companion object {

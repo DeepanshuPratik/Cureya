@@ -62,5 +62,13 @@
         <action
             android:id="@+id/action_logInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.example.cureya.register.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment"
+        tools:layout="@layout/fragment_forget_password" />
 </navigation>
