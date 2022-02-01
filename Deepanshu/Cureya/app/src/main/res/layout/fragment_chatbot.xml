@@ -54,7 +54,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/app_bar"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="60dp"
         android:visibility="visible"
         >
         <androidx.recyclerview.widget.RecyclerView
@@ -72,7 +72,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/app_bar"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="50dp"
         android:visibility="visible"
         >
 
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
