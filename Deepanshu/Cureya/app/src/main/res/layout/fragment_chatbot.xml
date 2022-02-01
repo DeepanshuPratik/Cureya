@@ -54,15 +54,16 @@
         android:layout_height="match_parent"
         android:layout_below="@id/app_bar"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="100dp"
         android:visibility="visible"
         >
+
         <androidx.recyclerview.widget.RecyclerView
-            app:layout_constraintTop_toTopOf="@id/message_content"
+            android:id="@+id/rv_messages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rv_messages"
             android:visibility="visible"
+            app:layout_constraintTop_toTopOf="@id/message_content"
             tools:listitem="@layout/chatbot_messageitem" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -128,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="4dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
