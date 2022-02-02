@@ -69,7 +69,6 @@
     <string name="manage_subscription">Manage Subscription</string>
     <string name="delete_account">Delete account</string>
     <string name="current_password">Current password</string>
-    <string name="new_password">New password</string>
     <string name="save">Save</string>
     <string name="confirm_new_email_address">Confirm New Email Address</string>
 </resources>
