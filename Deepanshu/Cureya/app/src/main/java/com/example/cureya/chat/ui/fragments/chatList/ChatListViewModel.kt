@@ -35,7 +35,11 @@ class ChatListViewModel() : ViewModel() {
     private fun loadData() {
         viewModelScope.launch {
             allUsers.value = database.child("users").get()
-                .await().children.map { it.getValue(User::class.java)!! }
+                .await().children.map {
+                    val user = it.getValue(User::class.java)!!
+                    user.userId = it.key
+                    user
+                }
             listenForUsersValueChanges()
         }
     }
@@ -69,7 +73,11 @@ class ChatListViewModel() : ViewModel() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
                     val dbUsers = dataSnapshot.children
-                        .mapNotNull { it.getValue(User::class.java) }.toList()
+                        .mapNotNull {
+                            val user = it.getValue(User::class.java)!!
+                            user.userId = it.key
+                            user
+                        }.toList()
                     allUsers.postValue(dbUsers)
                 } else {
                     allUsers.postValue(emptyList())

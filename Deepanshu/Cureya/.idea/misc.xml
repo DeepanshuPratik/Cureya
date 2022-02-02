@@ -41,21 +41,29 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/menu_icon.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/message_chat_background.xml" value="0.2265625" />
+        <entry key="app/src/main/res/drawable/receiver_message_background.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/search_bar_background.xml" value="0.2265625" />
+        <entry key="app/src/main/res/drawable/sender_message_background.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/card_horizontal_recycler_view.xml" value="0.44680851063829785" />
         <entry key="app/src/main/res/layout/card_post.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/card_vertical_recycler_view.xml" value="0.411619283065513" />
         <entry key="app/src/main/res/layout/chat_list_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/fragment_chat_list.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_chatbot.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/fragment_community_dashboard.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/fragment_one_on_one_chat.xml" value="0.2" />
         <entry key="app/src/main/res/layout/layout_chat_contents.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/layout_community_about.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/layout_community_dashboard.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/layout_message.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/layout_user_chat_intro.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/message_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/message_layout.xml" value="0.2234375" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22604166666666667" />
       </map>

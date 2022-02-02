@@ -15,7 +15,7 @@ import com.example.cureya.chat.data.models.User
 
 class AllUsersRecyclerAdapter(
     private val context: Context,
-    private val onClick: (Int) -> Unit
+    private val onClick: (User) -> Unit
 ) :
     RecyclerView.Adapter<AllUsersRecyclerAdapter.AllUsersViewHolder>() {
     private val users: MutableList<User> = mutableListOf()
@@ -44,8 +44,8 @@ class AllUsersRecyclerAdapter(
     override fun onBindViewHolder(holder: AllUsersViewHolder, position: Int) {
         holder.userName.text = users[position].name
         Glide.with(context).load(users[position].photoUrl).into(holder.userImage);
-        holder.greenTick.visibility = if(users[position].isCounselor) View.VISIBLE else View.GONE
-        holder.itemView.setOnClickListener { onClick(position) }
+        holder.greenTick.visibility = if (users[position].isCounselor) View.VISIBLE else View.GONE
+        holder.itemView.setOnClickListener { onClick(users[position]) }
     }
 
     override fun getItemCount(): Int {

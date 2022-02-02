@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cureya.R
@@ -52,13 +54,15 @@ class ChatListFragment : Fragment() {
     private fun initMembers(view: View) {
         allUsersRecycler = view.findViewById(R.id.all_users_recycler)
         chatUsersRecycler = view.findViewById(R.id.chat_users_recycler)
-        allUsersAdapter = AllUsersRecyclerAdapter(requireContext()) {
-
+        allUsersAdapter = AllUsersRecyclerAdapter(requireContext()) { user ->
+            val direction = ChatListFragmentDirections.actionChatListFragmentToChatFragment(user)
+            findNavController().navigate(direction)
         }
     }
 
     private fun observeData() {
         chatListViewModel.getAllUsers().observe(viewLifecycleOwner) {
+            Log.d(TAG, "observeData: ${it[0]}")
             allUsersAdapter.updateData(it)
         }
     }

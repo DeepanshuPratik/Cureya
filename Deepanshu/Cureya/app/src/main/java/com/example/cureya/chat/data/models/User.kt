@@ -1,6 +1,8 @@
 package com.example.cureya.chat.data.models
 
+import android.os.Parcelable
 import com.google.firebase.database.IgnoreExtraProperties
+import kotlinx.parcelize.Parcelize
 
 
 /*
@@ -10,14 +12,11 @@ import com.google.firebase.database.IgnoreExtraProperties
 */
 
 @IgnoreExtraProperties
+@Parcelize
 open class User(
-    val userId: String? = null,
+    var userId: String? = null,
     val name: String? = null,
     val photoUrl: String? = null,
     val isCounselor: Boolean = false
-)
+) : Parcelable
 
-class ChatUser(
-    val lastMessage: Message,
-    user: User
-) : User(user.userId, user.name, user.photoUrl, user.isCounselor)
