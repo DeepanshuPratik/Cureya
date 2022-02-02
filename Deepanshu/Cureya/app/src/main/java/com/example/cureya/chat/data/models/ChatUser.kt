@@ -6,4 +6,4 @@ import java.io.Serializable
 class ChatUser(
     val lastMessage: Message,
     user: User
-) : User(user.userId, user.name, user.photoUrl, user.isCounselor), Serializable
+) : User(user.userId, user.name, user.photoUrl, user.isCounselor)
