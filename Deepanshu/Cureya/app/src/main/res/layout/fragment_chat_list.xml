@@ -38,10 +38,10 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_toStartOf="@id/profile"
                 android:layout_toEndOf="@id/back_button"
+                android:background="@drawable/search_bar_background"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="8dp"
                 android:paddingHorizontal="8dp"
-                android:background="@drawable/search_bar_background"
                 android:text="@string/search" />
 
             <de.hdodenhof.circleimageview.CircleImageView

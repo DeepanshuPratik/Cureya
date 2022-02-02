@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
@@ -71,4 +74,67 @@
         android:name="com.example.cureya.register.ForgetPasswordFragment"
         android:label="ForgetPasswordFragment"
         tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.cureya.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_faqFragment"
+            app:destination="@id/faqFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_reportFragment"
+            app:destination="@id/reportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.cureya.settings.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_settings_account">
+        <action
+            android:id="@+id/action_accountFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_changeDetailsFragment"
+            app:destination="@id/changeDetailsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeDetailsFragment"
+        android:name="com.example.cureya.settings.ChangeDetailsFragment"
+        android:label="ChangeDetailsFragment"
+        tools:layout="@layout/fragment_settings_change_details">
+        <action
+            android:id="@+id/action_changeDetailsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <argument
+            android:name="change_data_type"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_changeDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.cureya.settings.InformationFragment"
+        android:label="InformationFragment"
+        tools:layout="@layout/fragment_settings_information" />
+    <fragment
+        android:id="@+id/faqFragment"
+        android:name="com.example.cureya.settings.FaqFragment"
+        android:label="FaqFragment"
+        tools:layout="@layout/fragment_settings_faqs" />
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.example.cureya.settings.ReportFragment"
+        android:label="ReportFragment"
+        tools:layout="@layout/fragment_settings_report" />
 </navigation>

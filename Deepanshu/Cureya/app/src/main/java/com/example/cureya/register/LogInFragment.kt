@@ -161,7 +161,8 @@ class LogInFragment : Fragment() {
                     val user = User(
                         auth.currentUser?.displayName,
                         auth.currentUser?.email,
-                        auth.currentUser?.photoUrl.toString()
+                        auth.currentUser?.photoUrl.toString(),
+                        null
                     )
                     addToUserBase(user)
                     updateUI()
@@ -183,7 +184,6 @@ class LogInFragment : Fragment() {
                         Log.w(TAG, "New user inserted to database")
                     } else Log.w(TAG, "User already exists")
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Log.e(TAG, "inside addToUserList()", error.toException())
                 }

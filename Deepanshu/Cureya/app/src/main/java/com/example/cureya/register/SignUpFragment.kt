@@ -73,7 +73,7 @@ class SignUpFragment: Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.w("SignUpFragment","Firebase auth successful")
-                    val user = User(name, email, null)
+                    val user = User(name, email, null, password)
                     addToUserBase(user)
                     goToHomeFragment()
                 }
@@ -215,7 +215,8 @@ class SignUpFragment: Fragment() {
                     val user = User(
                         auth.currentUser?.displayName,
                         auth.currentUser?.email,
-                        auth.currentUser?.photoUrl.toString()
+                        auth.currentUser?.photoUrl.toString(),
+                        null
                     )
                     addToUserBase(user)
                     updateUI()
@@ -237,9 +238,11 @@ class SignUpFragment: Fragment() {
     companion object {
         const val RC_SIGN_IN = 100
         const val USER_LIST = "users"
+        const val EMAIL = "email"
+        const val PASSWORD = "password"
         const val TAG = "GOOGLE_SIGN_IN_TAG"
         private const val PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
-        private const val USER_EXISTS_ERROR =
+        const val USER_EXISTS_ERROR =
             "The email address is already in use by another account."
     }
 }

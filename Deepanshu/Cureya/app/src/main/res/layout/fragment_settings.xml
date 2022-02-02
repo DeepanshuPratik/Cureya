@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:paddingBottom="?attr/actionBarSize">
 
     <TextView
         android:id="@+id/label_settings"
@@ -25,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar_background"
-        android:backgroundTint="@color/white"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +46,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar_background"
-        android:backgroundTint="@color/white"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +67,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar_background"
-        android:backgroundTint="@color/white"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +88,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar_background"
-        android:backgroundTint="@color/white"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +109,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar_background"
-        android:backgroundTint="@color/white"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
