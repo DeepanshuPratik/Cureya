@@ -10,9 +10,14 @@ import com.google.firebase.database.IgnoreExtraProperties
 */
 
 @IgnoreExtraProperties
-data class User(
+open class User(
     val userId: String? = null,
     val name: String? = null,
     val photoUrl: String? = null,
     val isCounselor: Boolean = false
 )
+
+class ChatUser(
+    val lastMessage: Message,
+    user: User
+) : User(user.userId, user.name, user.photoUrl, user.isCounselor)

@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.cureya.chat.ChatFragment"
+        android:name="com.example.cureya.chat.ui.fragments.chat.ChatFragment"
         android:label="Cureya"
         tools:layout="@layout/fragment_chat_list" />
     <fragment
@@ -60,4 +60,9 @@
             android:id="@+id/action_logInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="com.example.cureya.chat.ui.fragments.chatList.ChatListFragment"
+        android:label="chat_list_fragment"
+        tools:layout="@layout/chat_list_fragment" />
 </navigation>

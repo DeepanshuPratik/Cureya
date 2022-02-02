@@ -2,11 +2,11 @@ package com.example.cureya.chat.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.cureya.chat.data.models.Chat
+import com.example.cureya.chat.data.models.ChatUser
+import com.example.cureya.chat.data.models.Message
 
 interface ChatRepository {
-//    fun getChatById(chatId: String): LiveData<Chat>
-    fun getAllChats(): LiveData<List<Chat>>
-//    fun sendMessage(message: String, receiverId: String)
-//    fun getChats(): LiveData<List<String>>
-//    fun getChat(receiverId: String): LiveData<Chat>
+    suspend fun getAllChatUsers(): LiveData<List<ChatUser>>
+    suspend fun getChatByReceiverId(receiverId: String): LiveData<Chat>
+    suspend fun sendMessage(message: Message)
 }

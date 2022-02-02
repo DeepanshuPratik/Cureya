@@ -6,7 +6,7 @@
         android:title="Home"
         android:icon="@drawable/ic_home_black_24dp" />
     <item
-        android:id="@+id/chatFragment"
+        android:id="@+id/chatListFragment"
         android:title="Chat"
         android:icon="@drawable/ic_chat_bubble_outline" />
     <item
@@ -21,17 +21,5 @@
       android:id="@+id/relaxationFragment"
         android:title="Relaxation"
         android:icon="@drawable/ic_relax" />
-
-</menu>
-
-
-
-
-
-
-
-
-
-
 
 </menu>

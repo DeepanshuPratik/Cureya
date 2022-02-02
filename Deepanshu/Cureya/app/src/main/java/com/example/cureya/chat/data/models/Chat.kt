@@ -12,7 +12,6 @@ import java.util.*
 
 @IgnoreExtraProperties
 data class Chat(
-    val updatedAt: Date = Date(),
     val messages: List<Message> = listOf()
 )
 
