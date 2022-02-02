@@ -80,7 +80,7 @@ class SignUpFragment: Fragment() {
             }
             .addOnFailureListener {
                 if (it.message == USER_EXISTS_ERROR) {
-                    showToast("User is already registerred")
+                    showToast("User is already registered")
                 }
                 Log.e("SignUpFragment", "Sing up failure", it)
             }
@@ -134,7 +134,6 @@ class SignUpFragment: Fragment() {
                         Log.w(TAG, "New user inserted to database")
                     } else Log.w(TAG, "User already exists")
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Log.e(TAG, "Inside addToUserList()", error.toException())
                 }
