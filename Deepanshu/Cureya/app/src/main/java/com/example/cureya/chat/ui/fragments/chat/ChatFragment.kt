@@ -1,7 +1,6 @@
 package com.example.cureya.chat.ui.fragments.chat
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cureya.R
-import com.example.cureya.chat.data.models.Message
 import com.example.cureya.chat.data.models.User
-import com.example.cureya.chat.data.repository.ChatRepositoryImpl
 import com.example.cureya.chat.ui.adapters.ChatRecyclerAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference

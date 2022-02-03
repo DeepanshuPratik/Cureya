@@ -6,12 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cureya.R
 import com.example.cureya.chat.data.models.User
+import com.example.cureya.chat.utils.toDateString
 
 class AllUsersRecyclerAdapter(
     private val context: Context,
@@ -31,7 +33,7 @@ class AllUsersRecyclerAdapter(
         val userName: TextView = itemView.findViewById(R.id.account_name)
         val message: TextView = itemView.findViewById(R.id.message_content)
         val messageTime: TextView = itemView.findViewById(R.id.message_time)
-        val greenTick: ImageView = itemView.findViewById(R.id.verified_account)
+        val greenTick: FrameLayout = itemView.findViewById(R.id.account_verification)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllUsersViewHolder {
@@ -44,6 +46,8 @@ class AllUsersRecyclerAdapter(
     override fun onBindViewHolder(holder: AllUsersViewHolder, position: Int) {
         holder.userName.text = users[position].name
         Glide.with(context).load(users[position].photoUrl).into(holder.userImage);
+        holder.message.text = users[position].lastMessage?.text
+        holder.messageTime.text = users[position].lastMessage?.createdAt?.toDateString()
         holder.greenTick.visibility = if (users[position].isCounselor) View.VISIBLE else View.GONE
         holder.itemView.setOnClickListener { onClick(users[position]) }
     }

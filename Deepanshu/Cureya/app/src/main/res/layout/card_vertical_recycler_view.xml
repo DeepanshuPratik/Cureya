@@ -99,8 +99,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:text="@string/user_name"
-                    tools:text="User name: " />
+                    tools:text="User name" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:paddingHorizontal="2dp"
+                    android:text=":"
+                    />
 
                 <TextView
                     android:id="@+id/message_content"

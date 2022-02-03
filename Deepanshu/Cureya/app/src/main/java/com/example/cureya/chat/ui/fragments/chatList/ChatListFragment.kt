@@ -6,25 +6,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.cureya.R
-import com.example.cureya.chat.data.models.ChatUser
 import com.example.cureya.chat.data.models.User
 import com.example.cureya.chat.ui.adapters.AllUsersRecyclerAdapter
 import com.example.cureya.chat.ui.adapters.ChatUsersRecyclerAdapter
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class ChatListFragment : Fragment() {
 
-    private var allUsers: List<User> = listOf()
-    private var chatUsers: List<ChatUser> = listOf()
+
+    private lateinit var auth:FirebaseAuth
 
     private lateinit var allUsersRecycler: RecyclerView
     private lateinit var chatUsersRecycler: RecyclerView
@@ -52,12 +50,15 @@ class ChatListFragment : Fragment() {
     }
 
     private fun initMembers(view: View) {
+        auth = FirebaseAuth.getInstance()
         allUsersRecycler = view.findViewById(R.id.all_users_recycler)
         chatUsersRecycler = view.findViewById(R.id.chat_users_recycler)
         allUsersAdapter = AllUsersRecyclerAdapter(requireContext()) { user ->
             val direction = ChatListFragmentDirections.actionChatListFragmentToChatFragment(user)
             findNavController().navigate(direction)
         }
+        Glide.with(this).load(auth.currentUser?.photoUrl).into(view.findViewById<CircleImageView>(R.id.profile))
+
     }
 
     private fun observeData() {

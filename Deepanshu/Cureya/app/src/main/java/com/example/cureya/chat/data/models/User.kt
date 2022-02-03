@@ -17,6 +17,7 @@ open class User(
     var userId: String? = null,
     val name: String? = null,
     val photoUrl: String? = null,
-    val isCounselor: Boolean = false
+    val isCounselor: Boolean = false,
+    var lastMessage : Message? = null
 ) : Parcelable
 

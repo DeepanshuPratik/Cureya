@@ -1,6 +1,8 @@
 package com.example.cureya.chat.data.models
 
+import android.os.Parcelable
 import com.google.firebase.database.IgnoreExtraProperties
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
 
@@ -14,6 +16,7 @@ import java.util.*
 *       - createdAt
 */
 
+@Parcelize
 @IgnoreExtraProperties
 data class Message(
     val senderId: String? = null,
@@ -21,4 +24,4 @@ data class Message(
     val text: String? = null,
     val photoUrl: String? = null,
     val createdAt: Date = Date()
-)
+) : Parcelable

@@ -40,8 +40,7 @@ class ChatViewModel : ViewModel() {
         val message = Message(text = text, senderId = auth.uid!!, receiverId = receiverId)
         database.child("chats").child(getChatId(receiverId)).child("messages").push()
             .setValue(message).await()
-        database.child("chat_users").child(auth.uid!!).child(message.receiverId!!)
-            .child("lastMessage").setValue(message).await()
+        updateLastMessage(message)
     }
 
     private fun listenForChatValueChanges(receiverId: String) {
@@ -61,6 +60,12 @@ class ChatViewModel : ViewModel() {
         database.child("chats").child(getChatId(receiverId))
             .addValueEventListener(chatValueListener)
     }
+
+    private suspend fun updateLastMessage(message: Message) {
+        database.child("last_message").child(getChatId(message.receiverId!!)).setValue(message)
+            .await()
+    }
+
 
     private fun getChatId(receiverId: String) =
         if (auth.uid!! > receiverId) auth.uid!! + receiverId else receiverId + auth.uid;
