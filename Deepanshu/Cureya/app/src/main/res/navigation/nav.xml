@@ -98,9 +98,6 @@
         android:label="AccountFragment"
         tools:layout="@layout/fragment_settings_account">
         <action
-            android:id="@+id/action_accountFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
             android:id="@+id/action_accountFragment_to_changeDetailsFragment"
             app:destination="@id/changeDetailsFragment" />
         <action

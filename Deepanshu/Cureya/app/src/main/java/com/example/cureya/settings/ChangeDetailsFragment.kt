@@ -1,8 +1,6 @@
 package com.example.cureya.settings
 
-import android.app.Dialog
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -10,15 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.getColor
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.cureya.R
 import com.example.cureya.databinding.FragmentSettingsChangeDetailsBinding
-import com.example.cureya.general.DialogGeneral
 import com.example.cureya.register.SignUpFragment.Companion.EMAIL
 import com.example.cureya.register.SignUpFragment.Companion.PASSWORD
 import com.example.cureya.register.SignUpFragment.Companion.USER_EXISTS_ERROR
@@ -26,7 +21,6 @@ import com.example.cureya.register.SignUpFragment.Companion.USER_LIST
 import com.example.cureya.settings.AccountFragment.Companion.CHANGE_EMAIL_CODE
 import com.example.cureya.settings.AccountFragment.Companion.CHANGE_PASSWORD_CODE
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.SignInMethodQueryResult
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -66,8 +60,8 @@ class ChangeDetailsFragment : Fragment() {
                 labelChangeDetails.text = getString(R.string.change_email_address)
                 frameOneEditText.hint = getString(R.string.active_mail_id)
                 frameTwoEditText.hint = getString(R.string.enter_new_email_address)
-                frameThree.visibility = View.VISIBLE
                 frameThreeEditText.hint = getString(R.string.confirm_new_email_address)
+                frameThree.visibility = View.VISIBLE
             }
         } else if (changeDataType == CHANGE_PASSWORD_CODE) {
             // set password changing layout
@@ -116,7 +110,6 @@ class ChangeDetailsFragment : Fragment() {
                     Log.e(TAG, "error in finding email in database", error.toException())
                 }
             })
-
     }
 
     private fun prepareToChangePassword() {
@@ -154,11 +147,11 @@ class ChangeDetailsFragment : Fragment() {
                 }
             }
             .addOnFailureListener {
-                when(it.message) {
-                    CASE_SENSITIVE_SIGN_OUT_ERROR -> showDialog(R.string.dialog_sign_out_warning_text)
+                when (it.message) {
                     USER_EXISTS_ERROR -> showToast("New user email already exists")
+                    CASE_SENSITIVE_SIGN_OUT_ERROR -> showDialog(R.string.dialog_sign_out_warning_text)
+                    else -> Log.e("TAG", "error in updating email", it)
                 }
-                Log.e("TAG", "error in updating email", it)
             }
     }
 
@@ -173,8 +166,9 @@ class ChangeDetailsFragment : Fragment() {
             .addOnFailureListener {
                 if (it.message == CASE_SENSITIVE_SIGN_OUT_ERROR) {
                     showDialog(R.string.dialog_sign_out_warning_text)
+                } else {
+                    Log.e(TAG, "error updating password", it)
                 }
-                Log.e(TAG, "error updating password", it)
             }
     }
 
@@ -232,7 +226,7 @@ class ChangeDetailsFragment : Fragment() {
             .show()
 
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).apply {
-            setTextColor(getColor(requireContext(), R.color.colorPr))
+            setTextColor(getColor(requireContext(), R.color.white))
             setBackgroundColor(getColor(requireContext(), R.color.colorPr))
         }
     }
