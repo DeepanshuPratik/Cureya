@@ -112,9 +112,6 @@
         android:name="com.example.cureya.settings.ChangeDetailsFragment"
         android:label="ChangeDetailsFragment"
         tools:layout="@layout/fragment_settings_change_details">
-        <action
-            android:id="@+id/action_changeDetailsFragment_to_accountFragment"
-            app:destination="@id/accountFragment" />
         <argument
             android:name="change_data_type"
             app:argType="integer" />

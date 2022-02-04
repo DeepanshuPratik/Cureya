@@ -1,5 +1,6 @@
 package com.example.cureya.settings
 
+import android.app.Dialog
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
@@ -8,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -31,7 +34,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
+class ChangeDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsChangeDetailsBinding
     private lateinit var auth: FirebaseAuth
@@ -75,7 +78,7 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
             }
         }
 
-        binding.saveFrame.setOnClickListener {
+        binding.saveButton.setOnClickListener {
             when (changeDataType) {
                 CHANGE_EMAIL_CODE -> prepareToChangeEmail()
                 CHANGE_PASSWORD_CODE -> prepareToChangePassword()
@@ -88,7 +91,6 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
     }
 
     private fun prepareToChangeEmail() {
-
         val currentEmail = binding.frameOneEditText.text.toString()
         val newEmail = binding.frameTwoEditText.text.toString()
         val confirmText = binding.frameThreeEditText.text.toString()
@@ -98,6 +100,7 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.value == null) {
                         showToast("User does not exist")
+                        return
                     }
                     if (!validateEmail(newEmail, confirmText)) {
                         binding.frameThreeEditText.apply {
@@ -126,9 +129,10 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
                         binding.frameOneEditText.apply {
                             error = "Current password does not match"
                             requestFocus()
+                            return
                         }
                     }
-                    if (!isNewPasswordLong(newPassword)) {
+                    if (newPassword.length < 8) {
                         showToast("Password must be 8 character long")
                     } else {
                         changePassword(newPassword)
@@ -146,12 +150,11 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     changeEmailInDatabase(email)
-                    Log.w(TAG, "email updated successfully")
                 }
             }
             .addOnFailureListener {
                 when(it.message) {
-                    CASE_SENSITIVE_SIGN_OUT_ERROR -> showDialog()
+                    CASE_SENSITIVE_SIGN_OUT_ERROR -> showDialog(R.string.dialog_sign_out_warning_text)
                     USER_EXISTS_ERROR -> showToast("New user email already exists")
                 }
                 Log.e("TAG", "error in updating email", it)
@@ -164,12 +167,11 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     changePasswordInDatabase(password)
-                    Log.w(TAG, "password changed successfully")
                 }
             }
             .addOnFailureListener {
                 if (it.message == CASE_SENSITIVE_SIGN_OUT_ERROR) {
-                    showDialog()
+                    showDialog(R.string.dialog_sign_out_warning_text)
                 }
                 Log.e(TAG, "error updating password", it)
             }
@@ -180,7 +182,8 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
         db.reference.child(USER_LIST).child(userId).child(EMAIL).setValue(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    goToAccountFragment()
+                    showToast("Email changed successfully")
+                    findNavController().navigateUp()
                 } else {
                     showToast("Error in updating email in database")
                 }
@@ -195,7 +198,8 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
         db.reference.child(USER_LIST).child(userId).child(PASSWORD).setValue(password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    goToAccountFragment()
+                    showToast("Password changed successfully")
+                    findNavController().navigateUp()
                 } else {
                     showToast("Error in updating password in database")
                 }
@@ -212,21 +216,19 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
                 Patterns.EMAIL_ADDRESS.matcher(newEmail).matches()
     }
 
-    override fun onPositiveClick() {
-        auth.signOut()
-        goToHomeFragment()
-    }
-
-    private fun isNewPasswordLong(password: String) = password.length > 7
-
-    private fun goToAccountFragment() = findNavController().navigate(R.id.action_changeDetailsFragment_to_accountFragment)
-
     private fun goToHomeFragment() = findNavController().navigate(R.id.action_changeDetailsFragment_to_homeFragment)
 
-    private fun showDialog() {
-        DialogGeneral().show(
-            this.childFragmentManager, "General Dialog"
-        )
+    private fun showDialog(dialogTextCode: Int) {
+        val dialogText = getString(dialogTextCode)
+        AlertDialog.Builder(requireContext())
+            .setTitle("Action Required")
+            .setMessage(dialogText)
+            .setPositiveButton(R.string.ok) { _, _ ->
+                auth.signOut()
+                goToHomeFragment()
+            }
+            .setNegativeButton(R.string.no) { _, _ -> }
+            .show()
     }
 
     private fun showToast(text: String) {
