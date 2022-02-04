@@ -8,6 +8,7 @@
         android:id="@+id/dialog_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="320dp"
         android:layout_gravity="center"
         android:paddingVertical="52dp"
         android:gravity="center"

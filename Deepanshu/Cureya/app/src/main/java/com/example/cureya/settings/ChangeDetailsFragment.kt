@@ -122,7 +122,7 @@ class ChangeDetailsFragment : Fragment(), DialogGeneral.GeneralDialogListener {
         db.reference.child(USER_LIST).orderByChild(PASSWORD).equalTo(currentPassword)
             .addListenerForSingleValueEvent(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.value != null) {
+                    if (snapshot.value == null) {
                         binding.frameOneEditText.apply {
                             error = "Current password does not match"
                             requestFocus()
