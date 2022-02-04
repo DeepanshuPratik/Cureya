@@ -74,6 +74,7 @@
     <string name="enter_new_email_address">Enter New Email Address</string>
     <string name="confirm_new_email_address">Confirm New Email Address</string>
     <string name="dialog_sign_out_warning_text">This action requires authentication. Proceed to sign out?</string>
+    <string name="sign_out_dialog_text">Are you sure you want to sign out?</string>
     <string name="how_safe_is_my_data">How safe is my data</string>
     <string name="submit">Submit</string>
 </resources>

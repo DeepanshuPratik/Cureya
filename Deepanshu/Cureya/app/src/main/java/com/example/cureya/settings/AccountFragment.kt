@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.cureya.R
@@ -47,9 +50,25 @@ class AccountFragment : Fragment() {
                 goToHomeFragment()
             }
             signOutFrame.setOnClickListener {
+                showDialog(R.string.sign_out_dialog_text)
+            }
+        }
+    }
+
+    private fun showDialog(dialogTextCode: Int) {
+        val dialogText = getString(dialogTextCode)
+        val dialog = AlertDialog.Builder(requireContext())
+            .setMessage(dialogText)
+            .setPositiveButton(R.string.ok) { _, _ ->
                 auth.signOut()
                 goToHomeFragment()
             }
+            .setNegativeButton(R.string.no) { _, _ -> }
+            .show()
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).apply {
+            setTextColor(getColor(requireContext(), R.color.white))
+            setBackgroundColor(getColor(requireContext(), R.color.colorPr))
         }
     }
 

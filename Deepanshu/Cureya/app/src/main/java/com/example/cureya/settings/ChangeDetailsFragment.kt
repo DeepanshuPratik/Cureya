@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -220,7 +221,7 @@ class ChangeDetailsFragment : Fragment() {
 
     private fun showDialog(dialogTextCode: Int) {
         val dialogText = getString(dialogTextCode)
-        AlertDialog.Builder(requireContext())
+        val dialog = AlertDialog.Builder(requireContext())
             .setTitle("Action Required")
             .setMessage(dialogText)
             .setPositiveButton(R.string.ok) { _, _ ->
@@ -229,6 +230,11 @@ class ChangeDetailsFragment : Fragment() {
             }
             .setNegativeButton(R.string.no) { _, _ -> }
             .show()
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).apply {
+            setTextColor(getColor(requireContext(), R.color.colorPr))
+            setBackgroundColor(getColor(requireContext(), R.color.colorPr))
+        }
     }
 
     private fun showToast(text: String) {
