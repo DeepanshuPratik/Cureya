@@ -148,8 +148,8 @@ class ChangeDetailsFragment : Fragment() {
             }
             .addOnFailureListener {
                 when (it.message) {
+                    CASE_SENSITIVE_SIGN_OUT_ERROR -> showDialog()
                     USER_EXISTS_ERROR -> showToast("New user email already exists")
-                    CASE_SENSITIVE_SIGN_OUT_ERROR -> showDialog(R.string.dialog_sign_out_warning_text)
                     else -> Log.e("TAG", "error in updating email", it)
                 }
             }
@@ -165,7 +165,7 @@ class ChangeDetailsFragment : Fragment() {
             }
             .addOnFailureListener {
                 if (it.message == CASE_SENSITIVE_SIGN_OUT_ERROR) {
-                    showDialog(R.string.dialog_sign_out_warning_text)
+                    showDialog()
                 } else {
                     Log.e(TAG, "error updating password", it)
                 }
@@ -213,11 +213,10 @@ class ChangeDetailsFragment : Fragment() {
 
     private fun goToHomeFragment() = findNavController().navigate(R.id.action_changeDetailsFragment_to_homeFragment)
 
-    private fun showDialog(dialogTextCode: Int) {
-        val dialogText = getString(dialogTextCode)
+    private fun showDialog() {
         val dialog = AlertDialog.Builder(requireContext())
             .setTitle("Action Required")
-            .setMessage(dialogText)
+            .setMessage(R.string.dialog_sign_out_warning_text)
             .setPositiveButton(R.string.ok) { _, _ ->
                 auth.signOut()
                 goToHomeFragment()

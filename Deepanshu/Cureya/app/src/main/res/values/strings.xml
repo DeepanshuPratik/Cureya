@@ -39,7 +39,6 @@
     <string name="chat_fragment">Chat Fragment</string>
     <string name="chatbot_fragment">ChatBot Fragment</string>
     <string name="community_fragment">Community Fragment</string>
-    <string name="relaxation_fragment">Relaxation Fragment</string>
     <string name="aboutus">CUREYA (registered as Aspexx Health solutions Pvt Ltd ) collaborated with stakeholders include - ROOTSKILLS , ROOTSAPS , World Yoga associations , Flagbits technologies and many more . The recent online webinars  are conducted by alternative practitioners that include  - Ayurveda Experts , Energy Healing experts , Mental Health Counselors  etc .
         CUREYA primarily objective is ‘ Health for All ‘ , by reducing the medical expenditure , eliminating the information asymmetry , promoting health awareness and achieving inclusive and holistic approach for healthcare treatments . </string>
     <string name="about_us">About Us</string>
@@ -53,6 +52,8 @@
     <string name="confirm_user_details">Confirm User Details</string>
     <string name="continue_label">Continue</string>
     <string name="pin">PIN</string>
+
+    <!-- Settings Tab -->
     <string name="change_password">Change Password</string>
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm password</string>
@@ -77,4 +78,8 @@
     <string name="sign_out_dialog_text">Are you sure you want to sign out?</string>
     <string name="how_safe_is_my_data">How safe is my data</string>
     <string name="submit">Submit</string>
+
+    <!-- Relaxation -->
+    <string name="label_relaxation">Relaxation</string>
+    <string name="let_s_find_something_for_relaxation">Let\'s find something for Relaxation</string>
 </resources>

@@ -48,15 +48,14 @@ class SettingsFragment : Fragment() {
                 findNavController().navigate(R.id.action_settingsFragment_to_reportFragment)
             }
             signOutFrame.setOnClickListener {
-                showDialog(R.string.sign_out_dialog_text)
+                showDialog()
             }
         }
     }
 
-    private fun showDialog(dialogTextCode: Int) {
-        val dialogText = getString(dialogTextCode)
+    private fun showDialog() {
         val dialog = AlertDialog.Builder(requireContext())
-            .setMessage(dialogText)
+            .setMessage(R.string.sign_out_dialog_text)
             .setPositiveButton(R.string.ok) { _, _ ->
                 auth.signOut()
                 findNavController().navigateUp()

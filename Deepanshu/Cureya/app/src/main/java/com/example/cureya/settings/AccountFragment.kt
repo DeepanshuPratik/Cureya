@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -50,15 +49,14 @@ class AccountFragment : Fragment() {
                 goToHomeFragment()
             }
             signOutFrame.setOnClickListener {
-                showDialog(R.string.sign_out_dialog_text)
+                showDialog()
             }
         }
     }
 
-    private fun showDialog(dialogTextCode: Int) {
-        val dialogText = getString(dialogTextCode)
+    private fun showDialog() {
         val dialog = AlertDialog.Builder(requireContext())
-            .setMessage(dialogText)
+            .setMessage(R.string.sign_out_dialog_text)
             .setPositiveButton(R.string.ok) { _, _ ->
                 auth.signOut()
                 goToHomeFragment()
