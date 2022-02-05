@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/app.iml" filepath="$PROJECT_DIR$/.idea/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1735393892/Cureya.iml" filepath="$PROJECT_DIR$/.idea/modules/-1735393892/Cureya.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cureya.app.iml" filepath="$PROJECT_DIR$/.idea/modules/Cureya.app.iml" />
     </modules>
   </component>
 </project>
