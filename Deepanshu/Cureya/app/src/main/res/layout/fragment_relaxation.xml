@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="?attr/actionBarSize"
     tools:context=".relaxation.RelaxationFragment">
 
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="22dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="18dp"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -54,7 +54,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="24dp"
+            android:padding="16dp"
             android:background="@drawable/asset_relaxation_yoga">
 
             <ImageView
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="22dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="18dp"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -126,7 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="22dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -139,7 +139,7 @@
             android:id="@+id/music_frame"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_gravity="start"
             app:cardCornerRadius="18dp"
             app:layout_constraintHorizontal_weight="1"
@@ -174,7 +174,7 @@
             android:id="@+id/video_frame"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_gravity="end"
             app:cardCornerRadius="18dp"
             app:layout_constraintHorizontal_weight="1"
