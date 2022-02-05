@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/label_change_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="32dp"
+        android:padding="16dp"
+        android:fontFamily="@font/inria_serif_light"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:drawableStartCompat="@drawable/asset_cross"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/frame_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_change_details">
+
+        <EditText
+            android:id="@+id/frame_one_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frame_one">
+
+        <EditText
+            android:id="@+id/frame_two_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:visibility="invisible"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frame_two">
+
+        <EditText
+            android:id="@+id/frame_three_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/transparent" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:paddingVertical="12dp"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frame_three" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

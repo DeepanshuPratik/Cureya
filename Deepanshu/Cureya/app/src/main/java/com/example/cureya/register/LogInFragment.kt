@@ -1,4 +1,4 @@
-package com.example.cureya
+package com.example.cureya.register
 
 import android.content.ContentValues
 import android.content.Intent
@@ -11,26 +11,33 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.cureya.SignUpFragment.Companion.RC_SIGN_IN
-import com.example.cureya.SignUpFragment.Companion.TAG
-import com.example.cureya.Credentials.Credentials.Companion.CLIENT_ID
+import com.example.cureya.register.SignUpFragment.Companion.RC_SIGN_IN
+import com.example.cureya.register.SignUpFragment.Companion.TAG
+import com.example.cureya.R
+import com.example.cureya.register.SignUpFragment.Companion.USER_LIST
 import com.example.cureya.databinding.FragmentLogInBinding
+import com.example.cureya.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class LoginActivity : Fragment() {
+class LogInFragment : Fragment() {
 
     private lateinit var binding: FragmentLogInBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,13 +62,34 @@ class LoginActivity : Fragment() {
 
         binding.apply {
 
-            btnLogIn.setOnClickListener { signIn() }
-            Login.setOnClickListener { signIn() }
+            logIn.setOnClickListener { handleLogIn() }
+            googleLogIn.setOnClickListener { launchSignInIntent() }
             register.setOnClickListener { goToSignUpFragment() }
+            forgetPassword.setOnClickListener { goToForgetPassFragment() }
         }
     }
 
-    fun signIn() {
+    private fun handleLogIn() {
+        val email = binding.edtLogInEmail.text.toString().trim()
+        val password = binding.edtLogInPassword.text.toString().trim()
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    goToHomeFragment()
+                }
+            }
+            .addOnFailureListener {
+                when (it.message) {
+                    WRONG_PASSWORD_ERROR -> showToast("Password Incorrect")
+                    USER_VOID_ERROR -> showToast("User isn't registered with us")
+                    else -> showToast("Please check your credentials")
+                }
+                Log.e("LogInFragment", "Log in failure", it)
+            }
+    }
+
+    private fun launchSignInIntent() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
@@ -79,16 +107,14 @@ class LoginActivity : Fragment() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
-                Log.w(ContentValues.TAG, "Google sign in failed", e)
+                Log.e(ContentValues.TAG, "Google sign in failed", e)
             }
         }
     }
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
+        updateUI()
     }
 
     override fun onResume() {
@@ -105,15 +131,26 @@ class LoginActivity : Fragment() {
         bottomView.visibility = View.VISIBLE
     }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if(currentUser!=null) {
-            findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
-        } else {
-            Toast.makeText(context,"Login Failed", Toast.LENGTH_SHORT).show()
+    private fun showToast(text: String) {
+        Toast.makeText(
+            context,
+            text,
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun updateUI() {
+        val currentUser = auth.currentUser
+        if(currentUser != null) {
+            goToHomeFragment()
         }
     }
 
+    private fun goToHomeFragment() = findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+
     private fun goToSignUpFragment() = findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
+
+    private fun goToForgetPassFragment() = findNavController().navigate(R.id.action_logInFragment_to_forgetPasswordFragment)
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
@@ -121,16 +158,44 @@ class LoginActivity : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(context, "Sign in successful", Toast.LENGTH_LONG)
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
+                    val user = User(
+                        auth.currentUser?.displayName,
+                        auth.currentUser?.email,
+                        auth.currentUser?.photoUrl.toString(),
+                        null
+                    )
+                    addToUserBase(user)
+                    updateUI()
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    updateUI(null)
+                    showToast("Unexpected error occurred")
                 }
             }
+    }
+
+    private fun addToUserBase(user: User) {
+        db = Firebase.database
+        val newChildKey = auth.currentUser?.uid!!
+
+        db.reference.child(USER_LIST).child(newChildKey).apply {
+            addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.value == null) {
+                        this@apply.setValue(user)
+                        Log.w(TAG, "New user inserted to database")
+                    } else Log.w(TAG, "User already exists")
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e(TAG, "inside addToUserList()", error.toException())
+                }
+            })
+        }
+    }
+
+    companion object {
+        private const val WRONG_PASSWORD_ERROR =
+            "The password is invalid or the user does not have a password."
+        private const val USER_VOID_ERROR =
+            "There is no user record corresponding to this identifier. The user may have been deleted."
     }
 
 }

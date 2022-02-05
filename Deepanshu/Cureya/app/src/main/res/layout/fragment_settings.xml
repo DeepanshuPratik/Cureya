@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/label_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:drawablePadding="32dp"
+        android:padding="16dp"
+        android:fontFamily="@font/inria_serif_light"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:drawableStartCompat="@drawable/asset_cross"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/my_account_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_settings">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/my_account"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/support_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_account_frame">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/support_feedback"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/information_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/support_frame">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/useful_information"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/faq_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/information_frame">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/frequently_asked_questions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/report_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/faq_frame">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/report_a_problem"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/sign_out_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:backgroundTint="@color/colorPr"
+        android:layout_margin="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/sign_out"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/asset_sign_out" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

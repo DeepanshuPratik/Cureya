@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "499621120056",
+    "firebase_url": "https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "cureyadraft",
     "storage_bucket": "cureyadraft.appspot.com"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "499621120056-4341e7mr24jllojcc42r8r4n4dn0dugm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cureya",
+            "certificate_hash": "e7d68d3f9f50118fe67897254627a0e1dbf10cdd"
+          }
+        },
+        {
+          "client_id": "499621120056-gk8eummnekq9qibdn2q55k6puj7st57s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cureya",
+            "certificate_hash": "7cfabe51f5185aa674710bbbc6b5008b352eb8ee"
+          }
+        },
         {
           "client_id": "499621120056-kf78fg6or2nnl7qlq88nlllo2pc5691h.apps.googleusercontent.com",
           "client_type": 1,
