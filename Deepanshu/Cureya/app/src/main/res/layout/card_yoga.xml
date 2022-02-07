@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="12dp"
+        app:cardCornerRadius="18dp">
+
+        <ImageView
+            android:id="@+id/yoga_card_image"
+            android:layout_width="140dp"
+            android:layout_height="260dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/asset_yoga_card_vertical_bg" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/yoga_card_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:text="Tadasana" />
+
+</LinearLayout>

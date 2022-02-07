@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/label_faq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/frequently_asked_questions"
+        android:drawablePadding="32dp"
+        android:padding="16dp"
+        android:fontFamily="@font/inria_serif_light"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:drawableStartCompat="@drawable/asset_cross"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_faq"
+        tools:listitem="@layout/layout_settings_column"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

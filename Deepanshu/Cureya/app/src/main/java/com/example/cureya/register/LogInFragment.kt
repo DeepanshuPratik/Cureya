@@ -52,7 +52,7 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.ClientId))
             .requestEmail()
             .build()
 
@@ -161,7 +161,8 @@ class LogInFragment : Fragment() {
                     val user = User(
                         auth.currentUser?.displayName,
                         auth.currentUser?.email,
-                        auth.currentUser?.photoUrl.toString()
+                        auth.currentUser?.photoUrl.toString(),
+                        null
                     )
                     addToUserBase(user)
                     updateUI()
@@ -183,7 +184,6 @@ class LogInFragment : Fragment() {
                         Log.w(TAG, "New user inserted to database")
                     } else Log.w(TAG, "User already exists")
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Log.e(TAG, "inside addToUserList()", error.toException())
                 }

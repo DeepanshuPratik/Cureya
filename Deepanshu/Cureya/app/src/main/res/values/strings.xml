@@ -39,7 +39,6 @@
     <string name="chat_fragment">Chat Fragment</string>
     <string name="chatbot_fragment">ChatBot Fragment</string>
     <string name="community_fragment">Community Fragment</string>
-    <string name="relaxation_fragment">Relaxation Fragment</string>
     <string name="aboutus">CUREYA (registered as Aspexx Health solutions Pvt Ltd ) collaborated with stakeholders include - ROOTSKILLS , ROOTSAPS , World Yoga associations , Flagbits technologies and many more . The recent online webinars  are conducted by alternative practitioners that include  - Ayurveda Experts , Energy Healing experts , Mental Health Counselors  etc .
         CUREYA primarily objective is ‘ Health for All ‘ , by reducing the medical expenditure , eliminating the information asymmetry , promoting health awareness and achieving inclusive and holistic approach for healthcare treatments . </string>
     <string name="about_us">About Us</string>
@@ -55,6 +54,8 @@
     <string name="confirm_user_details">Confirm User Details</string>
     <string name="continue_label">Continue</string>
     <string name="pin">PIN</string>
+
+    <!-- Settings Tab -->
     <string name="change_password">Change Password</string>
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm password</string>
@@ -63,12 +64,34 @@
     <string name="support_feedback"><![CDATA[Support & Feedback]]></string>
     <string name="useful_information">Useful information</string>
     <string name="frequently_asked_questions">Frequently Asked Questions</string>
-    <string name="report_a_problem">Report a problem</string>
+    <string name="report_a_problem">Report a problem....</string>
     <string name="sign_out">Sign out</string>
     <string name="change_email_address">Change email address</string>
     <string name="manage_subscription">Manage Subscription</string>
     <string name="delete_account">Delete account</string>
     <string name="current_password">Current password</string>
     <string name="save">Save</string>
+    <string name="ok">OK</string>
+    <string name="no">NO</string>
+    <string name="active_mail_id">Active mail id</string>
+    <string name="enter_new_email_address">Enter New Email Address</string>
     <string name="confirm_new_email_address">Confirm New Email Address</string>
+    <string name="dialog_sign_out_warning_text">This action requires authentication. Proceed to sign out?</string>
+    <string name="sign_out_dialog_text">Are you sure you want to sign out?</string>
+    <string name="how_safe_is_my_data">How safe is my data</string>
+    <string name="submit">Submit</string>
+
+    <!-- Relaxation -->
+    <string name="label_relaxation">Relaxation</string>
+    <string name="let_s_find_something_for_relaxation">Let\'s find something for Relaxation</string>
+    <string name="music">Music</string>
+    <string name="we_recommend_you_favourite_music">We recommend you favourite music</string>
+    <string name="breathe_with_mindfulness">Breathe with\nMindfulness</string>
+    <string name="music_seconds">%d seconds</string>
+    <string name="video">Video</string>
+    <string name="we_recommend_you_favorite_video">We recommend you favorite video</string>
+    <string name="yoga">Yoga</string>
+    <string name="help_you_to_make_schedule_for_yoga">Help you to make schedule for yoga</string>
+    <string name="balasana">Balasana</string>
+    <string name="ClientId">499621120056-urjqhhbjki4nluchvno5f2elf9u5rphg.apps.googleusercontent.com</string>
 </resources>
