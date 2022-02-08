@@ -1,8 +1,11 @@
 package com.example.cureya.community.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
 
+@Parcelize
 data class Post(
     val postId:String = "",
     val caption: String ="",
@@ -15,8 +18,9 @@ data class Post(
     val profilePhoto: String="",
     val userName: String="",
     val tags: List<TAG> = listOf()
-)
+):Parcelable
 
-enum class TAG {
+@Parcelize
+enum class TAG : Parcelable {
     STRESS, ANXIETY, PARANOIA, PSYCHOSIS,DEPRESSION,
 }
