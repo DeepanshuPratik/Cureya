@@ -57,6 +57,7 @@
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/layout/text_view_emoji.xml" value="0.2056159420289855" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/menu/top_menu.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/asset_love.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/drawable/back_icon.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/chat_attach.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/chat_bar.xml" value="0.19166666666666668" />
@@ -96,6 +97,7 @@
         <entry key="app/src/main/res/layout/layout_community_dashboard.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/message_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/message_layout.xml" value="0.2234375" />
+        <entry key="app/src/main/res/layout/post_detail_fragment.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/tab_layout.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/tags_picker.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22604166666666667" />
