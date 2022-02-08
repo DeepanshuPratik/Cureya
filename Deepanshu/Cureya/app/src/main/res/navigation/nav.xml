@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.cureya.home.HomeFragment"
         android:label="Cureya"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
@@ -22,19 +22,19 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.cureya.chat.ChatFragment"
+        android:name="com.example.cureya.chat.ui.fragments.chat.ChatFragment"
         android:label="Cureya"
-        tools:layout="@layout/fragment_chat_list" />
+        tools:layout="@layout/fragment_one_on_one_chat">
+
+        <argument
+            android:name="User"
+            app:argType="com.example.cureya.chat.data.models.User" />
+    </fragment>
     <fragment
-        android:id="@+id/chatBotFragment"
-        android:name="com.example.cureya.chatbot.ChatBotFragment"
-        android:label="ChatBotFragment"
-        tools:layout="@layout/fragment_chatbot"/>
-    <fragment
-        android:id="@+id/communityFragment"
-        android:name="com.example.cureya.community.CommunityFragment"
+        android:id="@+id/chatbotFragment"
+        android:name="com.example.cureya.chatbot.ChatbotFragment"
         android:label="Cureya"
-        tools:layout="@layout/fragment_community_dashboard" />
+        tools:layout="@layout/fragment_chatbot" />
     <fragment
         android:id="@+id/relaxationFragment"
         android:name="com.example.cureya.relaxation.ui.RelaxationFragment"
@@ -78,6 +78,19 @@
         <action
             android:id="@+id/action_logInFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="com.example.cureya.chat.ui.fragments.chatList.ChatListFragment"
+        android:label="chat_list_fragment"
+        tools:layout="@layout/chat_list_fragment">
+        <action
+            android:id="@+id/action_chatListFragment_to_chatFragment"
+            app:destination="@id/chatFragment" >
+            <argument
+                android:name="User"
+                app:argType="com.example.cureya.chat.data.models.User" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
@@ -176,4 +189,26 @@
         android:name="com.example.cureya.relaxation.ui.YogaDetailsFragment"
         android:label="YogaDetailsFragment"
         tools:layout="@layout/fragment_relaxation_yoga_details" />
+    <fragment
+        android:id="@+id/createPost"
+        android:name="com.example.cureya.community.ui.fragment.create.CreatePost"
+        android:label="create_post_fragment"
+        tools:layout="@layout/create_post_fragment" />
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.example.cureya.community.ui.fragment.details.PostDetailFragment"
+        android:label="post_detail_fragment"
+        tools:layout="@layout/post_detail_fragment" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.cureya.community.ui.fragment.dashboard.CommunityFragment"
+        android:label="dashboard_fragment"
+        tools:layout="@layout/community_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_createPost"
+            app:destination="@id/createPost" />
+    </fragment>
 </navigation>
