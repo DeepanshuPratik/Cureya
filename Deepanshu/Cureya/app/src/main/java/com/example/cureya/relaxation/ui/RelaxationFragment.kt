@@ -1,4 +1,4 @@
-package com.example.cureya.relaxation
+package com.example.cureya.relaxation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,10 +28,23 @@ class RelaxationFragment : Fragment() {
             findNavController().navigate(R.id.action_relaxationFragment_to_yogaFragment)
         }
         binding.musicFrame.setOnClickListener {
-            findNavController().navigate(R.id.action_relaxationFragment_to_musicFragment)
+            findNavController().navigate(
+                RelaxationFragmentDirections.actionRelaxationFragmentToMusicVideoFragment(
+                    CONTENT_TYPE_MUSIC
+                )
+            )
         }
         binding.videoFrame.setOnClickListener {
-            findNavController().navigate(R.id.action_relaxationFragment_to_videoFragment)
+            findNavController().navigate(
+                RelaxationFragmentDirections.actionRelaxationFragmentToMusicVideoFragment(
+                    CONTENT_TYPE_VIDEO
+                )
+            )
         }
+    }
+
+    companion object {
+        const val CONTENT_TYPE_VIDEO = 44
+        const val CONTENT_TYPE_MUSIC = 42
     }
 }

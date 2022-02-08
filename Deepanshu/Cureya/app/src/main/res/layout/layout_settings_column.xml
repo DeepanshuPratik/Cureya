@@ -20,7 +20,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <ImageView
-        android:id="@+id/column_access"
+        android:id="@+id/column_access_button"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="8dp"

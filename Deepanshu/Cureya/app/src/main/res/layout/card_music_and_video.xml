@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -10,12 +11,13 @@
         app:cardCornerRadius="18dp">
         
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_background_container"
             android:layout_width="match_parent"
             android:layout_height="240dp"
-            android:background="@drawable/asset_relaxation_music_bg_one">
+            tools:background="@drawable/asset_relaxation_music_bg_one">
 
             <TextView
-                android:id="@+id/music_card_title"
+                android:id="@+id/content_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
@@ -27,7 +29,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/music_time_text_view"
+                android:id="@+id/content_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -36,9 +38,10 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/music_card_title" />
+                app:layout_constraintTop_toBottomOf="@id/content_title" />
 
             <ImageView
+                android:id="@+id/card_player"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
                 app:srcCompat="@drawable/ic_play"
@@ -46,6 +49,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
