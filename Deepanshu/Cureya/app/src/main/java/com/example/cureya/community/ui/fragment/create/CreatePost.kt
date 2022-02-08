@@ -124,8 +124,6 @@ class CreatePost : Fragment() {
             } else {
                 imageUri = null
                 binding.createPostLoading.visibility = View.GONE
-                Toast.makeText(requireContext(), "Post created successfully", Toast.LENGTH_SHORT)
-                    .show()
             }
         }
         viewModel.error.observe(viewLifecycleOwner) {
