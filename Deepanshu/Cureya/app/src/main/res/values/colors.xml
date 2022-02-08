@@ -14,4 +14,6 @@
     <color name="red">#FF0000</color>
     <color name="colorPr">#40C6A6</color>
     <color name="pd">#708B94</color>
+    <color name="text_primary">#000000</color>
+
 </resources>

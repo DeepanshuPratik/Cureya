@@ -36,11 +36,6 @@
         android:label="Cureya"
         tools:layout="@layout/fragment_chatbot" />
     <fragment
-        android:id="@+id/communityFragment"
-        android:name="com.example.cureya.community.CommunityFragment"
-        android:label="Cureya"
-        tools:layout="@layout/fragment_community_dashboard" />
-    <fragment
         android:id="@+id/relaxationFragment"
         android:name="com.example.cureya.relaxation.RelaxationFragment"
         android:label="Cureya"
@@ -186,4 +181,26 @@
         android:name="com.example.cureya.relaxation.YogaDetailsFragment"
         android:label="YogaDetailsFragment"
         tools:layout="@layout/fragment_relaxation_yoga_details" />
+    <fragment
+        android:id="@+id/createPost"
+        android:name="com.example.cureya.community.ui.fragment.create.CreatePost"
+        android:label="create_post_fragment"
+        tools:layout="@layout/create_post_fragment" />
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.example.cureya.community.ui.fragment.details.PostDetailFragment"
+        android:label="post_detail_fragment"
+        tools:layout="@layout/post_detail_fragment" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.cureya.community.ui.fragment.dashboard.CommunityFragment"
+        android:label="dashboard_fragment"
+        tools:layout="@layout/community_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_createPost"
+            app:destination="@id/createPost" />
+    </fragment>
 </navigation>
