@@ -1,6 +1,5 @@
 package com.example.cureya.community.ui.adapters
 
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.cureya.R
+import com.example.cureya.chat.utils.toDateString
 import com.example.cureya.community.models.Post
 import com.example.cureya.community.models.TAG
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlin.math.log
 
 class PostRecyclerAdapter(
     val likePost: (String) -> Unit,
@@ -25,7 +26,7 @@ class PostRecyclerAdapter(
     private val posts: MutableList<Post> = mutableListOf()
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    val originalPosts = mutableListOf<Post>()
+    private val originalPosts = mutableListOf<Post>()
 
     fun updateData(posts: List<Post>) {
         this.posts.clear()
@@ -38,8 +39,10 @@ class PostRecyclerAdapter(
     fun filterPosts(tag: TAG?) {
         this.posts.clear()
         if (tag != null) {
+            Log.d(TAG, "filterPosts: $tag")
             this.posts.addAll(originalPosts.filter { it.tags[0] == tag })
         } else {
+            Log.d(TAG, "filterPosts: $tag")
             this.posts.addAll(originalPosts)
         }
     }
@@ -75,11 +78,11 @@ class PostRecyclerAdapter(
             profilePhoto.load(post.profilePhoto)
             userName.text = post.userName
             postImage.load(post.photoUrl)
-            Log.d(TAG, "onBindViewHolder: ${post.photoUrl}")
             caption.text = post.caption
             likeCount.text = post.likes.size.toString()
             commentCount.text = post.comments.size.toString()
-            if(isLiked) like.setColorFilter(0xFF0000)
+            postTime.text = post.createdAt.toDateString()
+            if (isLiked) like.setImageResource(R.drawable.id_like_red) else like.setImageResource(R.drawable.asset_like)
             share.setOnClickListener {
                 share(post)
             }
@@ -88,7 +91,6 @@ class PostRecyclerAdapter(
             }
 
             like.setOnClickListener {
-                Log.d(TAG, "onBindViewHolder: ${post.postId}")
                 if (isLiked) unlikePost(post.postId) else likePost(post.postId)
             }
             comment.setOnClickListener {

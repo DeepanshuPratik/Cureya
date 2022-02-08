@@ -20,11 +20,10 @@ class DashboardViewModel : ViewModel() {
         FirebaseDatabase.getInstance("https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app").reference
 
     private val auth = FirebaseAuth.getInstance()
-    private val posts = MutableLiveData<List<Post>>();
-    private val _filter = MutableLiveData<TAG?>(null)
-    val filter: LiveData<TAG?> get() = _filter
+    private val _posts = MutableLiveData<List<Post>>(listOf());
+    val posts : LiveData<List<Post>> get() = _posts
 
-    fun getPosts(): LiveData<List<Post>> = posts;
+    val filter = MutableLiveData<TAG?>(null)
 
     init {
         loadPosts()
@@ -69,7 +68,7 @@ class DashboardViewModel : ViewModel() {
             database.child("community").child("posts")
                 .get().await().children.map { it.getValue(Post::class.java)!! }.reversed()
                 .let {
-                    posts.value = it
+                    _posts.value = it
                 }
             listenForPostsValueChange()
         }
@@ -83,7 +82,7 @@ class DashboardViewModel : ViewModel() {
                 if (dataSnapshot.exists()) {
                     val postList =
                         dataSnapshot.children.map { it.getValue(Post::class.java)!! }.reversed()
-                    posts.value = postList
+                    _posts.value = postList
                 } else {
 
                 }

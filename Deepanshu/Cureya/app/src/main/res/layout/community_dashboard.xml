@@ -30,7 +30,7 @@
             android:outlineProvider="paddedBounds"
             android:paddingHorizontal="16dp" />
 
-        <include layout="@layout/tags_picker" />
+        <include android:id="@+id/tag_picker" layout="@layout/tags_picker" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/post_recycler_view"
