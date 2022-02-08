@@ -1,0 +1,49 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".community.ui.fragment.dashboard.CommunityFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/dashboard_header"
+            layout="@layout/layout_community_dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/community_search_box"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/search_bar_background"
+            android:backgroundTint="@color/white"
+            android:drawableEnd="@drawable/ic_search"
+            android:elevation="24dp"
+            android:hint="@string/search_the_community"
+            android:outlineProvider="paddedBounds"
+            android:paddingHorizontal="16dp" />
+
+        <include layout="@layout/tags_picker" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/post_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="10"
+            tools:listitem="@layout/community_post_card" />
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>
