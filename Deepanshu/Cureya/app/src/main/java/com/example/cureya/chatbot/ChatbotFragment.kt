@@ -78,12 +78,12 @@ class ChatbotFragment : Fragment() {
     private fun sendMessage(){
         val message: String = etmessage.text.toString()
         if (message.isNotEmpty()) {
+            addMessageToList(message, false)
             if(messageList.isNotEmpty()) {
                 requireView().findViewById<TextView>(R.id.welcome).visibility = View.GONE
                 requireView().findViewById<ImageView>(R.id.chatbot).visibility = View.GONE
                 requireView().findViewById<TextView>(R.id.Intro).visibility = View.GONE
             }
-            addMessageToList(message, false)
             sendMessageToBot(message)
         } else {
             Toast.makeText(activity, "Please enter text!", Toast.LENGTH_SHORT).show()
