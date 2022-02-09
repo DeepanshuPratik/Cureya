@@ -21,7 +21,7 @@ class DashboardViewModel : ViewModel() {
 
     private val auth = FirebaseAuth.getInstance()
     private val _posts = MutableLiveData<List<Post>>(listOf());
-    val posts : LiveData<List<Post>> get() = _posts
+    val posts: LiveData<List<Post>> get() = _posts
 
     val filter = MutableLiveData<TAG?>(null)
 
@@ -89,6 +89,15 @@ class DashboardViewModel : ViewModel() {
             }
         }
         database.child("community").child("posts").addValueEventListener(postsValueListener)
+    }
+
+
+    fun deletePost(post: Post) {
+        if (post.userId == auth.uid!!) {
+            viewModelScope.launch {
+                database.child("community").child("posts").child(post.postId).removeValue().await()
+            }
+        }
     }
 
     companion object {

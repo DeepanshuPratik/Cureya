@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:elevation="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="16dp">
+        android:paddingVertical="8dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/post_user_image"
+            android:layout_marginHorizontal="8dp"
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,8 +61,7 @@
             android:paddingHorizontal="8dp"
             android:textColor="@android:color/holo_green_dark"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/post_user_image"
-            app:layout_constraintStart_toEndOf="@id/post_card_user_time"
+            app:layout_constraintEnd_toEndOf="@+id/post_card_username"
             app:layout_constraintTop_toBottomOf="@id/post_card_username"
             tools:text="Rachel" />
 
@@ -78,8 +79,10 @@
         <ImageView
             android:id="@+id/post_card_photo"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:layout_marginHorizontal="8dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="320dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
             android:layout_marginVertical="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,8 +93,8 @@
             android:id="@+id/post_card_caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:paddingVertical="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +105,6 @@
             android:id="@+id/post_card_like_frame"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/post_card_love_frame"
@@ -157,7 +159,6 @@
             android:id="@+id/post_card_comment_frame"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/post_share"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -185,7 +186,6 @@
             android:id="@+id/post_share"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginVertical="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

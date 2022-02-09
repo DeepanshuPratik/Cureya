@@ -198,7 +198,11 @@
         android:id="@+id/postDetailFragment"
         android:name="com.example.cureya.community.ui.fragment.details.PostDetailFragment"
         android:label="post_detail_fragment"
-        tools:layout="@layout/post_detail_fragment" />
+        tools:layout="@layout/post_detail_fragment" >
+        <argument
+            android:name="Post"
+            app:argType="com.example.cureya.community.models.Post" />
+    </fragment>
     <fragment
         android:id="@+id/communityFragment"
         android:name="com.example.cureya.community.ui.fragment.dashboard.CommunityFragment"
