@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/user_image"
+        android:id="@+id/comment_user_image"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,12 +15,12 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:textColor="@color/text_primary"
-        android:layout_marginHorizontal="8dp"
-        android:id="@+id/textView5"
+        android:id="@+id/comment_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/user_image"
+        android:layout_marginHorizontal="8dp"
+        android:textColor="@color/text_primary"
+        app:layout_constraintStart_toEndOf="@+id/comment_user_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Jack" />
 
@@ -31,7 +31,7 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="4dp"
         android:background="@color/gray_700"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/comment_user_name"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -50,7 +50,7 @@
         android:layout_margin="8dp"
         android:text="@string/madeinindia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/user_image"
+        app:layout_constraintStart_toEndOf="@+id/comment_user_image"
         app:layout_constraintTop_toBottomOf="@+id/comment_time" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

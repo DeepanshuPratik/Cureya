@@ -109,7 +109,7 @@
             tools:src="@tools:sample/avatars" />
 
         <EditText
-            android:id="@+id/community_search_box"
+            android:id="@+id/comment_input"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginHorizontal="8dp"
@@ -119,9 +119,9 @@
             android:paddingHorizontal="16dp" />
 
         <ImageButton
-            android:id="@+id/post_card_menu_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:id="@+id/send_comment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/actionBarItemBackground"
             android:src="@drawable/ic_send"
             app:layout_constraintBottom_toBottomOf="@id/post_user_image"
