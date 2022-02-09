@@ -1,3 +1,3 @@
 package com.example.cureya.chatbot
 
-data class Message(val message: String, val id: String, val time: String)
+data class Message(val message: String, val isReceived: Boolean , val time: String)
