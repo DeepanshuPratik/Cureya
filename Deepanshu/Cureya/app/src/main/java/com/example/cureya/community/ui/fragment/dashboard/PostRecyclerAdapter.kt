@@ -1,4 +1,4 @@
-package com.example.cureya.community.ui.adapters
+package com.example.cureya.community.ui.fragment.dashboard
 
 import android.util.Log
 import android.view.LayoutInflater

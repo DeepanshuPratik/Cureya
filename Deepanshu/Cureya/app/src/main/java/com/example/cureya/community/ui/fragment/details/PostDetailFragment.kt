@@ -12,14 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.cureya.R
 import com.example.cureya.chat.utils.toDateString
-import com.example.cureya.community.ui.adapters.CommentsRecyclerAdapter
 import com.example.cureya.databinding.PostDetailFragmentBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class PostDetailFragment : Fragment() {
 
     private lateinit var viewModel: PostDetailViewModel
-    private lateinit var commentsRecyclerAdapter: CommentsRecyclerAdapter
+    private lateinit var commentRecyclerAdapter: CommentRecyclerAdapter
 
     private var _binding: PostDetailFragmentBinding? = null
     private val binding get() = _binding!!
@@ -42,7 +41,7 @@ class PostDetailFragment : Fragment() {
     }
 
     private fun initMembers() {
-        commentsRecyclerAdapter = CommentsRecyclerAdapter()
+        commentRecyclerAdapter = CommentRecyclerAdapter()
         viewModel = ViewModelProvider(this)[PostDetailViewModel::class.java]
         val post = PostDetailFragmentArgs.fromBundle(requireArguments()).post
         viewModel.initData(post)
@@ -73,14 +72,14 @@ class PostDetailFragment : Fragment() {
         binding.userImage.load(auth.currentUser!!.photoUrl)
         binding.postCard.postCardMenuButton.visibility = GONE
         binding.commentsRecycler.apply {
-            adapter = commentsRecyclerAdapter
+            adapter = commentRecyclerAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
     private fun observeData() {
         viewModel.comment.observe(viewLifecycleOwner) {
-            this.commentsRecyclerAdapter.updateData(it)
+            this.commentRecyclerAdapter.updateData(it)
         }
         viewModel.post.observe(viewLifecycleOwner) { post ->
             val isLiked = post.likes.contains(auth.uid!!)

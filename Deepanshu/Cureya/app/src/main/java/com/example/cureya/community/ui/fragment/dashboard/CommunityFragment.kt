@@ -13,9 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cureya.R
-import com.example.cureya.chat.ui.fragments.chatList.ChatListFragmentDirections
 import com.example.cureya.community.models.TAG
-import com.example.cureya.community.ui.adapters.PostRecyclerAdapter
 import com.example.cureya.databinding.CommunityDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
 
