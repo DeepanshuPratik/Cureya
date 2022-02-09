@@ -37,18 +37,15 @@
         tools:layout="@layout/fragment_chatbot" />
     <fragment
         android:id="@+id/relaxationFragment"
-        android:name="com.example.cureya.relaxation.RelaxationFragment"
+        android:name="com.example.cureya.relaxation.ui.RelaxationFragment"
         android:label="Cureya"
         tools:layout="@layout/fragment_relaxation" >
         <action
             android:id="@+id/action_relaxationFragment_to_yogaFragment"
             app:destination="@id/yogaFragment" />
         <action
-            android:id="@+id/action_relaxationFragment_to_musicFragment"
-            app:destination="@id/musicFragment" />
-        <action
-            android:id="@+id/action_relaxationFragment_to_videoFragment"
-            app:destination="@id/videoFragment" />
+            android:id="@+id/action_relaxationFragment_to_musicVideoFragment"
+            app:destination="@id/musicVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
@@ -158,8 +155,29 @@
         android:label="ReportFragment"
         tools:layout="@layout/fragment_settings_report" />
     <fragment
+        android:id="@+id/musicVideoFragment"
+        android:name="com.example.cureya.relaxation.ui.MusicVideoFragment"
+        android:label="VideoFragment"
+        tools:layout="@layout/fragment_relaxation_music_video" >
+        <argument
+            android:name="content_type"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_musicVideoFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.cureya.relaxation.ui.VideoFragment"
+        android:label="VideoFragment"
+        tools:layout="@layout/fragment_relaxation_video" >
+        <argument
+            android:name="video_url"
+            app:argType="string" />
+    </fragment>
+    <fragment
         android:id="@+id/yogaFragment"
-        android:name="com.example.cureya.relaxation.YogaFragment"
+        android:name="com.example.cureya.relaxation.ui.YogaFragment"
         android:label="YogaFragment"
         tools:layout="@layout/fragment_relaxation_yoga" >
         <action
@@ -167,18 +185,8 @@
             app:destination="@id/yogaDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/musicFragment"
-        android:name="com.example.cureya.relaxation.MusicFragment"
-        android:label="MusicFragment"
-        tools:layout="@layout/fragment_relaxation_music" />
-    <fragment
-        android:id="@+id/videoFragment"
-        android:name="com.example.cureya.relaxation.VideoFragment"
-        android:label="VideoFragment"
-        tools:layout="@layout/fragment_relaxation_video" />
-    <fragment
         android:id="@+id/yogaDetailsFragment"
-        android:name="com.example.cureya.relaxation.YogaDetailsFragment"
+        android:name="com.example.cureya.relaxation.ui.YogaDetailsFragment"
         android:label="YogaDetailsFragment"
         tools:layout="@layout/fragment_relaxation_yoga_details" />
     <fragment

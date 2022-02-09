@@ -1,4 +1,4 @@
-package com.example.cureya.relaxation
+package com.example.cureya.relaxation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

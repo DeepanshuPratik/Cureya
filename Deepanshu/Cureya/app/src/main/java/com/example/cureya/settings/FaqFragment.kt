@@ -10,6 +10,7 @@ import com.example.cureya.databinding.FragmentSettingsFaqsBinding
 class FaqFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsFaqsBinding
+    private var buttonClickCount = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,4 +20,17 @@ class FaqFragment : Fragment() {
         binding = FragmentSettingsFaqsBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.columnAccessButton.setOnClickListener {
+            if (buttonClickCount % 2 != 0) {
+                binding.answerTextView.visibility = View.VISIBLE
+            } else {
+                binding.answerTextView.visibility = View.GONE
+            }
+            buttonClickCount++
+        }
+    }*/
 }

@@ -1,22 +1,22 @@
-package com.example.cureya.relaxation
+package com.example.cureya.relaxation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cureya.databinding.FragmentRelaxationVideoBinding
+import com.example.cureya.databinding.FragmentRelaxationYogaBinding
 
-class VideoFragment : Fragment() {
+class YogaFragment : Fragment() {
 
-    private lateinit var binding: FragmentRelaxationVideoBinding
+    private lateinit var binding: FragmentRelaxationYogaBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRelaxationVideoBinding.inflate(inflater, container, false)
+        binding = FragmentRelaxationYogaBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
