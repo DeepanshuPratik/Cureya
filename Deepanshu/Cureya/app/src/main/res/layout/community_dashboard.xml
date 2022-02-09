@@ -21,11 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="4dp"
+            android:layout_marginVertical="8dp"
             android:background="@drawable/search_bar_background"
-            android:backgroundTint="@color/white"
             android:drawableEnd="@drawable/ic_search"
-            android:elevation="24dp"
+            android:elevation="0dp"
             android:hint="@string/search_the_community"
             android:outlineProvider="paddedBounds"
             android:paddingHorizontal="16dp" />

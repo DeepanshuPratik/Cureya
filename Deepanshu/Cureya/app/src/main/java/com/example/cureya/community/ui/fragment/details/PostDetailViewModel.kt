@@ -16,6 +16,8 @@ class PostDetailViewModel : ViewModel() {
     private val database =
         FirebaseDatabase.getInstance("https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app").reference
 
+
+
     private val auth = FirebaseAuth.getInstance()
     fun likePost(postId: String) {
         viewModelScope.launch {

@@ -53,9 +53,8 @@ class PostDetailFragment : Fragment() {
             if (isLiked) postLike.setImageResource(R.drawable.id_like_red) else postLike.setImageResource(R.drawable.asset_like)
             postCardLikeCount.text = post.likes.size.toString()
             postCardCommentCount.text = post.comments.size.toString()
-
-
         }
+        binding.userImage.load(auth.currentUser!!.photoUrl)
     }
 
 }
