@@ -188,7 +188,11 @@
         android:id="@+id/yogaDetailsFragment"
         android:name="com.example.cureya.relaxation.ui.YogaDetailsFragment"
         android:label="YogaDetailsFragment"
-        tools:layout="@layout/fragment_relaxation_yoga_details" />
+        tools:layout="@layout/fragment_relaxation_yoga_details" >
+        <argument
+            android:name="item_title"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/createPost"
         android:name="com.example.cureya.community.ui.fragment.create.CreatePost"
