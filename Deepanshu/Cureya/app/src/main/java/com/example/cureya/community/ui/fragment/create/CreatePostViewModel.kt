@@ -51,7 +51,7 @@ class CreatePostViewModel : ViewModel() {
                     caption = caption,
                     userId = auth.uid!!,
                     likes = listOf(),
-                    comments = listOf(),
+                    commentCount = 0,
                     shares = 0,
                     createdAt = Date(),
                     userName = auth.currentUser!!.displayName!!,
