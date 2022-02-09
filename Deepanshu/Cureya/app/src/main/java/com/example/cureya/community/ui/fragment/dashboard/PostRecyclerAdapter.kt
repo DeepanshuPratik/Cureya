@@ -1,4 +1,4 @@
-package com.example.cureya.community.ui.adapters
+package com.example.cureya.community.ui.fragment.dashboard
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,13 +14,13 @@ import com.example.cureya.community.models.Post
 import com.example.cureya.community.models.TAG
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlin.math.log
 
 class PostRecyclerAdapter(
     val likePost: (String) -> Unit,
     val unlikePost: (String) -> Unit,
     val share: (Post) -> Unit,
     val onPostClick: (Post) -> Unit,
+    val showMenu : (View,Post) -> Unit
 ) : RecyclerView.Adapter<PostRecyclerAdapter.PostViewHolder>() {
 
     private val posts: MutableList<Post> = mutableListOf()
@@ -80,14 +80,18 @@ class PostRecyclerAdapter(
             postImage.load(post.photoUrl)
             caption.text = post.caption
             likeCount.text = post.likes.size.toString()
-            commentCount.text = post.comments.size.toString()
+            commentCount.text = post.commentCount.toString()
             postTime.text = post.createdAt.toDateString()
+            profession.text = post.tags[0].name
             if (isLiked) like.setImageResource(R.drawable.id_like_red) else like.setImageResource(R.drawable.asset_like)
+            postImage.setOnClickListener {
+                onPostClick(post)
+            }
             share.setOnClickListener {
                 share(post)
             }
             menu.setOnClickListener {
-
+                showMenu(it,post)
             }
 
             like.setOnClickListener {
