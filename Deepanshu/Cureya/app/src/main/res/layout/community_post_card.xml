@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="4dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:elevation="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,9 +17,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/post_user_image"
-            android:layout_marginHorizontal="8dp"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginHorizontal="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
@@ -30,25 +30,18 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/post_user_image"
             app:layout_constraintTop_toTopOf="@id/post_user_image"
             tools:text="Happy Rangers" />
 
-        <TextView
-            android:id="@+id/post_card_user_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp"
-            app:layout_constraintBottom_toBottomOf="@id/post_user_image"
-            app:layout_constraintStart_toStartOf="@id/post_card_username"
-            app:layout_constraintTop_toBottomOf="@id/post_card_username"
-            tools:text="04:12." />
 
         <TextView
             android:id="@+id/post_card_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/post_user_image"
             app:layout_constraintStart_toStartOf="@id/post_card_username"
             app:layout_constraintTop_toBottomOf="@id/post_card_username"
@@ -58,11 +51,13 @@
             android:id="@+id/post_card_userprofession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp"
+            android:layout_marginHorizontal="8dp"
             android:textColor="@android:color/holo_green_dark"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/post_card_username"
-            app:layout_constraintTop_toBottomOf="@id/post_card_username"
+            app:layout_constraintBottom_toBottomOf="@+id/post_card_time"
+            app:layout_constraintStart_toEndOf="@+id/post_card_time"
+            app:layout_constraintTop_toTopOf="@+id/post_card_time"
             tools:text="Rachel" />
 
         <ImageButton
@@ -80,10 +75,10 @@
             android:id="@+id/post_card_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="12dp"
+            android:adjustViewBounds="true"
             android:maxHeight="320dp"
             android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:layout_marginVertical="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/post_user_image"
@@ -116,8 +111,8 @@
                 android:id="@+id/post_like"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="?attr/actionBarItemBackground"
                 android:layout_gravity="start"
+                android:background="?attr/actionBarItemBackground"
                 app:srcCompat="@drawable/asset_like" />
 
             <TextView
@@ -139,19 +134,19 @@
             app:layout_constraintTop_toBottomOf="@+id/post_card_caption">
 
             <ImageView
-                android:background="?attr/actionBarItemBackground"
                 android:id="@+id/post_love"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:layout_gravity="start"
+                android:background="?attr/actionBarItemBackground"
                 app:srcCompat="@drawable/asset_love" />
 
             <TextView
                 android:id="@+id/post_card_love_count"
                 android:layout_width="wrap_content"
-                android:background="?attr/actionBarItemBackground"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center_vertical"
+                android:background="?attr/actionBarItemBackground"
                 tools:text="24" />
         </FrameLayout>
 
@@ -166,11 +161,11 @@
             app:layout_constraintTop_toBottomOf="@+id/post_card_caption">
 
             <ImageView
-                android:background="?attr/actionBarItemBackground"
                 android:id="@+id/post_comment"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="start"
+                android:background="?attr/actionBarItemBackground"
                 app:srcCompat="@drawable/asset_comment" />
 
             <TextView
@@ -182,11 +177,11 @@
         </FrameLayout>
 
         <ImageView
-            android:background="?attr/actionBarItemBackground"
             android:id="@+id/post_share"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
+            android:background="?attr/actionBarItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread_inside"

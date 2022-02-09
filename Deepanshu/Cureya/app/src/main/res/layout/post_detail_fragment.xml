@@ -104,8 +104,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             tools:src="@tools:sample/avatars" />
 
         <EditText
@@ -121,7 +121,7 @@
         <ImageButton
             android:id="@+id/send_comment_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="?attr/actionBarItemBackground"
             android:src="@drawable/ic_send"
             app:layout_constraintBottom_toBottomOf="@id/post_user_image"
