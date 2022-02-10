@@ -24,22 +24,28 @@
                 android:id="@+id/toolbar_content_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/hello"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="2dp"
                     android:text="@string/hello"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/userinfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/hello"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/hello"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="24sp" />
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile"
                     android:layout_width="42dp"
