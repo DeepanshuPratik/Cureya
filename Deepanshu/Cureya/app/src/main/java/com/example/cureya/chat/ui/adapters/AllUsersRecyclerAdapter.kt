@@ -17,7 +17,8 @@ import com.example.cureya.chat.utils.toDateString
 
 class AllUsersRecyclerAdapter(
     private val context: Context,
-    private val onClick: (User) -> Unit
+    private val onClick: (User) -> Unit,
+    private val onProfileClick : (String)->Unit
 ) :
     RecyclerView.Adapter<AllUsersRecyclerAdapter.AllUsersViewHolder>() {
     private val users: MutableList<User> = mutableListOf()
@@ -50,6 +51,7 @@ class AllUsersRecyclerAdapter(
         holder.messageTime.text = users[position].lastMessage?.createdAt?.toDateString()
         holder.greenTick.visibility = if (users[position].isCounselor) View.VISIBLE else View.GONE
         holder.itemView.setOnClickListener { onClick(users[position]) }
+        holder.userImage.setOnClickListener {  }
     }
 
     override fun getItemCount(): Int {

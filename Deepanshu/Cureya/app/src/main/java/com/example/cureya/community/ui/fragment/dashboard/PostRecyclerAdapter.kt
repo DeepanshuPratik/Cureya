@@ -20,7 +20,8 @@ class PostRecyclerAdapter(
     val unlikePost: (String) -> Unit,
     val share: (Post) -> Unit,
     val onPostClick: (Post) -> Unit,
-    val showMenu : (View,Post) -> Unit
+    val showMenu: (View, Post) -> Unit,
+    val onProfileClick: (userId: String) -> Unit
 ) : RecyclerView.Adapter<PostRecyclerAdapter.PostViewHolder>() {
 
     private val posts: MutableList<Post> = mutableListOf()
@@ -91,7 +92,7 @@ class PostRecyclerAdapter(
                 share(post)
             }
             menu.setOnClickListener {
-                showMenu(it,post)
+                showMenu(it, post)
             }
 
             like.setOnClickListener {
@@ -101,7 +102,7 @@ class PostRecyclerAdapter(
 
             }
             profilePhoto.setOnClickListener {
-
+                onProfileClick(post.userId)
             }
         }
     }

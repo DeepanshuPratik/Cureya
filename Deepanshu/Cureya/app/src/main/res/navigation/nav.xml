@@ -29,6 +29,9 @@
         <argument
             android:name="User"
             app:argType="com.example.cureya.chat.data.models.User" />
+        <action
+            android:id="@+id/action_chatFragment_to_personalProfile"
+            app:destination="@id/personalProfile" />
     </fragment>
     <fragment
         android:id="@+id/chatbotFragment"
@@ -91,6 +94,9 @@
                 android:name="User"
                 app:argType="com.example.cureya.chat.data.models.User" />
         </action>
+        <action
+            android:id="@+id/action_chatListFragment_to_personalProfile"
+            app:destination="@id/personalProfile" />
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
@@ -202,6 +208,10 @@
         <argument
             android:name="Post"
             app:argType="com.example.cureya.community.models.Post" />
+
+        <action
+            android:id="@+id/action_postDetailFragment_to_personalProfile"
+            app:destination="@id/personalProfile" />
     </fragment>
     <fragment
         android:id="@+id/communityFragment"
@@ -214,5 +224,17 @@
         <action
             android:id="@+id/action_dashboardFragment_to_createPost"
             app:destination="@id/createPost" />
+        <action
+            android:id="@+id/action_communityFragment_to_personalProfile"
+            app:destination="@id/personalProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalProfile"
+        android:name="com.example.cureya.profile.personal.PersonalProfile"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -31,6 +31,7 @@ class ChatFragment : Fragment() {
     private lateinit var sendButton: ImageView
     private lateinit var chatRecyclerView: RecyclerView
     private lateinit var chatRecyclerAdapter: ChatRecyclerAdapter
+    private lateinit var userImage : ImageView
 
 
     override fun onCreateView(
@@ -61,6 +62,7 @@ class ChatFragment : Fragment() {
         sendButton = view.findViewById(R.id.send_button)
         chatRecyclerView = view.findViewById(R.id.chat_recycler)
         chatRecyclerAdapter = ChatRecyclerAdapter(auth.uid!!)
+        userImage = view.findViewById(R.id.user_name)
     }
 
     private fun setupRecycler() {
@@ -81,6 +83,7 @@ class ChatFragment : Fragment() {
             }
         }
         sendButton.setOnClickListener { sendMessage() }
+
     }
 
     private fun sendMessage() {
