@@ -37,7 +37,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/hello"
-                    android:text="Sample"
                     android:layout_marginStart="8dp"
                     android:textColor="@color/black"
                     android:textSize="32sp" />

@@ -2,13 +2,12 @@ package com.example.cureya.home
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +16,8 @@ import com.example.cureya.databinding.FragmentHomeBinding
 import com.example.cureya.home.data.blog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment(),blogitemClicked {
@@ -24,6 +25,7 @@ class HomeFragment : Fragment(),blogitemClicked {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var blogRecyclerView: RecyclerView
+    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,9 +37,9 @@ class HomeFragment : Fragment(),blogitemClicked {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth=Firebase.auth
+        database= FirebaseDatabase.getInstance("https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app").reference
 
-        auth = Firebase.auth
-        val user=auth.currentUser
         binding.homeContextualMenu.setOnClickListener { showMenuPopUp(it) }
         binding.webLink.setOnClickListener {
             openweblink()
@@ -57,7 +59,7 @@ class HomeFragment : Fragment(),blogitemClicked {
         binding.twitterLink.setOnClickListener {
             opentwitterlink()
         }
-        binding.userinfo.setText(user?.displayName)
+        getusername()
         initMembers(view)
         val images= listOf<blog>(
             blog("Mental Health Disorders and How to Overcome",R.drawable.frame_546, "https://cureya.blogspot.com/2021/10/mental-health-disorders-how-to-overcome.html"),
@@ -70,7 +72,15 @@ class HomeFragment : Fragment(),blogitemClicked {
         blogRecyclerView.setHasFixedSize(true)
         blogRecyclerView.adapter = blogAdapter(this,images)
     }
-
+    private fun getusername(){
+        var username=""
+        val user=auth.currentUser
+        val uid= user?.uid.toString()
+        database.child("users").child(uid).get().addOnSuccessListener {
+                    username=it.child("name").value.toString()
+        }
+        binding.userinfo.text=username
+    }
     private fun opentwitterlink() {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
