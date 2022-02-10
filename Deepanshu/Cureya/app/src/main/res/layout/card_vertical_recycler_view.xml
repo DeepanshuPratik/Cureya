@@ -11,7 +11,7 @@
             android:id="@+id/vertical_recycler_view_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="8dp"
             android:paddingVertical="8dp">
 
             <FrameLayout
@@ -28,7 +28,7 @@
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     tools:src="@drawable/ic_account_profile"
-                    tools:tint="@android:color/darker_gray"
+                    tools:tint="@android:color/holo_green_light"
                     tools:backgroundTint="@color/white" />
             </FrameLayout>
 
@@ -67,9 +67,9 @@
 
             <FrameLayout
                 android:id="@+id/message_status_container"
-                android:layout_width="24dp"
+                android:layout_width="18dp"
                 android:padding="4dp"
-                android:layout_height="24dp"
+                android:layout_height="18dp"
                 android:background="@drawable/message_chat_background"
                 app:layout_constraintTop_toTopOf="@id/profile_pic_background"
                 app:layout_constraintBottom_toBottomOf="@id/profile_pic_background"

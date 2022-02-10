@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:id="@+id/header_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageButton
+            android:id="@+id/dashboard_back_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|start"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="Back Button"
+            app:srcCompat="@drawable/asset_back" />
+
+        <TextView
+            android:id="@+id/community_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_gravity="top|center_horizontal"
+            android:text="Contact Us" />
+
+        <ImageButton
+            android:id="@+id/dashboard_menu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|end"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="Menu"
+            app:srcCompat="@drawable/asset_menu" />
+
+    </FrameLayout>
+    <ImageView
+        android:id="@+id/company_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        android:paddingTop="80dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_contact"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/cureya_logo" />
+    <TextView
+        android:id="@+id/contact_edit"
+        app:layout_constraintTop_toBottomOf="@id/company_logo"
+        android:text="Contact Us"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_edit"
+        android:textSize="18sp"
+        android:text="We are happy to help you"
+        android:layout_height="wrap_content"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

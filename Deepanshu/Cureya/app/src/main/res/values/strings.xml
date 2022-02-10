@@ -95,4 +95,16 @@
     <string name="balasana">Balasana</string>
     <string name="ClientId">499621120056-urjqhhbjki4nluchvno5f2elf9u5rphg.apps.googleusercontent.com</string>
     <string name="write_your_post">Write your post........</string>
+    <string name="hello">Hello,</string>
+    <string name="note_your_mood_today">Note Your Mood Today</string>
+    <string name="moods">Moods</string>
+    <string name="blogs">Blogs</string>
+    
+    <string-array name="blog_name">
+        <item>Mental Health Disorders and How to Overcome them</item>
+        <item>What is Depression, Symptoms, Know all</item>
+        <item>Foods that Relieve Anxiety</item>
+        <item>Music &amp; Our Mind</item>
+        <item>Good Food Good Mood</item>
+    </string-array>
 </resources>
