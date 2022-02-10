@@ -93,6 +93,8 @@
     <string name="yoga">Yoga</string>
     <string name="help_you_to_make_schedule_for_yoga">Help you to make schedule for yoga</string>
     <string name="balasana">Balasana</string>
+
     <string name="ClientId">499621120056-urjqhhbjki4nluchvno5f2elf9u5rphg.apps.googleusercontent.com</string>
     <string name="write_your_post">Write your post........</string>
+    <string name="playing_now">Playing Now</string>
 </resources>

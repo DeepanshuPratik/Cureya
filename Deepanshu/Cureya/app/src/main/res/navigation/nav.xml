@@ -165,6 +165,9 @@
         <action
             android:id="@+id/action_musicVideoFragment_to_videoFragment"
             app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_musicVideoFragment_to_musicFragment"
+            app:destination="@id/musicFragment" />
     </fragment>
     <fragment
         android:id="@+id/videoFragment"
@@ -218,5 +221,20 @@
         <action
             android:id="@+id/action_dashboardFragment_to_createPost"
             app:destination="@id/createPost" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.example.cureya.relaxation.ui.MusicFragment"
+        android:label="MusicFragment"
+        tools:layout="@layout/fragment_relaxation_music" >
+        <argument
+            android:name="content_url"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="thumbnail_url"
+            app:argType="string" />
     </fragment>
 </navigation>
