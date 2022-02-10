@@ -1,5 +1,6 @@
 package com.example.cureya.community.ui.fragment.dashboard
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -84,7 +85,8 @@ class PostRecyclerAdapter(
             commentCount.text = post.commentCount.toString()
             postTime.text = post.createdAt.toDateString()
             profession.text = post.tags[0].name
-            if (isLiked) like.setImageResource(R.drawable.id_like_red) else like.setImageResource(R.drawable.asset_like)
+            if (!isLiked) like.setColorFilter(Color.argb(255, 64, 64, 64))
+            else like.setColorFilter(Color.argb(255, 255, 0, 0))
             postImage.setOnClickListener {
                 onPostClick(post)
             }

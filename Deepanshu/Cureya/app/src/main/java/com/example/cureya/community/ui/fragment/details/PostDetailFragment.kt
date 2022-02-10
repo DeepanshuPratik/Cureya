@@ -1,22 +1,23 @@
 package com.example.cureya.community.ui.fragment.details
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
-import com.example.cureya.MainActivity
 import com.example.cureya.R
 import com.example.cureya.chat.utils.toDateString
-import com.example.cureya.community.ui.fragment.dashboard.CommunityFragmentDirections
 import com.example.cureya.databinding.PostDetailFragmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class PostDetailFragment : Fragment() {
@@ -35,7 +36,6 @@ class PostDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (requireActivity() as MainActivity).bottomNavView.visibility = View.GONE
         _binding = PostDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,9 +51,10 @@ class PostDetailFragment : Fragment() {
     private fun initMembers() {
         commentRecyclerAdapter = CommentRecyclerAdapter()
         viewModel = ViewModelProvider(this)[PostDetailViewModel::class.java]
-        navController=findNavController()
+        navController = findNavController()
         val post = PostDetailFragmentArgs.fromBundle(requireArguments()).post
-        val direction = PostDetailFragmentDirections.actionPostDetailFragmentToPersonalProfile(post.userId)
+        val direction =
+            PostDetailFragmentDirections.actionPostDetailFragmentToPersonalProfile(post.userId)
         binding.postCard.postUserImage.setOnClickListener { navController.navigate(direction) }
         viewModel.initData(post)
     }
@@ -103,18 +104,27 @@ class PostDetailFragment : Fragment() {
                 postCardCaption.text = post.caption
                 postCardUserprofession.text = post.tags[0].name
                 postCardTime.text = post.createdAt.toDateString()
-                if (isLiked) postLike.setImageResource(R.drawable.id_like_red) else postLike.setImageResource(
-                    R.drawable.asset_like
-                )
+                if (!isLiked) postLike.setColorFilter(Color.argb(255, 64, 64, 64))
+                else postLike.setColorFilter(Color.argb(255, 255, 0, 0))
                 postCardLikeCount.text = post.likes.size.toString()
                 postCardCommentCount.text = post.commentCount.toString()
             }
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        (requireActivity() as MainActivity).bottomNavView.visibility = View.VISIBLE
-    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        val bottomView = (activity as AppCompatActivity)
+//            .findViewById<BottomNavigationView>(R.id.nav_view)
+//        bottomView.visibility = View.GONE
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        val bottomView = (activity as AppCompatActivity)
+//            .findViewById<BottomNavigationView>(R.id.nav_view)
+//        bottomView.visibility = View.VISIBLE
+//    }
 
 }

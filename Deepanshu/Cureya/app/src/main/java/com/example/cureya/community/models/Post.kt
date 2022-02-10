@@ -1,6 +1,7 @@
 package com.example.cureya.community.models
 
 import android.os.Parcelable
+import com.example.cureya.community.utils.defaultProfilePic
 import kotlinx.parcelize.Parcelize
 import java.util.*
 
@@ -9,7 +10,7 @@ import java.util.*
 data class Post(
     val postId: String = "",
     val caption: String = "",
-    val photoUrl: String = "",
+    val photoUrl: String = defaultProfilePic,
     val commentCount: Int = 0,
     val createdAt: Date = Date(),
     val likes: List<String> = listOf(),

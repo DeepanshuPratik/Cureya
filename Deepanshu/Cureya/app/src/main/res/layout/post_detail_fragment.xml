@@ -97,8 +97,9 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_image"
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="48dp"
+                    android:padding="8dp"
+                    android:layout_height="48dp"
                     tools:src="@tools:sample/avatars" />
 
                 <EditText

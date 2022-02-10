@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.cureya.R
+import com.example.cureya.community.utils.defaultProfilePic
 import com.example.cureya.databinding.FragmentSignUpBinding
 import com.example.cureya.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -73,7 +74,7 @@ class SignUpFragment: Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.w("SignUpFragment","Firebase auth successful")
-                    val user = User(name, email, null, password)
+                    val user = User(name, email, defaultProfilePic, password)
                     addToUserBase(user)
                     goToHomeFragment()
                 }
