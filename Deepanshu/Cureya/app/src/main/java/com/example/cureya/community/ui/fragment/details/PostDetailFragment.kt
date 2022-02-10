@@ -1,28 +1,36 @@
 package com.example.cureya.community.ui.fragment.details
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.cureya.R
 import com.example.cureya.chat.utils.toDateString
 import com.example.cureya.databinding.PostDetailFragmentBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class PostDetailFragment : Fragment() {
 
     private lateinit var viewModel: PostDetailViewModel
     private lateinit var commentRecyclerAdapter: CommentRecyclerAdapter
+    private lateinit var navController: NavController
+
 
     private var _binding: PostDetailFragmentBinding? = null
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,11 +51,16 @@ class PostDetailFragment : Fragment() {
     private fun initMembers() {
         commentRecyclerAdapter = CommentRecyclerAdapter()
         viewModel = ViewModelProvider(this)[PostDetailViewModel::class.java]
+        navController = findNavController()
         val post = PostDetailFragmentArgs.fromBundle(requireArguments()).post
+        val direction =
+            PostDetailFragmentDirections.actionPostDetailFragmentToPersonalProfile(post.userId)
+        binding.postCard.postUserImage.setOnClickListener { navController.navigate(direction) }
         viewModel.initData(post)
     }
 
     private fun setClickListeners() {
+
         binding.sendCommentButton.setOnClickListener {
             val comment = binding.commentInput.text.toString()
             if (comment.isBlank()) {
@@ -60,7 +73,7 @@ class PostDetailFragment : Fragment() {
         }
         binding.postCard.postLike.setOnClickListener {
             val isLiked = viewModel.post.value!!.likes.contains(auth.uid!!)
-            if(isLiked) {
+            if (isLiked) {
                 viewModel.unlikePost()
             } else {
                 viewModel.likePost()
@@ -75,6 +88,7 @@ class PostDetailFragment : Fragment() {
             adapter = commentRecyclerAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
+        binding.backButton.setOnClickListener { navController.popBackStack() }
     }
 
     private fun observeData() {
@@ -90,13 +104,27 @@ class PostDetailFragment : Fragment() {
                 postCardCaption.text = post.caption
                 postCardUserprofession.text = post.tags[0].name
                 postCardTime.text = post.createdAt.toDateString()
-                if (isLiked) postLike.setImageResource(R.drawable.id_like_red) else postLike.setImageResource(
-                    R.drawable.asset_like
-                )
+                if (!isLiked) postLike.setColorFilter(Color.argb(255, 64, 64, 64))
+                else postLike.setColorFilter(Color.argb(255, 255, 0, 0))
                 postCardLikeCount.text = post.likes.size.toString()
                 postCardCommentCount.text = post.commentCount.toString()
             }
         }
     }
+
+
+//    override fun onResume() {
+//        super.onResume()
+//        val bottomView = (activity as AppCompatActivity)
+//            .findViewById<BottomNavigationView>(R.id.nav_view)
+//        bottomView.visibility = View.GONE
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        val bottomView = (activity as AppCompatActivity)
+//            .findViewById<BottomNavigationView>(R.id.nav_view)
+//        bottomView.visibility = View.VISIBLE
+//    }
 
 }

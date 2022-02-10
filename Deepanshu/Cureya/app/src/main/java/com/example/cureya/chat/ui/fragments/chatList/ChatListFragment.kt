@@ -2,17 +2,16 @@ package com.example.cureya.chat.ui.fragments.chatList
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cureya.R
-import com.example.cureya.chat.data.models.User
 import com.example.cureya.chat.ui.adapters.AllUsersRecyclerAdapter
 import com.example.cureya.chat.ui.adapters.ChatUsersRecyclerAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -22,7 +21,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 class ChatListFragment : Fragment() {
 
 
-    private lateinit var auth:FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var allUsersRecycler: RecyclerView
     private lateinit var chatUsersRecycler: RecyclerView
@@ -50,14 +49,19 @@ class ChatListFragment : Fragment() {
     }
 
     private fun initMembers(view: View) {
+        val navController = findNavController()
         auth = FirebaseAuth.getInstance()
         allUsersRecycler = view.findViewById(R.id.all_users_recycler)
         chatUsersRecycler = view.findViewById(R.id.chat_users_recycler)
-        allUsersAdapter = AllUsersRecyclerAdapter(requireContext()) { user ->
+        allUsersAdapter = AllUsersRecyclerAdapter(requireContext(), { user ->
             val direction = ChatListFragmentDirections.actionChatListFragmentToChatFragment(user)
-            findNavController().navigate(direction)
+            navController.navigate(direction)
+        }) {
+            val direction = ChatListFragmentDirections.actionChatListFragmentToPersonalProfile(it)
+            navController.navigate(direction)
         }
-        Glide.with(this).load(auth.currentUser?.photoUrl).into(view.findViewById<CircleImageView>(R.id.profile))
+        Glide.with(this).load(auth.currentUser?.photoUrl)
+            .into(view.findViewById<CircleImageView>(R.id.profile))
 
     }
 

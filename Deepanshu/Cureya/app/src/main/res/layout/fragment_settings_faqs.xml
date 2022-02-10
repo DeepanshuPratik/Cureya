@@ -5,10 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="?attr/actionBarSize">
+    android:paddingBottom="?attr/actionBarSize"
+    tools:context=".settings.FaqFragment">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="77dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
     <TextView
-        android:id="@+id/label_faq"
+        android:id="@+id/label_my_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/frequently_asked_questions"
@@ -21,8 +33,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
     <FrameLayout
-        android:id="@+id/change_password_frame"
+        android:id="@+id/Faq1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar_background"
@@ -30,37 +43,1353 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_faq">
+        app:layout_constraintTop_toBottomOf="@id/label_my_account">
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:paddingHorizontal="16dp"
-            android:layout_gravity="start"
             android:layout_marginHorizontal="16dp"
-            android:text="@string/how_safe_is_my_data"
+            android:text="Q) What are the features of the app?"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <ImageView
-            android:id="@+id/column_access_button"
+            android:id="@+id/click1"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="8dp"
             android:layout_gravity="end|center_vertical"
             app:tint="@color/black"
             app:srcCompat="@drawable/ic_arrow_down" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:visibility="gone"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:text="The app offers an interactive solution for your mental health and general well
+being concerns. You can update your mood, consult with practitioners in real time
+and get a list of suggestive solutions for your every concern."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+
+
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/answer_text_view"
+    <FrameLayout
+        android:id="@+id/Faq2"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom"
-        android:visibility="gone"
-        android:background="@android:color/holo_blue_bright"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/change_password_frame" />
+        app:layout_constraintTop_toBottomOf="@id/Faq1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) How do i Get started in the app?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="You will have to register and create a profile on the app, this can be done via
+your email and number, making it easy to log in and save information later."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/Faq3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) How relevant is the information on the app?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="The information is provided by certified, experienced professionals and is
+updated constantly to ensure that it is relevant."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/Faq4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) Is it possible to fix an appointment for consultation via the app?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="Undoubtedly you could do it at ease, all that you need is a good speed internet
+connection. Besides booking appointments, you can now read Cureya’s
+enlightening posts about health through the app."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/Faq5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) Will I be able to cancel the appointment on the day of the consultation?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+
+        <TextView
+            android:id="@+id/txt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            android:text="You will be able to cancel but you will have to do it at least 2 hours before the
+time of appointment, else you will receive only 80% of the total amount paid.
+It’s better to plan wisely before scheduling an appointment so we can avoid any
+confusion.
+We value both your and our expert’s time."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/Faq6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) Can I reschedule my appointment via the app?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click6"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+
+        <TextView
+            android:id="@+id/txt6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="Yes, we know your situation so we have designed our app in such a way that
+-within a few minutes you can reschedule it."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/Faq7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) Is there a special membership program available at a discounted price?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click7"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+        <TextView
+            android:id="@+id/txt7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="Yes, there is an excellent membership program going on for a limited period.
+Please check the membership tab on the home screen to know the benefits,
+pricing, duration, etc."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/Faq8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq7">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) Will this track my personal information?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click8"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+
+        <TextView
+            android:id="@+id/txt8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="No! We do not track your personal information, your login data is saved for your
+convenience which can be switched off. Do note that any information you share
+with us is not shared further with any third party sites, and privacy is maintained
+with our encryption."
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/Faq9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Faq8">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Q) I have multiple accounts. Which account should I use?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ImageView
+            android:id="@+id/click9"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="end|center_vertical"
+            app:tint="@color/black"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+
+        <TextView
+            android:id="@+id/txt9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:text="When you install the app, the window for choosing your login account will pop up,
+we recommend you using an active email ID, Once chosen login using the same
+email id as your profile is saved with an email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq9">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Can I change my password?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click10"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Yes! You can change your password. Click on your profile settings and select the
+option that indicates reset password. You should receive an email on your
+registered email with instructions to proceed further."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Can I share my account with others?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click11"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="No, your account will not be shared further with others. One email is for one
+account. The algorithm sorts solutions to be personalized and individualized,
+making each person's experience unique."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq11">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q)Does the app track cookies and cache?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click12"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="No the app does not track cookies and cache, you can disable the same in your mobile settings."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Do I need an internet connection for the app?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click13"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Yes! To launch the app, you will require a stable internet connection."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+
+            <FrameLayout
+                android:id="@+id/Faq14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq13">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Why isn’t the page loading correctly on my device?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click14"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Ensure strong network connectivity and update your device to the latest
+iOS/Android software. Refresh and try again, it should load correctly. If you are
+still facing an issue, try uninstalling and reinstalling the app."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq14">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) I have network connection, but the app is not loading"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click15"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Update your device to the latest iOS/Android software. Refresh and try again, it
+should load correctly. If you are still facing an issue, try uninstalling and
+reinstalling the app."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq15">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Do I have to pay a download fee?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click16"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="No! You can download and install the app on the itunes/playstore for free."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) What payment methods are accepted for in app purchases?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click17"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Payments are accepted from all gateways, Credit/Debit card and UPI"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq17">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) The payment got debited from my account however, it doesn’t reflect in the app- how long will it take to reflect?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click18"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Don’t panic, there may be a delay in the server’s response. It may take 3
+business days to get reflected. We will notify you via the app, right after we
+receive the payment."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq18">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) If I cancel an appointment/ medicine order how long will it take to receive the refund?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click19"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="We will initiate the refund process, soon after you cancel the
+appointment/product. At the same time, you may receive the refund within 3 to 5
+business days from the day of cancellation."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq19">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Is there a free consultation session available &amp; can I enroll for it via the app?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click20"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Cureya organizes free consultations for different issues like mental health,
+Obesity, PCOD, etc. Users can enjoy free sessions in the ratio of one free
+session per user."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) What are the benefits of buying a membership of Cureya?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click21"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="You can enjoy reduced consultation prices for a specific number of months(say 3
+or 6 months) and you could get access to 5 free consultation sessions. You can
+get discounts on certain medicines too."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+
+            <FrameLayout
+                android:id="@+id/Faq22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq21">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q)Do Discount codes expire?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click22"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Yes the discount codes expire, they are only for a limited period of time. You can
+find the validity below the code."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq22">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Discount code is not working?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click23"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Discount codes will not work once expired. If used before, they cannot be
+redeemed again."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq23">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) How do I get discount codes?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click24"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Discount codes can be obtained with frequent purchases. Holiday and festival
+discount codes are also provided."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq24">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) How often are there promotions?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click25"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Frequently! There are often bundle packages as well as holiday promotions
+offered."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) Can I order medicines via the app?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click26"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Yes, you could order medicines seamlessly via our app"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+
+            <FrameLayout
+                android:id="@+id/Faq27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq26">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q) What is the minimum amount to purchase medicine via the app?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click27"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="There is no minimum amount to purchase medicine however, the delivery
+charges might differ depending on your location."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/Faq28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq27">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q)I am in a different state, how long will it take to deliver medicines to my location?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click28"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="Other states have a turnaround time of 3 to 5 business days."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+
+            <FrameLayout
+                android:id="@+id/Faq29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar_background"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Faq28">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Q)Can I book an appointment for a walk-in consultation?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <ImageView
+                    android:id="@+id/click29"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:tint="@color/black"
+                    app:srcCompat="@drawable/ic_arrow_down" />
+
+
+                <TextView
+                    android:id="@+id/txt29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="18dp"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone"
+                    android:text="You can do it. If there is a nearby Cureya center in your city. Note that experts
+are available only for a specific duration of time. If the slot is full, please look for
+the next available slot."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </FrameLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

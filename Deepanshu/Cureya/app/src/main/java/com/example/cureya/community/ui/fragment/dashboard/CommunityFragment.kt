@@ -56,7 +56,8 @@ class CommunityFragment : Fragment() {
             }, {
 
             }, {
-                val direction = CommunityFragmentDirections.actionDashboardFragmentToPostDetailFragment(it)
+                val direction =
+                    CommunityFragmentDirections.actionDashboardFragmentToPostDetailFragment(it)
                 navController.navigate(direction)
             },
             { view, post ->
@@ -92,6 +93,9 @@ class CommunityFragment : Fragment() {
                     }
                 }
                 popup.show()
+            }, {
+                val direction = CommunityFragmentDirections.actionCommunityFragmentToPersonalProfile(it)
+                navController.navigate(direction)
             }
 
         )

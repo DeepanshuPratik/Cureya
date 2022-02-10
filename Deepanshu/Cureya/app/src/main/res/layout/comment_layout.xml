@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -35,6 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="@color/text_secondary"
         android:id="@+id/comment_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,6 +48,7 @@
     <TextView
         android:id="@+id/comment_text"
         android:layout_width="0dp"
+        android:textColor="@color/text_secondary"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/madeinindia"

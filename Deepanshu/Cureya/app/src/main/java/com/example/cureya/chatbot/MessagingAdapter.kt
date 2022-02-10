@@ -1,65 +1,40 @@
 package com.example.cureya.chatbot
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cureya.R
-import com.example.cureya.chatbot.Constants.RECEIVE_ID
-import com.example.cureya.chatbot.Constants.SEND_ID
 
-class MessagingAdapter: RecyclerView.Adapter<MessagingAdapter.MessageViewHolder>() {
+class ChatAdapter(private var activity: Fragment, private var messageList: List<Message>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
-    var messagesList = mutableListOf<Message>()
-
-    inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-            itemView.setOnClickListener {
-
-                //Remove message on the item clicked
-                messagesList.removeAt(adapterPosition)
-                notifyItemRemoved(adapterPosition)
-            }
-        }
+    class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var messageReceive: TextView = itemView.findViewById(R.id.tv_bot_message)
+        var messageSend: TextView = itemView.findViewById(R.id.tv_message)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
-        return MessageViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.chatbot_messageitem, parent, false)
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.chatbot_messageitem, parent, false)
+        return ChatViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
+        val message: String = messageList[position].message
+        val isReceived: Boolean = messageList[position].isReceived
+        if (isReceived) {
+            holder.messageReceive.visibility = View.VISIBLE
+            holder.messageSend.visibility = View.GONE
+            holder.messageReceive.text = message
+        } else {
+            holder.messageSend.visibility = View.VISIBLE
+            holder.messageReceive.visibility = View.GONE
+            holder.messageSend.text = message
+        }
     }
 
     override fun getItemCount(): Int {
-        return messagesList.size
+        return messageList.count()
     }
-
-    @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
-        val currentMessage = messagesList[position]
-
-        when (currentMessage.id) {
-            SEND_ID -> {
-                holder.itemView.findViewById<TextView>(R.id.tv_message).apply {
-                    text = currentMessage.message
-                    visibility = View.VISIBLE
-                }
-                holder.itemView.findViewById<TextView>(R.id.tv_bot_message).visibility = View.GONE
-            }
-            RECEIVE_ID -> {
-                holder.itemView.findViewById<TextView>(R.id.tv_bot_message).apply {
-                    text = currentMessage.message
-                    visibility = View.VISIBLE
-                }
-                holder.itemView.findViewById<TextView>(R.id.tv_message).visibility = View.GONE
-            }
-        }
-    }
-
-    fun insertMessage(message: Message) {
-        this.messagesList.add(message)
-        notifyItemInserted(messagesList.size)
-    }
-
 }

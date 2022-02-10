@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".community.ui.fragment.details.PostDetailFragment">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -84,6 +85,47 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/comment_box_bg"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="48dp"
+                    android:padding="8dp"
+                    android:layout_height="48dp"
+                    tools:src="@tools:sample/avatars" />
+
+                <EditText
+                    android:id="@+id/comment_input"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:hint="Write your comment"
+                    android:imeOptions="actionDone"
+                    android:lines="1"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/text_secondary" />
+
+                <ImageButton
+                    android:id="@+id/send_comment_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:background="?attr/actionBarItemBackground"
+                    android:src="@drawable/ic_send"
+                    app:layout_constraintBottom_toBottomOf="@id/post_user_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/post_user_image"
+                    app:tint="@color/text_secondary" />
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/comments_recycler"
                 android:layout_width="match_parent"
@@ -93,42 +135,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#12FFFFFF"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_image"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            tools:src="@tools:sample/avatars" />
-
-        <EditText
-            android:id="@+id/comment_input"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/search_bar_background"
-            android:hint="Write your comment"
-            android:paddingHorizontal="16dp" />
-
-        <ImageButton
-            android:id="@+id/send_comment_button"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:background="?attr/actionBarItemBackground"
-            android:src="@drawable/ic_send"
-            app:layout_constraintBottom_toBottomOf="@id/post_user_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/post_user_image"
-            app:tint="@color/black" />
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
