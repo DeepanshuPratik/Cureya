@@ -39,6 +39,24 @@ class HomeFragment : Fragment(),blogitemClicked {
         auth = Firebase.auth
 
         binding.homeContextualMenu.setOnClickListener { showMenuPopUp(it) }
+        binding.webLink.setOnClickListener {
+            openweblink()
+        }
+        binding.fbLink.setOnClickListener {
+            openfblink()
+        }
+        binding.linkedInLink.setOnClickListener {
+            openlinkedinlink()
+        }
+        binding.ytLink.setOnClickListener {
+            openytlink()
+        }
+        binding.instaLink.setOnClickListener {
+            openinstalink()
+        }
+        binding.twitterLink.setOnClickListener {
+            opentwitterlink()
+        }
 
         initMembers(view)
         val images= listOf<blog>(
@@ -51,6 +69,42 @@ class HomeFragment : Fragment(),blogitemClicked {
         blogRecyclerView.layoutManager = LinearLayoutManager(this.context)
         blogRecyclerView.setHasFixedSize(true)
         blogRecyclerView.adapter = blogAdapter(this,images)
+    }
+
+    private fun opentwitterlink() {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), Uri.parse("https://twitter.com/CureyaR?t=9l3a2-Qx3EkMLD-4JYnFYw&s=09"))
+    }
+
+    private fun openinstalink() {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), Uri.parse("https://www.instagram.com/cureya.in/"))
+    }
+
+    private fun openytlink() {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), Uri.parse("https://youtube.com/channel/UCjsRwGm--mr1ADln5CB5Siw"))
+    }
+
+    private fun openlinkedinlink() {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), Uri.parse("https://www.linkedin.com/company/cureya"))
+    }
+
+    private fun openfblink() {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), Uri.parse("https://m.facebook.com/cureya7"))
+    }
+
+    private fun openweblink() {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), Uri.parse("https://www.cureya.in/"))
     }
 
     private fun initMembers(view: View) {
