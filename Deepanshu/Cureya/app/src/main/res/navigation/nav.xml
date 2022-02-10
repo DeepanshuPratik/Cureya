@@ -143,12 +143,20 @@
         android:id="@+id/informationFragment"
         android:name="com.example.cureya.settings.InformationFragment"
         android:label="InformationFragment"
-        tools:layout="@layout/fragment_settings_information" />
+        tools:layout="@layout/fragment_settings_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/faqFragment"
         android:name="com.example.cureya.settings.FaqFragment"
         android:label="FaqFragment"
-        tools:layout="@layout/fragment_settings_faqs" />
+        tools:layout="@layout/fragment_settings_faqs" >
+        <action
+            android:id="@+id/action_faqFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reportFragment"
         android:name="com.example.cureya.settings.ReportFragment"
