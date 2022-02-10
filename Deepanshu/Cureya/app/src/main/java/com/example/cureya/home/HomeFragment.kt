@@ -37,7 +37,7 @@ class HomeFragment : Fragment(),blogitemClicked {
         super.onViewCreated(view, savedInstanceState)
 
         auth = Firebase.auth
-
+        val user=auth.currentUser
         binding.homeContextualMenu.setOnClickListener { showMenuPopUp(it) }
         binding.webLink.setOnClickListener {
             openweblink()
@@ -57,16 +57,16 @@ class HomeFragment : Fragment(),blogitemClicked {
         binding.twitterLink.setOnClickListener {
             opentwitterlink()
         }
-
+        binding.userinfo.setText(user?.displayName)
         initMembers(view)
         val images= listOf<blog>(
-            blog("Mental Health Disorders and How to Overcome them",R.drawable.frame_546, "https://cureya.blogspot.com/2021/10/mental-health-disorders-how-to-overcome.html"),
+            blog("Mental Health Disorders and How to Overcome",R.drawable.frame_546, "https://cureya.blogspot.com/2021/10/mental-health-disorders-how-to-overcome.html"),
             blog("What is Depression, Symptoms, Know all",R.drawable.frame_547,"https://cureya.blogspot.com/2022/01/what-is-depression-symptoms-know-all.html"),
             blog("Foods that Relieve Anxiety",R.drawable.frame_548,"https://cureya.blogspot.com/2022/01/foods-that-relieve-anxiety.html"),
             blog("Music & Our Mind",R.drawable.frame_549,"https://cureya.blogspot.com/2022/01/music-and-our-mind.html"),
             blog("Good Food Good Mood", R.drawable.frame_550,"https://cureya.blogspot.com/2022/01/good-food-good-mood.html")
         )
-        blogRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        blogRecyclerView.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
         blogRecyclerView.setHasFixedSize(true)
         blogRecyclerView.adapter = blogAdapter(this,images)
     }

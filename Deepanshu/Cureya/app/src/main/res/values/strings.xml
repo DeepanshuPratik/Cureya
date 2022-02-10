@@ -99,7 +99,8 @@
     <string name="note_your_mood_today">Note Your Mood Today</string>
     <string name="moods">Moods</string>
     <string name="blogs">Blogs</string>
-    
+    <string name="follow_cureya_on_social_media">Follow Cureya on Social Media</string>
+
     <string-array name="blog_name">
         <item>Mental Health Disorders and How to Overcome them</item>
         <item>What is Depression, Symptoms, Know all</item>
