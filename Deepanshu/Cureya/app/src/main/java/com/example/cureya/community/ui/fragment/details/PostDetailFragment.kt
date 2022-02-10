@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
+import com.example.cureya.MainActivity
 import com.example.cureya.R
 import com.example.cureya.chat.utils.toDateString
+import com.example.cureya.community.ui.fragment.dashboard.CommunityFragmentDirections
 import com.example.cureya.databinding.PostDetailFragmentBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -19,15 +23,19 @@ class PostDetailFragment : Fragment() {
 
     private lateinit var viewModel: PostDetailViewModel
     private lateinit var commentRecyclerAdapter: CommentRecyclerAdapter
+    private lateinit var navController: NavController
+
 
     private var _binding: PostDetailFragmentBinding? = null
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (requireActivity() as MainActivity).bottomNavView.visibility = View.GONE
         _binding = PostDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -43,11 +51,15 @@ class PostDetailFragment : Fragment() {
     private fun initMembers() {
         commentRecyclerAdapter = CommentRecyclerAdapter()
         viewModel = ViewModelProvider(this)[PostDetailViewModel::class.java]
+        navController=findNavController()
         val post = PostDetailFragmentArgs.fromBundle(requireArguments()).post
+        val direction = PostDetailFragmentDirections.actionPostDetailFragmentToPersonalProfile(post.userId)
+        binding.postCard.postUserImage.setOnClickListener { navController.navigate(direction) }
         viewModel.initData(post)
     }
 
     private fun setClickListeners() {
+
         binding.sendCommentButton.setOnClickListener {
             val comment = binding.commentInput.text.toString()
             if (comment.isBlank()) {
@@ -60,7 +72,7 @@ class PostDetailFragment : Fragment() {
         }
         binding.postCard.postLike.setOnClickListener {
             val isLiked = viewModel.post.value!!.likes.contains(auth.uid!!)
-            if(isLiked) {
+            if (isLiked) {
                 viewModel.unlikePost()
             } else {
                 viewModel.likePost()
@@ -75,6 +87,7 @@ class PostDetailFragment : Fragment() {
             adapter = commentRecyclerAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
+        binding.backButton.setOnClickListener { navController.popBackStack() }
     }
 
     private fun observeData() {
@@ -97,6 +110,11 @@ class PostDetailFragment : Fragment() {
                 postCardCommentCount.text = post.commentCount.toString()
             }
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        (requireActivity() as MainActivity).bottomNavView.visibility = View.VISIBLE
     }
 
 }

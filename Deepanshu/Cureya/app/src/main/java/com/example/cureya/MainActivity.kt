@@ -13,11 +13,13 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
 
+    lateinit var bottomNavView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomNavView = findViewById<BottomNavigationView>(R.id.nav_view)
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.top_menu,menu)
+        menuInflater.inflate(R.menu.top_menu, menu)
         return true
     }
 

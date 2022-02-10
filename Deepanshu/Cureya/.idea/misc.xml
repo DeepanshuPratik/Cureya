@@ -4,13 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.24166666666666667" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/blog_item.xml" value="0.176" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_about_us.xml" value="0.22192028985507245" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_chat_list.xml" value="0.10989583333333333" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_home.xml" value="0.11041666666666666" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_log_in.xml" value="0.22192028985507245" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/fragment_settings_faqs.xml" value="0.22192028985507245" />
-        <entry key="..\:/IIT GOA/Cureya/Deepanshu/Cureya/app/src/main/res/layout/home_blogs_item.xml" value="0.13451086956521738" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/asset_comment.xml" value="0.24351851851851852" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/asset_google.xml" value="0.23703703703703705" />
         <entry key="..\:/Users/ronni/AndroidStudioProjects/Cureya/Deepanshu/Cureya/app/src/main/res/drawable/asset_share.xml" value="0.24351851851851852" />
@@ -72,6 +65,7 @@
         <entry key="app/src/main/res/drawable/chat_emoji.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/chat_message_box.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/chat_mic.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/drawable/comment_box_bg.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/ic_send.xml" value="0.2358974358974359" />
@@ -80,14 +74,15 @@
         <entry key="app/src/main/res/drawable/receive_round_box.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.23958333333333334" />
         <entry key="app/src/main/res/drawable/round_button.xml" value="0.15555555555555556" />
+        <entry key="app/src/main/res/drawable/search_bar_background.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/send_round_box.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/drawable/vertification_box_background.xml" value="0.10416666666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.10945273631840796" />
         <entry key="app/src/main/res/layout/card_post.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/card_vertical_recycler_view.xml" value="0.3136574074074074" />
         <entry key="app/src/main/res/layout/chat_list_fragment.xml" value="0.510556621880998" />
         <entry key="app/src/main/res/layout/chatbot_messageitem.xml" value="0.2234375" />
-        <entry key="app/src/main/res/layout/comment_layout.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/comment_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/community_dashboard.xml" value="0.14073115496603042" />
         <entry key="app/src/main/res/layout/community_post_card.xml" value="0.3726618705035971" />
         <entry key="app/src/main/res/layout/create_post_fragment.xml" value="0.25" />
@@ -110,6 +105,7 @@
         <entry key="app/src/main/res/layout/message_layout.xml" value="0.2234375" />
         <entry key="app/src/main/res/layout/personal_profile_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/post_detail_fragment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.33" />
         <entry key="app/src/main/res/layout/tab_layout.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/tags_picker.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22604166666666667" />

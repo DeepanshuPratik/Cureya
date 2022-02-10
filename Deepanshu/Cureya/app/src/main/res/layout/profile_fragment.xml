@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent"
     tools:context=".profile.personal.PersonalProfile">
 
@@ -14,10 +15,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="8dp">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/btn_back"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="start"
@@ -41,6 +42,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/profile_photo"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="64dp"
@@ -51,6 +53,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <ImageView
+                android:tint="@color/text_secondary"
                 android:id="@+id/edit_profile_photo"
                 android:layout_width="48dp"
                 android:padding="12dp"
@@ -66,10 +69,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:background="@drawable/bg_details">
 
             <TextView
+                android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -78,7 +82,6 @@
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,22 +90,24 @@
                 android:id="@+id/profile_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
                 android:gravity="center"
+                android:textColor="@color/text_secondary"
+                android:layout_marginVertical="8dp"
                 android:text="divyansh20101@iiitnr.edu.in"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/edit_email"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <ImageView
+                android:tint="@color/text_secondary"
                 android:id="@+id/edit_email"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="start"
                 android:padding="8dp"
+                android:layout_margin="8dp"
                 android:src="@android:drawable/ic_menu_edit"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/text_primary" />
@@ -115,7 +120,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:background="@drawable/bg_details">
 
             <TextView
@@ -133,12 +138,13 @@
 
 
             <TextView
+                android:textColor="@color/text_secondary"
                 android:id="@+id/profile_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:gravity="center"
-                android:text="Female"
+                tools:text="Female"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -156,23 +162,24 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textVie10" />
+                app:layout_constraintTop_toBottomOf="@+id/joined_groups" />
 
 
             <TextView
-                android:id="@+id/textView9"
+                android:textColor="@color/text_secondary"
+                android:id="@+id/text_joined_groups"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:gravity="center"
-                android:text="5"
+                tools:text="5"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_gender" />
 
 
             <TextView
-                android:id="@+id/textVie10"
+                android:id="@+id/joined_groups"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -186,23 +193,24 @@
 
 
             <TextView
+                android:textColor="@color/text_secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:id="@+id/profile_joined"
                 android:gravity="center"
-                android:text="16th, Feb 2019"
+                tools:text="16th, Feb 2019"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/text_joined_groups" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
 
             android:background="@drawable/bg_details"
             android:layout_height="wrap_content">
@@ -215,10 +223,12 @@
                 android:text="About"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:textColor="@color/text_primary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:tint="@color/text_secondary"
                 android:id="@+id/edit_about"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -239,11 +249,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
+                android:textColor="@color/text_secondary"
                 android:id="@+id/profile_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="@string/aboutus"
+                tools:text="@string/aboutus"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
