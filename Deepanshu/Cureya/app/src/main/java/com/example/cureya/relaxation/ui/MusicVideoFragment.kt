@@ -1,6 +1,7 @@
 package com.example.cureya.relaxation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.example.cureya.databinding.FragmentRelaxationMusicVideoBinding
 import com.example.cureya.model.Content
 import com.example.cureya.relaxation.ui.RelaxationFragment.Companion.CONTENT_TYPE_MUSIC
 import com.example.cureya.relaxation.ui.RelaxationFragment.Companion.CONTENT_TYPE_VIDEO
+import com.example.cureya.relaxation.viewholder.MusicViewHolder
 import com.example.cureya.relaxation.viewholder.VideoViewHolder
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -23,6 +25,7 @@ import com.google.firebase.ktx.Firebase
 class MusicVideoFragment : Fragment() {
 
     private lateinit var videoAdapter: FirebaseRecyclerAdapter<Content, VideoViewHolder>
+    private lateinit var musicAdapter: FirebaseRecyclerAdapter<Content, MusicViewHolder>
     private lateinit var binding: FragmentRelaxationMusicVideoBinding
     private lateinit var db: FirebaseDatabase
 
@@ -80,17 +83,55 @@ class MusicVideoFragment : Fragment() {
     }
 
     private fun showMusicList() {
+        val musicRef = db.reference.child(MUSIC_LIST)
 
+        val musicList = FirebaseRecyclerOptions.Builder<Content>()
+            .setQuery(musicRef, Content::class.java)
+            .build()
+
+        binding.label.text = getString(R.string.music)
+        binding.heading.text = getString(R.string.we_recommend_you_favourite_music)
+
+        musicAdapter = object : FirebaseRecyclerAdapter<Content, MusicViewHolder>(musicList) {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicViewHolder {
+                val layoutView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.card_music_and_video, parent, false)
+                return MusicViewHolder(
+                    CardMusicAndVideoBinding.bind(layoutView),
+                    this@MusicVideoFragment,
+                    binding.progressBar
+                )
+            }
+            override fun onBindViewHolder(holder: MusicViewHolder, position: Int, model: Content) {
+                holder.bind(model, position)
+            }
+        }
+        binding.contentRecyclerView.adapter = musicAdapter
+        binding.contentRecyclerView.itemAnimator = null
     }
 
     override fun onStart() {
         super.onStart()
-        videoAdapter?.startListening()
+        try {
+            videoAdapter.startListening()
+        } catch (e: UninitializedPropertyAccessException) {
+            Log.w(TAG, "Music adapter called")
+        }
+        try {
+            musicAdapter.startListening()
+        } catch (e: UninitializedPropertyAccessException) {
+            Log.w(TAG, "Video adapter called")
+        }
     }
 
     override fun onStop() {
         super.onStop()
-        videoAdapter?.stopListening()
+        try {
+            videoAdapter.stopListening()
+        } catch (e: UninitializedPropertyAccessException) { }
+        try {
+            musicAdapter.stopListening()
+        } catch (e: UninitializedPropertyAccessException) { }
     }
 
     fun goToVideoFragment(videoUrl: String) = findNavController().navigate(
@@ -99,7 +140,13 @@ class MusicVideoFragment : Fragment() {
         )
     )
 
+    fun goToMusicFragment(position: Int) = findNavController().navigate(
+        MusicVideoFragmentDirections.actionMusicVideoFragmentToMusicFragment(position)
+    )
+
     companion object {
+        private const val TAG = "MusicVideoFragment"
         const val VIDEO_LIST = "videos"
+        const val MUSIC_LIST = "music"
     }
 }
