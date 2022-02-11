@@ -22,7 +22,16 @@
         <action
             android:id="@+id/action_homeFragment_to_contactUsFragment"
             app:destination="@id/contactusFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_moodFragment"
+            app:destination="@id/mood_fragment"/>
     </fragment>
+    <fragment
+        android:id="@+id/mood_fragment"
+        android:name="com.example.cureya.home.mood"
+        android:label="Moods"
+        tools:layout="@layout/fragment_mood"/>
+
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.cureya.chat.ui.fragments.chat.ChatFragment"
