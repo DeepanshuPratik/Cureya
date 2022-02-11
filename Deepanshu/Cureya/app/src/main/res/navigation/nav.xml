@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_homeFragment_to_moodFragment"
             app:destination="@id/mood_fragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_personalProfile"
+            app:destination="@id/personalProfile" />
     </fragment>
     <fragment
         android:id="@+id/mood_fragment"
