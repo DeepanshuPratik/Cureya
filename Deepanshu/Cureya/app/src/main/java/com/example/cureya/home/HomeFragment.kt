@@ -184,7 +184,6 @@ class HomeFragment : Fragment(), blogitemClicked {
                         findNavController().navigate(R.id.action_homeFragment_to_contactUsFragment)
                         true
                     }
-                    R.id.report -> false
                     else -> false
                 }
             }
