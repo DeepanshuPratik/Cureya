@@ -174,7 +174,11 @@ class HomeFragment : Fragment(), blogitemClicked {
                         findNavController().navigate(R.id.action_homeFragment_to_logInFragment)
                         true
                     }
-                    R.id.profile -> false
+                    R.id.profile -> {
+                        val direction = HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
+                        findNavController().navigate(direction)
+                        true
+                    }
                     R.id.moods -> false
                     R.id.contact_us -> {
                         findNavController().navigate(R.id.action_homeFragment_to_contactUsFragment)

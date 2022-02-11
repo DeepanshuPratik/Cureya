@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_contactUsFragment"
             app:destination="@id/contactusFragment"/>
+        <action
+            android:id="@+id/action_homeFragment_to_personalProfile"
+            app:destination="@id/personalProfile" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
