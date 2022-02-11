@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -21,7 +22,7 @@
             android:layout_height="match_parent"
             android:background="?attr/actionBarItemBackground"
             app:srcCompat="@drawable/ic_arrow_back"
-            app:tint="@color/black" />
+            app:tint="@color/text_primary" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile"
@@ -33,6 +34,7 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
+            android:textColor="@color/text_primary"
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +56,7 @@
             android:layout_marginEnd="8dp"
             android:padding="8dp"
             app:srcCompat="@drawable/menu_icon"
-            tools:tint="@color/black" />
+            app:tint="@color/text_primary" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -82,7 +84,9 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/attach"
+            app:tint="@color/text_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -90,39 +94,46 @@
             app:srcCompat="@drawable/chat_attach" />
 
         <ImageView
+            android:padding="8dp"
             android:id="@+id/camera"
+            app:tint="@color/text_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_camera" />
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/mic"
+            app:tint="@color/text_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/chat_mic" />
 
         <EditText
+            android:textColor="@color/text_primary"
             android:id="@+id/chatbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:autofillHints="name"
-            android:background="@drawable/search_bar_background"
+            android:textColorHint="@color/gray_700"
+            android:background="@drawable/comment_box_bg"
             android:hint="@string/start_chat_value"
             android:inputType="text"
             android:padding="8dp" />
 
 
         <ImageView
+            android:padding="8dp"
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_send"
-            app:tint="@color/black" />
+            app:tint="@color/text_primary" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
