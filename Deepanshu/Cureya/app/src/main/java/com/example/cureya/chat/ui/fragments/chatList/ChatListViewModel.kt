@@ -1,5 +1,6 @@
 package com.example.cureya.chat.ui.fragments.chatList
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,17 +28,22 @@ class ChatListViewModel() : ViewModel() {
 
     private fun loadData() {
         viewModelScope.launch {
-            val users = database.child("users").get()
-                .await().children.map {
-                    val user = it.getValue(User::class.java)!!
-                    user.userId = it.key
-                    user
-                }.filter { it.userId != auth.uid }
-            users.forEach {
-                it.lastMessage = getLastMessage(it.userId!!)
+            try {
+                val users = database.child("users").get()
+                    .await().children.map {
+                        val user = it.getValue(User::class.java)!!
+                        user.userId = it.key
+                        user
+                    }.filter { it.userId != auth.uid }
+                users.forEach {
+                    it.lastMessage = getLastMessage(it.userId!!)
+                }
+                allUsers.value = users
+                listenForUsersValueChanges()
+            } catch (e:Exception) {
+                Log.e(TAG, "loadData: ", e)
             }
-            allUsers.value = users
-            listenForUsersValueChanges()
+            
         }
     }
 

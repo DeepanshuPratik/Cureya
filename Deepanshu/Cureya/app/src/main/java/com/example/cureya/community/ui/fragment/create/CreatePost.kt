@@ -24,8 +24,6 @@ class CreatePost : Fragment() {
 
     private lateinit var viewModel: CreatePostViewModel
     private var imageUri: Uri? = null
-    private val tags = listOf<TAG>()
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private lateinit var getContent: ActivityResultLauncher<String>
 
@@ -42,7 +40,6 @@ class CreatePost : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initMembers()
-        initUi()
         setClickListeners()
         observeData()
         binding.tagPicker.chipGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -79,13 +76,6 @@ class CreatePost : Fragment() {
                     }
                 }
             }
-    }
-
-    private fun initUi() {
-        auth.currentUser?.let {
-            binding.userProfilePhoto.load(it.photoUrl)
-            binding.postUserName.text = it.displayName
-        }
     }
 
     private fun setClickListeners() {
@@ -131,6 +121,10 @@ class CreatePost : Fragment() {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                 imageUri = null
             }
+        }
+        viewModel.currentUser.observe(viewLifecycleOwner) {
+            binding.userProfilePhoto.load(it.photoUrl)
+            binding.postUserName.text = it.name
         }
     }
 }

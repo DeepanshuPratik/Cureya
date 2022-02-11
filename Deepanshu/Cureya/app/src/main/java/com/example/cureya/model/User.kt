@@ -8,5 +8,6 @@ data class User(
     val email: String?,
     val photoUrl: String = defaultProfilePic,
     val password: String?,
+    val gender: String?,
     val joinedCureya : Date = Date()
 )

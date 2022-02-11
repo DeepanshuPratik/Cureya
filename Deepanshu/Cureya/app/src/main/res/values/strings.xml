@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Cureya</string>
-    <string name="start_chat_value">| Write Message</string>
+    <string name="start_chat_value">Write Message</string>
     <string name="attach_value">Attach</string>
     <string name="recycler_view_header">Let\'s find a companion</string>
     <string name="search">search</string>
@@ -39,8 +39,7 @@
     <string name="chat_fragment">Chat Fragment</string>
     <string name="chatbot_fragment">ChatBot Fragment</string>
     <string name="community_fragment">Community Fragment</string>
-    <string name="aboutus">CUREYA (registered as Aspexx Health solutions Pvt Ltd ) collaborated with stakeholders include - ROOTSKILLS , ROOTSAPS , World Yoga associations , Flagbits technologies and many more . The recent online webinars  are conducted by alternative practitioners that include  - Ayurveda Experts , Energy Healing experts , Mental Health Counselors  etc .
-        CUREYA primarily objective is ‘ Health for All ‘ , by reducing the medical expenditure , eliminating the information asymmetry , promoting health awareness and achieving inclusive and holistic approach for healthcare treatments . </string>
+    <string name="aboutusdetails">CUREYA (registered as Aspexx Health solutions Pvt Ltd ) collaborated with stakeholders include - ROOTSKILLS , ROOTSAPS , World Yoga associations , Flagbits technologies and many more . The recent online webinars  are conducted by alternative practitioners that include  - Ayurveda Experts , Energy Healing experts , Mental Health Counselors  etc. CUREYA primarily objective is ‘ Health for All ‘ , by reducing the medical expenditure , eliminating the information asymmetry , promoting health awareness and achieving inclusive and holistic approach for healthcare treatments.</string>
     <string name="about_us">About Us</string>
     <string name="madeinindia">Made with love in india to empower healthcare services.</string>
     <string name="follow">Follow</string>
@@ -62,7 +61,7 @@
     <string name="settings">Settings</string>
     <string name="my_account">My Account</string>
     <string name="support_feedback"><![CDATA[Support & Feedback]]></string>
-    <string name="useful_information">Useful information</string>
+    <string name="useful_information">Useful Information</string>
     <string name="frequently_asked_questions">Frequently Asked Questions</string>
     <string name="report_a_problem">Report a problem....</string>
     <string name="sign_out">Sign out</string>
@@ -95,12 +94,57 @@
     <string name="balasana">Balasana</string>
     <string name="ClientId">499621120056-urjqhhbjki4nluchvno5f2elf9u5rphg.apps.googleusercontent.com</string>
     <string name="write_your_post">Write your post........</string>
-    <string name="hello">Hello,</string>
+    <string name="hello">Hello, </string>
     <string name="note_your_mood_today">Note Your Mood Today</string>
     <string name="moods">Moods</string>
     <string name="blogs">Blogs</string>
     <string name="follow_cureya_on_social_media">Follow Cureya on Social Media</string>
     <string name="playing_now">Playing now</string>
+    <string name="our_mission">Our Mission</string>
+    <string name="our_vision">Our Vision</string>
+    <string name="our_value_proposition">Our Value Proposition</string>
+    <string name="our_achievements">Our Achievements</string>
+    <string name="our_collaborations">Our Collaborations</string>
+    <string name="regards_to_team_cureya">Regards To Team Cureya</string>
+    <string name="our_aim">Our Aim</string>
+    <string name="our_aim_para1"><b>1) Vitality in Individuality:</b> Cureya focuses on creating a safe space for you to learn,understand and get expert help on all health-related concerns. Our network of professionals provide expert solutions customized just for you.</string>
+    <string name="our_aim_para2"><b>2) Everyone is Priority With Cureya:</b> We aim to increase the accessibility of high quality holistic health solutions and provide affordable solutions to all. Everyone is priority and our two-way conversation system ensures learning, healing and growing.</string>
+    <string name="our_aim_para3"><b>3) Patient- Practitioner Connect:</b> Cureya focuses on the right connections and integrates patients with practitioners. Our online network of practitioners allows us to provide the right treatment, transcending barriers of geography to provide superior quality.</string>
+    <string name="our_aim_para4"><b>4) Previous teachings, today solutions:</b> Our evidence based research allows us to bridge the gap between traditional and modern medical systems. By leveraging technology to revamp the traditional medical system, Cureya provides transformative healthcare.</string>
+    <string name="our_aim_para5"><b>5) Priority not Privilege:</b> Cureya garners the belief that healthcare is an inclusive, fundamental right to all. Health is a priority and by making healthcare solutions accessible to all, Cureya aims to improve the standard of living for health and well being.</string>
+    <string name="our_mission_text">We thrive to achieve “Health for all” and aim to have a well balanced integrated, holistic and sustainable healthcare system through health education, promotion and prevention.</string>
+    <string name="our_vision_text">We thrive to create an integrated, holistic, inclusive and sustainable healthcare system providing personalized healthcare.We strive on maintaining our community of experienced professionals and transcend geographical barriers.</string>
+    <string name="our_value_porp_para1">● Achieving a high quality healthcare system through a well balanced network of healthcare specialists and wellness practitioners</string>
+    <string name="our_value_porp_para2">● Integrating passion and technology with innovation and marketing to increase accessibility and create a sustainable healthcare system.</string>
+    <string name="our_value_porp_para3">● To create a well developed community of professionals and maintain this network with the ethos of the healthcare system, upholding the values of integrity, honesty and trust.</string>
+    <string name="our_value_porp_para4">● Developing an individualistic, transformative healthcare system for patients by including customized monitoring and wellness plans.</string>
+    <string name="about_us_para1">Cureya aims to develop a transformative healthcare system through a network of professionals providing affordable, expert solutions that are individualized with customized healthcare and wellness plans.</string>
+    <string name="about_us_para2">● Cureya creates a safe space and focuses on enhancing Vitality by utilizing nature and the various benefits from it. Special focus is placed on cure, prevention and mitigation.</string>
+    <string name="about_us_para3">● Cureya provides individualized, transformative healthcare and leverages technology to revamp the traditional medical system and globalize local knowledge. Bridging this gap allows Cureya to leverage knowledge regarding the use of indigenous medicinal plants and traditional healers through advanced technologies and sustaining the global interest towards natural healing and organic solutions.</string>
+    <string name="about_us_para4">● The new wave of natural healing and herbal medicines creates a need for learning and trends indicate a high demand towards holistic healthcare solutions. Cureya fulfills this through evidence based research incorporated in clinical practice and transcends barriers of geography by the usage of modern technology.</string>
+    <string name="our_achievements_para1">● DPIIT Certified</string>
+    <string name="our_achievements_para2">● Collaborated with prestigious universities. (IIT’s, NIT’s, IIM’s, Central Universities and more)</string>
+    <string name="our_achievements_para3">● Launched AI Mental Health Chatbot for individualized care on Google Play Store</string>
+    <string name="our_achievements_para4">● Conducted 20+ National and International Live Webinars with experienced doctors.</string>
+    <string name="our_achievements_para5">● Member of INO (International Naturopathy Organization), Google Women Founders Group, Stanford Rebuild, NASSCOM &amp; ASSOCHAM</string>
+    <string name="our_achievements_para6">● Provide online internship programs for engineering and medical students on AI-ML-DS-PYTHON</string>
+    <string name="our_achievements_para7">● 1500+ students have become part of the Cureya Online Internship Program</string>
+    <string name="our_achievements_para8">● Interns working all over India with team sizes over 150 in over 10 departments.</string>
+    <string name="our_collabs_para1">Cureya will directly act as the HEALTH PARTNER for these institutions\n\n1. Customer base in collaboration with Institutes and Corporates\n\n2. MOU agreements are Under Process for colleges JSS NOIDA PARTNER\n\n3.UPTU college\n\n4.GNIOT Engineering &amp; 5 other Engineering Colleges\n\nMOUs are UNDER PROCESS for Corporates :\n HCL\n INSIDER</string>
+    <string name="our_collabs_para2"><b>Collaborate with us :-</b></string>
+    <string name="our_collabs_para3">● Associate partner or Social Media Partner.</string>
+    <string name="our_collabs_para4">● Increase your brand presence.</string>
+    <string name="our_collabs_para5">● List and Market your products on our E-Commerce portal.</string>
+    <string name="our_collabs_para6">● Conduct and partake in webinars, podcasts and certification courses.</string>
+    <string name="our_collabs_para7">● Collaborate with esteemed universities, industry partners and corporates.</string>
+    <string name="our_collabs_para8">● Share your knowledge by starting your own certification course for practitioners.</string>
+    <string name="team_cureya">Recognition to Project Head\nAbel D\'Silva\n\nRecognition to R&amp;D\nVaibhav Tripathi\n\nRecognition to Android Developers\nTeam Lead:-\nDeep Hudka\nCore Members:-\nDivyansh Kushwaha\nDeepanshu Pratik\nRonnie Bine\n\nRecognition to Android Developer Design Team\nRitesh Kumar\nVikas Kumar\nAnjali Meena\n\nRecognition to UI/UX Design Team\nTeam Lead:-\nAnjali Kasar (App Design)\nMembers:-\nAnshika Thakur (Flash Screen)</string>
+    <string name="more_about_us"><![CDATA[More >]]></string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="lgbtq">LGBTQ</string>
+    <string name="please_select_your_gender">Please select your gender</string>
+    <string name="lgbtqia">LGBTQIA</string>
 
     <string-array name="blog_name">
         <item>Mental Health Disorders and How to Overcome them</item>

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.cureya.R
 import com.example.cureya.databinding.FragmentHomeBinding
 import com.example.cureya.home.data.blog
@@ -60,6 +61,11 @@ class HomeFragment : Fragment(), blogitemClicked {
         binding.twitterLink.setOnClickListener {
             opentwitterlink()
         }
+        binding.profile.setOnClickListener {
+            val direction =
+                HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
+            findNavController().navigate(direction)
+        }
         getusername()
         initMembers(view)
         val images = listOf<blog>(
@@ -100,8 +106,10 @@ class HomeFragment : Fragment(), blogitemClicked {
         val user = auth.currentUser
         val uid = user?.uid.toString()
         database.child("users").child(uid).get().addOnSuccessListener {
-            username = it.child("name").value.toString()
+            username = it.child("name").value.toString().split(" ")[0]
+            val photoUrl = it.child("photoUrl").value.toString()
             binding.userinfo.text = username
+            binding.profile.load(photoUrl)
         }
     }
 
@@ -174,16 +182,17 @@ class HomeFragment : Fragment(), blogitemClicked {
                         findNavController().navigate(R.id.action_homeFragment_to_logInFragment)
                         true
                     }
-                    R.id.profile -> false
-                    R.id.moods -> {
-                        findNavController().navigate(R.id.action_homeFragment_to_moodFragment)
+                    R.id.profile -> {
+                        val direction =
+                            HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
+                        findNavController().navigate(direction)
                         true
                     }
+                    R.id.moods -> false
                     R.id.contact_us -> {
                         findNavController().navigate(R.id.action_homeFragment_to_contactUsFragment)
                         true
                     }
-                    R.id.report -> false
                     else -> false
                 }
             }

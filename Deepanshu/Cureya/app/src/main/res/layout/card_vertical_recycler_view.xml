@@ -39,7 +39,7 @@
                 android:paddingVertical="6dp"
                 android:paddingHorizontal="16dp"
                 android:maxLines="1"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:textAppearance="?attr/textAppearanceBody2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@id/profile_pic_background"
@@ -76,6 +76,7 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <ImageView
+                    android:tint="@color/text_secondary"
                     android:id="@+id/message_status"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -95,6 +96,7 @@
                 app:layout_constraintTop_toBottomOf="@id/account_name">
 
                 <TextView
+                    android:textColor="@color/text_secondary"
                     android:id="@+id/user_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -111,6 +113,7 @@
                     />
 
                 <TextView
+                    android:textColor="@color/text_secondary"
                     android:id="@+id/message_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,6 +123,7 @@
                     tools:text="Loren ipsum dolo" />
 
                 <TextView
+                    android:textColor="@color/text_secondary"
                     android:id="@+id/message_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

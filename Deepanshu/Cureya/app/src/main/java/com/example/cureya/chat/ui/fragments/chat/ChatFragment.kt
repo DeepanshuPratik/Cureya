@@ -1,20 +1,19 @@
 package com.example.cureya.chat.ui.fragments.chat
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.cureya.R
+import coil.load
 import com.example.cureya.chat.data.models.User
 import com.example.cureya.chat.ui.adapters.ChatRecyclerAdapter
+import com.example.cureya.databinding.FragmentOneOnOneChatBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -27,18 +26,17 @@ class ChatFragment : Fragment() {
     private lateinit var user: User
     private val chatViewModel: ChatViewModel by viewModels()
 
-    private lateinit var messageEditText: EditText
-    private lateinit var sendButton: ImageView
-    private lateinit var chatRecyclerView: RecyclerView
-    private lateinit var chatRecyclerAdapter: ChatRecyclerAdapter
-    private lateinit var userImage : ImageView
+    private var _binding: FragmentOneOnOneChatBinding? = null
+    private val binding get() = _binding!!
 
+    private lateinit var chatRecyclerAdapter: ChatRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_one_on_one_chat, container, false)
+    ): View {
+        _binding = FragmentOneOnOneChatBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,52 +54,54 @@ class ChatFragment : Fragment() {
             FirebaseDatabase.getInstance("https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app").reference
         auth = FirebaseAuth.getInstance()
         user = ChatFragmentArgs.fromBundle(requireArguments()).user
-        view.findViewById<TextView>(R.id.user_name).text = user.name
-        Glide.with(this).load(user.photoUrl).into(view.findViewById(R.id.profile))
-        messageEditText = view.findViewById(R.id.chatbar)
-        sendButton = view.findViewById(R.id.send_button)
-        chatRecyclerView = view.findViewById(R.id.chat_recycler)
         chatRecyclerAdapter = ChatRecyclerAdapter(auth.uid!!)
-        userImage = view.findViewById(R.id.user_name)
+        binding.apply {
+            userName.text = user.name
+            profile.load(user.photoUrl)
+
+        }
     }
 
     private fun setupRecycler() {
-        chatRecyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        chatRecyclerView.adapter = chatRecyclerAdapter
+        binding.apply {
+            chatRecycler.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            chatRecycler.adapter = chatRecyclerAdapter
+        }
     }
 
     private fun setupListeners(view: View) {
-        view.findViewById<ImageView>(R.id.back_button).setOnClickListener {
-            findNavController().popBackStack()
-        }
-        messageEditText.setOnFocusChangeListener { v, hasFocus ->
-            if (hasFocus) {
-                sendButton.visibility = View.VISIBLE
-            } else {
-                sendButton.visibility = View.GONE
+        binding.apply {
+            backButton.setOnClickListener {
+                findNavController().popBackStack()
             }
+            chatbar.setOnFocusChangeListener { v, hasFocus ->
+                if (hasFocus) {
+                    sendButton.visibility = View.VISIBLE
+                } else {
+                    sendButton.visibility = View.GONE
+                }
+            }
+            sendButton.setOnClickListener { sendMessage() }
         }
-        sendButton.setOnClickListener { sendMessage() }
-
     }
 
     private fun sendMessage() {
         lifecycleScope.launch {
-            val text = messageEditText.text.toString()
+            val text = binding.chatbar.text.toString()
             if (text.isEmpty() || text.isBlank()) {
                 Toast.makeText(requireContext(), "Please provide a message", Toast.LENGTH_SHORT)
                     .show()
             } else {
                 chatViewModel.sendMessage(text, user.userId!!)
             }
-            messageEditText.text.clear()
+            binding.chatbar.text.clear()
             scrollToBottom()
         }
     }
 
     private fun scrollToBottom() =
-        chatRecyclerView.scrollToPosition(chatRecyclerAdapter.itemCount - 1)
+        binding.chatRecycler.scrollToPosition(chatRecyclerAdapter.itemCount - 1)
 
     private fun observeData() {
         chatViewModel.getChats().observe(viewLifecycleOwner) {

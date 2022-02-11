@@ -7,6 +7,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +58,8 @@ class SignUpFragment: Fragment() {
         binding.googleSignIn.setOnClickListener { handleGoogleSignIn() }
 
         binding.logInTextView.setOnClickListener { goToLogInFragment() }
+
+        handleCheckBox()
     }
 
     private fun prepareToRegister() {
@@ -73,8 +76,14 @@ class SignUpFragment: Fragment() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    val gender =
+                        if (binding.checkboxMale.isChecked) {
+                            "Male"
+                        } else if (binding.checkboxFemale.isChecked) {
+                            "Female"
+                        } else "LGBTQIA"
                     Log.w("SignUpFragment","Firebase auth successful")
-                    val user = User(name, email, defaultProfilePic, password)
+                    val user = User(name, email, defaultProfilePic, password, gender)
                     addToUserBase(user)
                     goToHomeFragment()
                 }
@@ -212,12 +221,19 @@ class SignUpFragment: Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
+                    val gender =
+                        if (binding.checkboxMale.isChecked) {
+                            "Male"
+                        } else if (binding.checkboxFemale.isChecked) {
+                            "Female"
+                        } else "LGBTQIA"
+
                     val user = User(
                         auth.currentUser?.displayName,
                         auth.currentUser?.email,
                         auth.currentUser?.photoUrl.toString(),
-                        null
+                        null,
+                        gender
                     )
                     addToUserBase(user)
                     updateUI()
@@ -225,6 +241,27 @@ class SignUpFragment: Fragment() {
                     showToast("Unexpected error occurred")
                 }
             }
+    }
+
+    private fun handleCheckBox() {
+        binding.checkboxMale.setOnCheckedChangeListener { _, p1 ->
+            if (p1) {
+                binding.checkboxFemale.isChecked = false
+                binding.checkboxLgbtqia.isChecked = false
+            }
+        }
+        binding.checkboxFemale.setOnCheckedChangeListener { _, p1 ->
+            if (p1) {
+                binding.checkboxMale.isChecked = false
+                binding.checkboxLgbtqia.isChecked = false
+            }
+        }
+        binding.checkboxLgbtqia.setOnCheckedChangeListener { _, p1 ->
+            if (p1) {
+                binding.checkboxMale.isChecked = false
+                binding.checkboxFemale.isChecked = false
+            }
+        }
     }
 
     private fun showToast(text: String) {

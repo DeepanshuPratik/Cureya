@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -61,7 +62,7 @@ class PostRecyclerAdapter(
         val likeCount: TextView = itemView.findViewById(R.id.post_card_like_count)
         val love: ImageView = itemView.findViewById(R.id.post_love)
         val loveCount: TextView = itemView.findViewById(R.id.post_card_love_count)
-        val comment: ImageView = itemView.findViewById(R.id.post_comment)
+        val comment: FrameLayout = itemView.findViewById(R.id.post_card_comment_frame)
         val menu: ImageView = itemView.findViewById(R.id.post_card_menu_button)
         val commentCount: TextView = itemView.findViewById(R.id.post_card_comment_count)
         val share: ImageView = itemView.findViewById(R.id.post_share)
@@ -85,23 +86,17 @@ class PostRecyclerAdapter(
             commentCount.text = post.commentCount.toString()
             postTime.text = post.createdAt.toDateString()
             profession.text = post.tags[0].name
-            if (!isLiked) like.setColorFilter(Color.argb(255, 64, 64, 64))
-            else like.setColorFilter(Color.argb(255, 255, 0, 0))
-            postImage.setOnClickListener {
-                onPostClick(post)
+            if (!isLiked) {
+                like.setColorFilter(Color.argb(255, 64, 64, 64))
+            } else {
+                like.setColorFilter(Color.argb(255, 255, 0, 0))
             }
-            share.setOnClickListener {
-                share(post)
-            }
-            menu.setOnClickListener {
-                showMenu(it, post)
-            }
-
+            comment.setOnClickListener { onPostClick(post) }
+            postImage.setOnClickListener { onPostClick(post) }
+            share.setOnClickListener { share(post) }
+            menu.setOnClickListener { showMenu(it, post) }
             like.setOnClickListener {
                 if (isLiked) unlikePost(post.postId) else likePost(post.postId)
-            }
-            comment.setOnClickListener {
-
             }
             profilePhoto.setOnClickListener {
                 onProfileClick(post.userId)

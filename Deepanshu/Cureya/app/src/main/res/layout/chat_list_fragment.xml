@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -50,11 +51,13 @@
                 android:layout_height="42dp"
                 android:layout_alignParentEnd="true"
                 android:background="?attr/actionBarItemBackground"
-                app:srcCompat="@drawable/asset_menu" />
+                app:srcCompat="@drawable/asset_menu"
+                app:tint="@color/text_primary" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:textColor="@color/text_primary"
         android:id="@+id/tag_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
