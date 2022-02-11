@@ -26,28 +26,31 @@ class InformationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             ourAim.setOnClickListener {
-                findNavController().navigate(R.id.action_our_Aim_to_informationFragment)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_our_Aim)
             }
             aboutUs.setOnClickListener {
-                findNavController().navigate(R.id.action_informationFragment_to_about_Us)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_about_Us)
             }
             ourMission.setOnClickListener {
-                findNavController().navigate(R.id.action_informationFragment_to_our_Mission)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_our_Mission)
             }
             ourVision.setOnClickListener {
-                findNavController().navigate(R.id.action_informationFragment_to_our_Vision)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_our_Vision)
             }
             ourAchievements.setOnClickListener {
-                findNavController().navigate(R.id.action_informationFragment_to_our_Achievements)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_our_Achievements)
             }
             ourCollabs.setOnClickListener {
-               findNavController().navigate(R.id.action_informationFragment_to_our_Collaborations)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_our_Collaborations)
             }
             ourValueProposition.setOnClickListener {
-                findNavController().navigate(R.id.action_informationFragment_to_our_Value_Proposition)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_our_Value_Proposition)
             }
             teamCureya.setOnClickListener {
-                findNavController().navigate(R.id.action_informationFragment_to_team_Cureya)
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_team_Cureya)
+            }
+            dashboardBackButton.setOnClickListener {
+                this@InformationFragment.findNavController().navigate(R.id.action_informationFragment_to_settingsFragment)
             }
         }
 
