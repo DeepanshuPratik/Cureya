@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,10 +31,11 @@
                 android:singleLine="true"
                 android:padding="8dp"
                 android:textStyle="bold"
+                android:textColor="@color/text_primary"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_gravity="top|center_horizontal"
-                android:text="Contact Us"
-                />
+                android:text="Feedback" />
+
         </FrameLayout>
         <ImageView
             android:id="@+id/company_logo"
@@ -48,92 +50,85 @@
         <TextView
             android:id="@+id/contact_edit"
             app:layout_constraintTop_toBottomOf="@id/company_logo"
-            android:text="Contact Us"
+            android:text="Feedback"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/text_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <TextView
             android:id="@+id/welcome_message_2"
             android:layout_width="wrap_content"
+            android:textColor="@color/text_primary"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/contact_edit"
             android:textSize="18sp"
-            android:text="We are happy to help you"
+            android:text="Rate your Experience"
             android:layout_height="wrap_content"
             />
-        <ImageView
-            android:id="@+id/mail_id"
-            app:layout_constraintTop_toBottomOf="@id/welcome_message_2"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/frame326"
-            />
-        <TextView
-            android:id="@+id/follow"
-            app:layout_constraintTop_toBottomOf="@id/mail_id"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:text="Follow us on"
-            />
+
         <LinearLayout
             android:id="@+id/social_medias"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/follow"
+            app:layout_constraintTop_toBottomOf="@id/welcome_message_2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >
             <ImageView
-                android:id="@+id/instagram"
+                android:id="@+id/great"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/instagram"
+                android:src="@drawable/great"
                 />
             <ImageView
-                android:id="@+id/youtube"
+                android:id="@+id/good"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logos_youtube"
+                android:src="@drawable/good"
                 />
             <ImageView
-                android:id="@+id/facebook"
+                android:id="@+id/ok"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_facebook"
+                android:src="@drawable/ok"
                 />
             <ImageView
-                android:id="@+id/twitter"
+                android:id="@+id/bad"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/twitter"
+                android:src="@drawable/bad"
                 />
             <ImageView
-                android:id="@+id/linkedIn"
+                android:id="@+id/terrible"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/linkedin"
+                android:src="@drawable/terrible"
                 />
 
         </LinearLayout>
+        <TextView
+            android:id="@+id/feedback"
+            android:layout_marginVertical="15dp"
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/social_medias"
+            android:textSize="20sp"
+            android:textColor="@color/text_primary"
+            android:text="Tell us what can be improved?"
+            android:layout_height="wrap_content"
+            />
         <LinearLayout
             android:paddingTop="20dp"
             android:orientation="vertical"
@@ -141,58 +136,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            app:layout_constraintTop_toBottomOf="@id/social_medias"
+            app:layout_constraintTop_toBottomOf="@id/feedback"
             app:layout_constraintBottom_toBottomOf="parent"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ask Your Queries"
+                android:text="Type your message here"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
                 />
             <EditText
-                android:id="@+id/name"
+                android:id="@+id/feedback_data"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name"
-                android:textColor="@color/text_secondary"
-                android:layout_margin="16dp"
-                android:padding="8dp"
-                android:background="@drawable/bg_details"
-                />
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="E-mail"
-                android:textColor="@color/text_secondary"
-                android:layout_margin="16dp"
-                android:padding="8dp"
-                android:background="@drawable/bg_details"
-                />
-            <EditText
-                android:id="@+id/subject"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Subject"
-                android:textColor="@color/text_secondary"
-                android:layout_margin="16dp"
-                android:padding="8dp"
-                android:background="@drawable/bg_details"
-                />
-            <EditText
-                android:id="@+id/message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:hint="Message"
                 android:gravity="top"
+                android:lines="10"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
                 android:padding="8dp"
-                android:lines="5"
                 android:background="@drawable/bg_details"
                 />
+
             <Button
                 android:id="@+id/send_message"
                 android:layout_gravity="center"

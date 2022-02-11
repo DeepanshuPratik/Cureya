@@ -30,7 +30,7 @@ class HomeFragment : Fragment(), blogitemClicked {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -155,7 +155,6 @@ class HomeFragment : Fragment(), blogitemClicked {
 
     private fun initMembers(view: View) {
         blogRecyclerView = view.findViewById(R.id.blogs_recycler_view)
-
     }
 
     private fun showMenuPopUp(view: View) {
@@ -177,7 +176,10 @@ class HomeFragment : Fragment(), blogitemClicked {
                     }
                     R.id.profile -> false
                     R.id.moods -> false
-                    R.id.contact_us -> false
+                    R.id.contact_us -> {
+                        findNavController().navigate(R.id.action_homeFragment_to_contactUsFragment)
+                        true
+                    }
                     R.id.report -> false
                     else -> false
                 }
