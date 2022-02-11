@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.cureya.R
 import com.example.cureya.databinding.FragmentFeedbackBinding
 import com.example.cureya.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -17,11 +16,23 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
+import com.example.cureya.R
+
+import android.widget.TextView
+
+import android.app.Activity
+import android.app.Dialog
+import android.view.Window
+import android.widget.Button
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+
 
 @DelicateCoroutinesApi
 class FeedbackFragment : Fragment() {
     private lateinit var binding: FragmentFeedbackBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var navController: NavController
     private lateinit var database: DatabaseReference
     private var rating: Int = 5
 
@@ -30,6 +41,7 @@ class FeedbackFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFeedbackBinding.inflate(inflater, container, false)
+        navController = findNavController()
         return binding.root
     }
 
@@ -77,6 +89,9 @@ class FeedbackFragment : Fragment() {
             binding.terrible.setBackgroundColor(color)
             binding.ok.setBackgroundColor(resources.getColor(R.color.green_400))
         }
+        binding.dashboardBackButton.setOnClickListener{
+            navController.navigate(R.id.action_feedbackFragment_to_homeFragment)
+        }
         auth = Firebase.auth
          database =
             FirebaseDatabase.getInstance("https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app").reference
@@ -85,6 +100,7 @@ class FeedbackFragment : Fragment() {
                 database.child("users").child(auth.uid!!).child("email").get().await().getValue(String::class.java)
             withContext(Dispatchers.Main) {
                 binding.sendMessage.setOnClickListener{
+                    showDialog(activity,"Your sumbission has been recieved!")
                     val p : String = binding.feedbackData.text.toString()
                     val user_feed = Feedback(email,p,rating)
                     if (email != null) {
@@ -96,5 +112,16 @@ class FeedbackFragment : Fragment() {
                 }
             }
         }
+    }
+    private fun showDialog(activity: Activity?, msg: String?) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(com.example.cureya.R.layout.alertcard)
+        val text : TextView = dialog.findViewById(com.example.cureya.R.id.subtext_dialog)
+        text.text = msg
+        val dialogButton: Button = dialog.findViewById(com.example.cureya.R.id.btn)
+        dialogButton.setOnClickListener(View.OnClickListener { dialog.dismiss() })
+        dialog.show()
     }
 }

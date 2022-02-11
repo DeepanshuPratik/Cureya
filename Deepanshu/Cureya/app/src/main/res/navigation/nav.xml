@@ -57,7 +57,11 @@
         android:id="@+id/contactusFragment"
         android:name="com.example.cureya.feedbackncontact.ContactFragment"
         android:label="Contact Us"
-        tools:layout="@layout/fragment_contactus" />
+        tools:layout="@layout/fragment_contactus" >
+        <action
+            android:id="@+id/action_contactUsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.example.cureya.home.AboutUsFragment"
@@ -136,7 +140,11 @@
         android:id="@+id/feedbackFragment"
         android:name="com.example.cureya.feedbackncontact.FeedbackFragment"
         android:label="FeedbackFragment"
-        tools:layout="@layout/fragment_feedback" />
+        tools:layout="@layout/fragment_feedback" >
+        <action
+            android:id="@+id/action_feedbackFragment_to_homeFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.cureya.settings.AccountFragment"

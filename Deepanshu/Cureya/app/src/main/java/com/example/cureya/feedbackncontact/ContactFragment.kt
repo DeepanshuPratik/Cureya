@@ -1,15 +1,23 @@
 package com.example.cureya.feedbackncontact
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import com.example.cureya.R
 import com.example.cureya.databinding.FragmentContactusBinding
 import com.example.cureya.databinding.FragmentFeedbackBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,12 +34,14 @@ import kotlinx.coroutines.withContext
 class ContactFragment : Fragment() {
     private lateinit var binding: FragmentContactusBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var navController: NavController
     private lateinit var database: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentContactusBinding.inflate(inflater, container, false)
+        navController = findNavController()
         return binding.root
     }
 
@@ -64,6 +74,7 @@ class ContactFragment : Fragment() {
                 database.child("users").child(auth.uid!!).child("email").get().await().getValue(String::class.java)
             withContext(Dispatchers.Main) {
                 binding.sendMessage.setOnClickListener{
+                    showDialog(activity,"Your sumbission has been recieved!")
                     val message : String = binding.message.text.toString()
                     val subject : String = binding.subject.text.toString()
                     val name : String = binding.name.text.toString()
@@ -74,6 +85,9 @@ class ContactFragment : Fragment() {
                     else {
                         Toast.makeText(activity, "email not mentioned!", Toast.LENGTH_SHORT).show()
                     }
+                }
+                binding.dashboardBackButton.setOnClickListener{
+                    navController.navigate(R.id.action_contactUsFragment_to_homeFragment)
                 }
             }
         }
@@ -142,5 +156,16 @@ class ContactFragment : Fragment() {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         customTabsIntent.launchUrl(requireContext(), Uri.parse("https://www.cureya.in/"))
+    }
+    private fun showDialog(activity: Activity?, msg: String?) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(com.example.cureya.R.layout.alertcard)
+        val text : TextView = dialog.findViewById(com.example.cureya.R.id.subtext_dialog)
+        text.text = msg
+        val dialogButton: Button = dialog.findViewById(com.example.cureya.R.id.btn)
+        dialogButton.setOnClickListener(View.OnClickListener { dialog.dismiss() })
+        dialog.show()
     }
 }
