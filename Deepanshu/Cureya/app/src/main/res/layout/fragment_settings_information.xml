@@ -12,25 +12,184 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/useful_information"
-        android:drawablePadding="32dp"
         android:padding="16dp"
+        android:textStyle="bold"
+        android:gravity="center"
         android:fontFamily="@font/inria_serif_light"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        app:drawableStartCompat="@drawable/asset_cross"
+        app:drawableStartCompat="@drawable/back_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyler"
+    <FrameLayout
+        android:id="@+id/our_aim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_information"
-        tools:listitem="@layout/layout_settings_column"/>
+        app:layout_constraintTop_toBottomOf="@id/label_information">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/our_aim"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/our_mission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/our_aim">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/our_mission"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/our_vision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/our_mission">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/our_vision"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/our_value_proposition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/our_vision">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/our_value_proposition"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/our_value_proposition">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/about_us"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/our_achievements"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_us">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/our_achievements"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/our_collabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/our_achievements">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/our_collaborations"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/team_cureya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar_background"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/our_collabs">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:text="@string/regards_to_team_cureya"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
