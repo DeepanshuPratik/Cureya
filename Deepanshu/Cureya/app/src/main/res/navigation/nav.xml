@@ -180,6 +180,30 @@
         <action
             android:id="@+id/action_informationFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_our_Aim"
+            app:destination="@id/our_Aim" />
+        <action
+            android:id="@+id/action_informationFragment_to_our_Mission"
+            app:destination="@id/our_Mission" />
+        <action
+            android:id="@+id/action_informationFragment_to_our_Vision"
+            app:destination="@id/our_Vision" />
+        <action
+            android:id="@+id/action_informationFragment_to_our_Value_Proposition"
+            app:destination="@id/our_Value_Proposition" />
+        <action
+            android:id="@+id/action_informationFragment_to_our_Achievements"
+            app:destination="@id/our_Achievements" />
+        <action
+            android:id="@+id/action_informationFragment_to_our_Collaborations"
+            app:destination="@id/our_Collaborations" />
+        <action
+            android:id="@+id/action_informationFragment_to_team_Cureya"
+            app:destination="@id/team_Cureya" />
+        <action
+            android:id="@+id/action_informationFragment_to_about_Us"
+            app:destination="@id/about_Us" />
     </fragment>
     <fragment
         android:id="@+id/faqFragment"
@@ -287,5 +311,83 @@
         <argument
             android:name="item_position"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/our_Aim"
+        android:name="com.example.cureya.settings.Our_Aim"
+        android:label="our_aim"
+        tools:layout="@layout/our_aim" >
+        <action
+            android:id="@+id/action_our_Aim_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_our_Aim_to_about_Us"
+            app:destination="@id/about_Us" />
+    </fragment>
+    <fragment
+        android:id="@+id/our_Mission"
+        android:name="com.example.cureya.settings.Our_Mission"
+        android:label="our_mission"
+        tools:layout="@layout/our_mission" >
+        <action
+            android:id="@+id/action_our_Mission_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/our_Vision"
+        android:name="com.example.cureya.settings.Our_Vision"
+        android:label="our_vision"
+        tools:layout="@layout/our_vision" >
+        <action
+            android:id="@+id/action_our_Vision_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/our_Value_Proposition"
+        android:name="com.example.cureya.settings.Our_Value_Proposition"
+        android:label="our_value_proposition"
+        tools:layout="@layout/our_value_proposition" >
+        <action
+            android:id="@+id/action_our_Value_Proposition_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/about_Us"
+        android:name="com.example.cureya.settings.About_Us"
+        android:label="about_us"
+        tools:layout="@layout/about_us" >
+        <action
+            android:id="@+id/action_about_Us_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_about_Us_to_informationFragment2"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/our_Achievements"
+        android:name="com.example.cureya.settings.Our_Achievements"
+        android:label="our_achievements"
+        tools:layout="@layout/our_achievements" >
+        <action
+            android:id="@+id/action_our_Achievements_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/our_Collaborations"
+        android:name="com.example.cureya.settings.Our_Collaborations"
+        android:label="our_collaborations"
+        tools:layout="@layout/our_collaborations" >
+        <action
+            android:id="@+id/action_our_Collaborations_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/team_Cureya"
+        android:name="com.example.cureya.settings.Team_Cureya"
+        android:label="team_cureya"
+        tools:layout="@layout/team_cureya" >
+        <action
+            android:id="@+id/action_team_Cureya_to_informationFragment"
+            app:destination="@id/informationFragment" />
     </fragment>
 </navigation>
