@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cureya.community.models.Comment
 import com.example.cureya.community.models.Post
+import com.example.cureya.community.models.User
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -18,6 +19,7 @@ class PostDetailViewModel : ViewModel() {
 
     private val database =
         FirebaseDatabase.getInstance("https://cureyadraft-default-rtdb.asia-southeast1.firebasedatabase.app").reference
+    private val auth = FirebaseAuth.getInstance()
 
     private val _comments = MutableLiveData<List<Comment>>()
     val comment: LiveData<List<Comment>> get() = _comments
@@ -25,10 +27,33 @@ class PostDetailViewModel : ViewModel() {
     private val _post = MutableLiveData<Post>()
     val post: LiveData<Post> get() = _post
 
+    private val _currentUser = MutableLiveData<User>()
+    val currentUser: LiveData<User> get() = _currentUser
+
+    init {
+        loadUser()
+    }
+
     fun initData(post: Post) {
         _post.value = post
         listenForPostValueChange(postId = post.postId)
         loadComment(postId = post.postId)
+    }
+
+    private fun loadUser() {
+        viewModelScope.launch {
+            try {
+                val user =
+                    database.child("users").child(auth.uid!!).get().await()
+                        .getValue(User::class.java)!!
+                user.userId = auth.uid!!
+                Log.e(TAG, "loadUser: ${user}", )
+                _currentUser.value = user
+            } catch (e: Exception) {
+                Log.e(TAG, "loadUser:", e)
+            }
+
+        }
     }
 
     private fun listenForPostValueChange(postId: String) {
@@ -54,8 +79,8 @@ class PostDetailViewModel : ViewModel() {
                 val comment = Comment(
                     userId = auth.uid!!,
                     text = commentText,
-                    photoUrl = auth.currentUser!!.photoUrl.toString(),
-                    userName = auth.currentUser!!.displayName.toString(),
+                    photoUrl = _currentUser.value!!.photoUrl,
+                    userName = _currentUser.value!!.name
                 )
                 val cc = database.child("community").child("posts")
                     .child(postId).child("commentCount").get().await().getValue(Int::class.java)
@@ -65,7 +90,7 @@ class PostDetailViewModel : ViewModel() {
                 database.child("community").child("posts").child(postId)
                     .child("comments").push().setValue(comment)
             } catch (e: Exception) {
-
+                Log.e(TAG, "postComment: ", e)
             }
 
         }
@@ -99,7 +124,6 @@ class PostDetailViewModel : ViewModel() {
     }
 
 
-    private val auth = FirebaseAuth.getInstance()
     fun likePost() {
         viewModelScope.launch {
             try {

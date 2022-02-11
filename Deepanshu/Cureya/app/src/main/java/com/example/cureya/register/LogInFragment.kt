@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class LogInFragment : Fragment() {
 
@@ -162,7 +163,8 @@ class LogInFragment : Fragment() {
                         auth.currentUser?.displayName,
                         auth.currentUser?.email,
                         auth.currentUser?.photoUrl.toString(),
-                        null
+                        null,
+                        joinedCureya = Date()
                     )
                     addToUserBase(user)
                     updateUI()

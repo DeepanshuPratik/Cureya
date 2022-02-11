@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cureya.community.models.Post
 import com.example.cureya.community.models.TAG
+import com.example.cureya.community.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
@@ -31,6 +32,28 @@ class CreatePostViewModel : ViewModel() {
 
     private val _tag = MutableLiveData<TAG?>()
     val tag: LiveData<TAG?> get() = _tag
+
+    private val _currentUser = MutableLiveData<User>()
+    val currentUser: LiveData<User> get() = _currentUser
+
+    init {
+        loadUser()
+    }
+
+    private fun loadUser() {
+        viewModelScope.launch {
+            try {
+                val user =
+                    database.child("users").child(auth.uid!!).get().await()
+                        .getValue(User::class.java)!!
+                user.userId = auth.uid!!
+                _currentUser.value = user
+            } catch (e: Exception) {
+                Log.e(TAG, "loadUser:", e)
+            }
+        }
+    }
+
 
     fun setTag(tag: TAG) {
         _tag.value = tag

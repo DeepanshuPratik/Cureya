@@ -82,7 +82,6 @@ class PostDetailFragment : Fragment() {
     }
 
     private fun initUi() {
-        binding.userImage.load(auth.currentUser!!.photoUrl)
         binding.postCard.postCardMenuButton.visibility = GONE
         binding.commentsRecycler.apply {
             adapter = commentRecyclerAdapter
@@ -94,6 +93,9 @@ class PostDetailFragment : Fragment() {
     private fun observeData() {
         viewModel.comment.observe(viewLifecycleOwner) {
             this.commentRecyclerAdapter.updateData(it)
+        }
+        viewModel.currentUser.observe(viewLifecycleOwner) { user ->
+            binding.userImage.load(user.photoUrl)
         }
         viewModel.post.observe(viewLifecycleOwner) { post ->
             val isLiked = post.likes.contains(auth.uid!!)
