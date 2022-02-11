@@ -164,6 +164,7 @@ class LogInFragment : Fragment() {
                         auth.currentUser?.email,
                         auth.currentUser?.photoUrl.toString(),
                         null,
+                        null,
                         joinedCureya = Date()
                     )
                     addToUserBase(user)

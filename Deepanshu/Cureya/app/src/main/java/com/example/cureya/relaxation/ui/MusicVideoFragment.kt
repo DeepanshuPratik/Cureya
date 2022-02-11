@@ -36,6 +36,7 @@ class MusicVideoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.w("MusicVideoFragment", "Back to musicVideo fragment onCreate()")
         binding = FragmentRelaxationMusicVideoBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -43,13 +44,16 @@ class MusicVideoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.w("MusicVideoFragment", "Back to musicVideo fragment onViewCreated()")
+
         val contentType = navArgument.contentType
 
         db = Firebase.database
 
         if (contentType == CONTENT_TYPE_VIDEO) {
             showVideoList()
-        } else if (contentType == CONTENT_TYPE_MUSIC) {
+        } else {
+            Log.w("MusicVideoFragment", "showMusicList() called")
             showMusicList()
         }
     }
@@ -112,16 +116,15 @@ class MusicVideoFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        Log.w("MusicVideoFragment", "Back to musicVideo fragment onStart()")
         try {
             videoAdapter.startListening()
-        } catch (e: UninitializedPropertyAccessException) {
-            Log.w(TAG, "Music adapter called")
-        }
+            Log.w(TAG, "Video adapter called")
+        } catch (e: UninitializedPropertyAccessException) { }
         try {
             musicAdapter.startListening()
-        } catch (e: UninitializedPropertyAccessException) {
-            Log.w(TAG, "Video adapter called")
-        }
+            Log.w(TAG, "Music adapter called")
+        } catch (e: UninitializedPropertyAccessException) { }
     }
 
     override fun onStop() {
