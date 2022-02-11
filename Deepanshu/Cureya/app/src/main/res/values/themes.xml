@@ -15,7 +15,7 @@
     </style>
 
     <!-- My custom theme set this theme from manifest file -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPr</item>
         <item name="colorPrimaryVariant">@color/colorPr</item>
 
@@ -23,6 +23,8 @@
         <item name="colorOnSecondary">@color/black</item>
 
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <item name="android:strokeColor">@color/white</item>
     </style>
 
 </resources>

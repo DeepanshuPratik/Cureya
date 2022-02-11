@@ -9,8 +9,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="?attr/actionBarSize">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -89,7 +88,7 @@
                 app:endIconDrawable="@drawable/ic_see_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/email_edit_text_layout"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_male"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -98,6 +97,50 @@
                     android:layout_height="match_parent"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/label_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/please_select_your_gender"
+                android:textStyle="bold"
+                android:fontFamily="@font/inria_serif_light"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_edit_text_layout" />
+
+            <CheckBox
+                android:id="@+id/checkbox_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:fontFamily="@font/inria_serif_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/checkbox_female"
+                app:layout_constraintTop_toBottomOf="@id/label_gender"/>
+
+            <CheckBox
+                android:id="@+id/checkbox_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inria_serif_light"
+                android:text="@string/female"
+                app:layout_constraintStart_toEndOf="@id/checkbox_male"
+                app:layout_constraintEnd_toStartOf="@id/checkbox_lgbtqia"
+                app:layout_constraintTop_toBottomOf="@id/label_gender" />
+
+
+            <CheckBox
+                android:id="@+id/checkbox_lgbtqia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lgbtqia"
+                android:fontFamily="@font/inria_serif_light"
+                app:layout_constraintStart_toEndOf="@id/checkbox_female"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_gender" />
 
             <Button
                 android:id="@+id/btnRegister"
