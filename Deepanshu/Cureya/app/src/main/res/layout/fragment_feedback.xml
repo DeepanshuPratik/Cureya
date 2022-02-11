@@ -152,6 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:hint="Message"
+                android:gravity="top"
                 android:lines="10"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
