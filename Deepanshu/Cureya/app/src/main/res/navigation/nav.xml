@@ -296,7 +296,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalProfile"
-        android:name="com.example.cureya.profile.personal.PersonalProfile"
+        android:name="com.example.cureya.profile.PersonalProfile"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" >
         <argument

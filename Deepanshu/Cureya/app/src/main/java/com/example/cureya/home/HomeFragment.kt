@@ -61,6 +61,11 @@ class HomeFragment : Fragment(), blogitemClicked {
         binding.twitterLink.setOnClickListener {
             opentwitterlink()
         }
+        binding.profile.setOnClickListener {
+            val direction =
+                HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
+            findNavController().navigate(direction)
+        }
         getusername()
         initMembers(view)
         val images = listOf<blog>(
