@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.cureya.R
 import com.example.cureya.databinding.FragmentHomeBinding
 import com.example.cureya.home.data.blog
@@ -100,8 +101,10 @@ class HomeFragment : Fragment(), blogitemClicked {
         val user = auth.currentUser
         val uid = user?.uid.toString()
         database.child("users").child(uid).get().addOnSuccessListener {
-            username = it.child("name").value.toString()
+            username = it.child("name").value.toString().split(" ")[0]
+            val photoUrl = it.child("photoUrl").value.toString()
             binding.userinfo.text = username
+            binding.profile.load(photoUrl)
         }
     }
 
@@ -175,7 +178,8 @@ class HomeFragment : Fragment(), blogitemClicked {
                         true
                     }
                     R.id.profile -> {
-                        val direction = HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
+                        val direction =
+                            HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
                         findNavController().navigate(direction)
                         true
                     }

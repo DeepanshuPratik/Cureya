@@ -77,9 +77,9 @@ class CreatePostViewModel : ViewModel() {
                     commentCount = 0,
                     shares = 0,
                     createdAt = Date(),
-                    userName = auth.currentUser!!.displayName!!,
+                    userName = _currentUser.value!!.name,
                     photoUrl = url.toString(),
-                    profilePhoto = auth.currentUser!!.photoUrl!!.toString(),
+                    profilePhoto = _currentUser.value!!.photoUrl,
                     tags = tags
                 )
                 database.child("community").child("posts")
