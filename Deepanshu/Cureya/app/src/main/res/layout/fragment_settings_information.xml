@@ -7,21 +7,36 @@
     android:layout_height="match_parent"
     android:paddingBottom="?attr/actionBarSize">
 
-    <TextView
-        android:id="@+id/label_information"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/useful_information"
-        android:padding="16dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:fontFamily="@font/inria_serif_light"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        app:drawableStartCompat="@drawable/back_icon"
+    <LinearLayout
+        android:id="@+id/top_bar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/dashboard_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="Back Button"
+            app:srcCompat="@drawable/asset_back" />
+        <TextView
+            android:id="@+id/label_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/useful_information"
+            android:padding="16dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/inria_serif_light"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
 
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </LinearLayout>
     <FrameLayout
         android:id="@+id/our_aim"
         android:layout_width="match_parent"
@@ -31,7 +46,7 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_information">
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
 
         <TextView
             android:layout_width="wrap_content"

@@ -12,20 +12,21 @@ import com.example.cureya.databinding.OurAchievementsBinding
 
 class Our_Achievements:Fragment() {
     private lateinit var binding: OurAchievementsBinding
-    private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = OurAchievementsBinding.inflate(inflater, container, false)
-        navController = findNavController()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.dashboardBackButton.setOnClickListener {
-            navController.navigate(R.id.action_our_Achievements_to_informationFragment)
+        binding.apply {
+            dashboardBackButton.setOnClickListener {
+                findNavController().navigate(R.id.action_our_Achievements_to_informationFragment)
+            }
         }
+
     }
 }
