@@ -155,7 +155,6 @@ class HomeFragment : Fragment(), blogitemClicked {
 
     private fun initMembers(view: View) {
         blogRecyclerView = view.findViewById(R.id.blogs_recycler_view)
-
     }
 
     private fun showMenuPopUp(view: View) {
