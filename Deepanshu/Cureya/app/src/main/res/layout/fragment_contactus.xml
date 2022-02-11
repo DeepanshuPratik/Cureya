@@ -32,17 +32,8 @@
                 android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 android:layout_gravity="top|center_horizontal"
-                android:text="Contact Us" />
-
-            <ImageButton
-                android:id="@+id/dashboard_menu"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="top|end"
-                android:background="?attr/actionBarItemBackground"
-                android:contentDescription="Menu"
-                app:srcCompat="@drawable/asset_menu" />
-
+                android:text="Contact Us"
+                />
         </FrameLayout>
         <ImageView
             android:id="@+id/company_logo"
@@ -107,30 +98,35 @@
             android:layout_height="wrap_content"
             >
             <ImageView
+                android:id="@+id/instagram"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/instagram"
                 />
             <ImageView
+                android:id="@+id/youtube"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/logos_youtube"
                 />
             <ImageView
+                android:id="@+id/facebook"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_facebook"
                 />
             <ImageView
+                android:id="@+id/twitter"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/twitter"
                 />
             <ImageView
+                android:id="@+id/linkedIn"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -156,36 +152,40 @@
                 android:textSize="16sp"
                 />
             <EditText
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:hint="Name"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
                 android:padding="8dp"
                 android:background="@drawable/bg_details"
                 />
             <EditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="E-mail"
+                android:hint="E-mail"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
                 android:padding="8dp"
                 android:background="@drawable/bg_details"
                 />
             <EditText
+                android:id="@+id/subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Subject"
+                android:hint="Subject"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
                 android:padding="8dp"
                 android:background="@drawable/bg_details"
                 />
             <EditText
+                android:id="@+id/message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:hint="Message"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
                 android:padding="8dp"

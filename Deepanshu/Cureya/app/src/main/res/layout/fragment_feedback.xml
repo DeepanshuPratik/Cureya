@@ -81,30 +81,35 @@
             android:layout_height="wrap_content"
             >
             <ImageView
+                android:id="@+id/great"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/great"
                 />
             <ImageView
+                android:id="@+id/good"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/good"
                 />
             <ImageView
+                android:id="@+id/ok"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ok"
                 />
             <ImageView
+                android:id="@+id/bad"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/bad"
                 />
             <ImageView
+                android:id="@+id/terrible"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -143,9 +148,10 @@
                 android:textColor="@color/black"
                 />
             <EditText
+                android:id="@+id/feedback_data"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:text="Message"
+                android:hint="Message"
                 android:lines="10"
                 android:textColor="@color/text_secondary"
                 android:layout_margin="16dp"
