@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--
     <ImageView
         android:id="@+id/back_button"
         android:layout_width="20dp"
@@ -49,8 +48,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/music_list_view_pager"
         tools:text="Believer" />
-        -->
 
+    <!--
     <ImageView
         android:id="@+id/bg"
         android:layout_width="match_parent"
@@ -92,16 +91,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bg_image"
-        tools:text="Believer" />
+        tools:text="Believer" /> -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/music_player_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="40dp"
-        android:layout_marginVertical="40dp"
+        app:layout_constraintVertical_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/music_title"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
@@ -172,5 +172,15 @@
             app:layout_constraintStart_toEndOf="@id/music_play"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ class MusicViewHolder(private val binding: CardMusicAndVideoBinding,
                       private val progressBar: ProgressBar
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Content) {
+    fun bind(item: Content, itemPosition: Int) {
         binding.contentTitle.text = item.title
         binding.contentTime.text = item.duration
 
@@ -36,7 +36,7 @@ class MusicViewHolder(private val binding: CardMusicAndVideoBinding,
         progressBar.visibility = View.GONE
 
         binding.cardPlayer.setOnClickListener {
-            listener.goToMusicFragment(item.contentUrl!!, item.title!!, item.thumbnailUrl!!)
+            listener.goToMusicFragment(itemPosition)
         }
     }
 }

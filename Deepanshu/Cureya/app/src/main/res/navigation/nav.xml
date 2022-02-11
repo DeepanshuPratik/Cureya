@@ -258,13 +258,7 @@
         android:label="MusicFragment"
         tools:layout="@layout/fragment_relaxation_music" >
         <argument
-            android:name="content_url"
-            app:argType="string" />
-        <argument
-            android:name="title"
-            app:argType="string" />
-        <argument
-            android:name="thumbnail_url"
-            app:argType="string" />
+            android:name="item_position"
+            app:argType="integer" />
     </fragment>
 </navigation>

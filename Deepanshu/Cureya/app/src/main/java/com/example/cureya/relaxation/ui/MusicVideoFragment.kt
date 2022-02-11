@@ -103,7 +103,7 @@ class MusicVideoFragment : Fragment() {
                 )
             }
             override fun onBindViewHolder(holder: MusicViewHolder, position: Int, model: Content) {
-                holder.bind(model)
+                holder.bind(model, position)
             }
         }
         binding.contentRecyclerView.adapter = musicAdapter
@@ -140,8 +140,8 @@ class MusicVideoFragment : Fragment() {
         )
     )
 
-    fun goToMusicFragment(url: String, title: String, thumbnail: String) = findNavController().navigate(
-        MusicVideoFragmentDirections.actionMusicVideoFragmentToMusicFragment(url, title, thumbnail)
+    fun goToMusicFragment(position: Int) = findNavController().navigate(
+        MusicVideoFragmentDirections.actionMusicVideoFragmentToMusicFragment(position)
     )
 
     companion object {
