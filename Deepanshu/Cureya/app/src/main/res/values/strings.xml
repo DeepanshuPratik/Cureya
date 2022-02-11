@@ -144,8 +144,6 @@
     <string name="female">Female</string>
     <string name="lgbtq">LGBTQ</string>
     <string name="please_select_your_gender">Please select your gender</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
     <string name="lgbtqia">LGBTQIA</string>
 
     <string-array name="blog_name">
