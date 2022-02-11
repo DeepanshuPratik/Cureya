@@ -147,56 +147,52 @@
                 android:text="@string/follow_cureya_on_social_media"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:layout_gravity="center"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="8dp">
                 <ImageView
                     android:id="@+id/web_link"
                     android:src="@drawable/frame_468"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:padding="2dp"/>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="6dp"/>
                 <ImageView
                     android:id="@+id/fb_link"
                     android:src="@drawable/frame_464"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:padding="2dp"/>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="6dp"/>
                 <ImageView
                     android:id="@+id/linkedIn_link"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/frame_463"
-                    android:padding="2dp"/>
+                    android:layout_margin="6dp"/>
                 <ImageView
                     android:id="@+id/yt_link"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/frame_466"
-                    android:padding="2dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                    android:layout_margin="6dp"/>
                 <ImageView
                     android:id="@+id/insta_link"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/frame_462"
-                    android:padding="2dp"/>
+                    android:layout_margin="6dp"/>
                 <ImageView
                     android:id="@+id/twitter_link"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/frame_469"
-                    android:padding="2dp"/>
+                    android:layout_margin="6dp"/>
             </LinearLayout>
 
         </LinearLayout>
