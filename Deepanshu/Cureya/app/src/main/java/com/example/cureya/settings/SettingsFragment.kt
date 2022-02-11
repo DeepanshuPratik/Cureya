@@ -47,9 +47,6 @@ class SettingsFragment : Fragment() {
             supportFrame.setOnClickListener{
                 findNavController().navigate(R.id.action_settingsFragment_to_feedbackFragment)
             }
-            reportFrame.setOnClickListener {
-                findNavController().navigate(R.id.action_settingsFragment_to_reportFragment)
-            }
             signOutFrame.setOnClickListener {
                 showDialog()
             }

@@ -39,8 +39,7 @@
     <string name="chat_fragment">Chat Fragment</string>
     <string name="chatbot_fragment">ChatBot Fragment</string>
     <string name="community_fragment">Community Fragment</string>
-    <string name="aboutus">CUREYA (registered as Aspexx Health solutions Pvt Ltd ) collaborated with stakeholders include - ROOTSKILLS , ROOTSAPS , World Yoga associations , Flagbits technologies and many more . The recent online webinars  are conducted by alternative practitioners that include  - Ayurveda Experts , Energy Healing experts , Mental Health Counselors  etc .
-        CUREYA primarily objective is ‘ Health for All ‘ , by reducing the medical expenditure , eliminating the information asymmetry , promoting health awareness and achieving inclusive and holistic approach for healthcare treatments . </string>
+    <string name="aboutusdetails">CUREYA (registered as Aspexx Health solutions Pvt Ltd ) collaborated with stakeholders include - ROOTSKILLS , ROOTSAPS , World Yoga associations , Flagbits technologies and many more . The recent online webinars  are conducted by alternative practitioners that include  - Ayurveda Experts , Energy Healing experts , Mental Health Counselors  etc. CUREYA primarily objective is ‘ Health for All ‘ , by reducing the medical expenditure , eliminating the information asymmetry , promoting health awareness and achieving inclusive and holistic approach for healthcare treatments.</string>
     <string name="about_us">About Us</string>
     <string name="madeinindia">Made with love in india to empower healthcare services.</string>
     <string name="follow">Follow</string>
@@ -140,4 +139,5 @@
     <string name="our_collabs_para7">● Collaborate with esteemed universities, industry partners and corporates.</string>
     <string name="our_collabs_para8">● Share your knowledge by starting your own certification course for practitioners.</string>
     <string name="team_cureya">Recognition to Project Head\nAbel D\'Silva\n\nRecognition to R&amp;D\nVaibhav Tripathi\n\nRecognition to Android Developers\nTeam Lead:-\nDeep Hudka\nCore Members:-\nDivyansh Kushwaha\nDeepanshu Pratik\nRonnie Bine\n\nRecognition to Android Developer Design Team\nRitesh Kumar\nVikas Kumar\nAnjali Meena\n\nRecognition to UI/UX Design Team\nTeam Lead:-\nAnjali Kasar (App Design)\nMembers:-\nAnshika Thakur (Flash Screen)</string>
+    <string name="more_about_us"><![CDATA[More >]]></string>
 </resources>
