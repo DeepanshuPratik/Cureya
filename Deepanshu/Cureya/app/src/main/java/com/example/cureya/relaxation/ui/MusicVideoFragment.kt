@@ -82,16 +82,20 @@ class MusicVideoFragment : Fragment() {
                 holder.bind(model)
             }
         }
+        Log.w(TAG, "adapter list count: ${videoAdapter.itemCount}")
         binding.contentRecyclerView.adapter = videoAdapter
         binding.contentRecyclerView.itemAnimator = null
     }
 
     private fun showMusicList() {
         val musicRef = db.reference.child(MUSIC_LIST)
+        Log.w(TAG, "inside showMusicList")
 
         val musicList = FirebaseRecyclerOptions.Builder<Content>()
             .setQuery(musicRef, Content::class.java)
             .build()
+
+        Log.w(TAG, "musicList: ${musicList.snapshots}")
 
         binding.label.text = getString(R.string.music)
         binding.heading.text = getString(R.string.we_recommend_you_favourite_music)
@@ -110,6 +114,7 @@ class MusicVideoFragment : Fragment() {
                 holder.bind(model, position)
             }
         }
+        Log.w(TAG, "adapter list count: ${musicAdapter.itemCount}")
         binding.contentRecyclerView.adapter = musicAdapter
         binding.contentRecyclerView.itemAnimator = null
     }
