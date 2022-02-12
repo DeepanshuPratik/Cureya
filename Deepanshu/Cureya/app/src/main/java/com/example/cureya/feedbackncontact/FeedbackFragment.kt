@@ -100,7 +100,7 @@ class FeedbackFragment : Fragment() {
                 database.child("users").child(auth.uid!!).child("email").get().await().getValue(String::class.java)
             withContext(Dispatchers.Main) {
                 binding.sendMessage.setOnClickListener{
-                    showDialog(activity,"Your sumbission has been recieved!")
+                    showDialog(activity,"Your submission has been received!")
                     val p : String = binding.feedbackData.text.toString()
                     val user_feed = Feedback(email,p,rating)
                     if (email != null) {

@@ -140,9 +140,10 @@
     <string name="our_collabs_para8">● Share your knowledge by starting your own certification course for practitioners.</string>
     <string name="team_cureya">Recognition to Project Head\nAbel D\'Silva\n\nRecognition to R&amp;D\nVaibhav Tripathi\n\nRecognition to Android Developers\nTeam Lead:-\nDeep Hudka\nCore Members:-\nDivyansh Kushwaha\nDeepanshu Pratik\nRonnie Bine\n\nRecognition to Android Developer Design Team\nRitesh Kumar\nVikas Kumar\nAnjali Meena\n\nRecognition to UI/UX Design Team\nTeam Lead:-\nAnjali Kasar (App Design)\nMembers:-\nAnshika Thakur (Flash Screen)</string>
     <string name="more_about_us"><![CDATA[More >]]></string>
-    <string name="please_select_your_gender">Please select your gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="lgbtq">LGBTQ</string>
+    <string name="please_select_your_gender">Please select your gender</string>
     <string name="lgbtqia">LGBTQIA</string>
 
     <string-array name="blog_name">

@@ -296,7 +296,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalProfile"
-        android:name="com.example.cureya.profile.personal.PersonalProfile"
+        android:name="com.example.cureya.profile.PersonalProfile"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" >
         <argument
@@ -390,4 +390,12 @@
             android:id="@+id/action_team_Cureya_to_informationFragment"
             app:destination="@id/informationFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mood_fragment"
+        android:name="com.example.cureya.home.mood"
+        android:label="Moods"
+        tools:layout="@layout/fragment_mood"/>
+    <action
+        android:id="@+id/action_homeFragment_to_moodFragment"
+        app:destination="@id/mood_fragment"/>
 </navigation>

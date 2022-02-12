@@ -74,7 +74,7 @@ class ContactFragment : Fragment() {
                 database.child("users").child(auth.uid!!).child("email").get().await().getValue(String::class.java)
             withContext(Dispatchers.Main) {
                 binding.sendMessage.setOnClickListener{
-                    showDialog(activity,"Your sumbission has been recieved!")
+                    showDialog(activity,"Your submission has been received!")
                     val message : String = binding.message.text.toString()
                     val subject : String = binding.subject.text.toString()
                     val name : String = binding.name.text.toString()

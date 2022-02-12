@@ -61,6 +61,11 @@ class HomeFragment : Fragment(), blogitemClicked {
         binding.twitterLink.setOnClickListener {
             opentwitterlink()
         }
+        binding.profile.setOnClickListener {
+            val direction =
+                HomeFragmentDirections.actionHomeFragmentToPersonalProfile(auth.uid!!)
+            findNavController().navigate(direction)
+        }
         getusername()
         initMembers(view)
         val images = listOf<blog>(
@@ -183,7 +188,10 @@ class HomeFragment : Fragment(), blogitemClicked {
                         findNavController().navigate(direction)
                         true
                     }
-                    R.id.moods -> false
+                    R.id.moods -> {
+                        findNavController().navigate(R.id.action_homeFragment_to_moodFragment)
+                        true
+                    }
                     R.id.contact_us -> {
                         findNavController().navigate(R.id.action_homeFragment_to_contactUsFragment)
                         true
