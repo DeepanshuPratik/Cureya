@@ -173,8 +173,11 @@ class SignUpFragment: Fragment() {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!)
+                if (isGenderSelected()) {
+                    firebaseAuthWithGoogle(account.idToken!!)
+                } else {
+                    showToast("Please select your gender")
+                }
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
@@ -201,6 +204,8 @@ class SignUpFragment: Fragment() {
         bottomView.visibility = View.VISIBLE
     }
 
+    private fun isGenderSelected() =
+        binding.checkboxMale.isChecked || binding.checkboxFemale.isChecked || binding.checkboxLgbtqia.isChecked
 
     private fun updateUI() {
         val currentUser = auth.currentUser
