@@ -44,18 +44,18 @@ class VideoFragment : Fragment() {
         }
     }
 
-    /* override fun onResume() {
+    override fun onResume() {
         super.onResume()
         val bottomView = (activity as AppCompatActivity)
             .findViewById<BottomNavigationView>(R.id.nav_view)
         bottomView.visibility = View.GONE
-    } */
+    }
 
     override fun onStop() {
         super.onStop()
-        /* val bottomView = (activity as AppCompatActivity)
+        val bottomView = (activity as AppCompatActivity)
             .findViewById<BottomNavigationView>(R.id.nav_view)
-        bottomView.visibility = View.VISIBLE */
+        bottomView.visibility = View.VISIBLE
         player.release()
     }
 }

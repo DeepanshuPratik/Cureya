@@ -5,4 +5,7 @@
     <color name="bd_secondary">#2E2E2E</color>
     <color name="text_secondary">#E4E4E4</color>
 
+    <!-- Relaxation -->
+    <color name="music_player_button_background">#EBE8E8</color>
+
 </resources>
