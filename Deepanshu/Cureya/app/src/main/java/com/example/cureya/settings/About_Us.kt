@@ -17,7 +17,6 @@ class About_Us:Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = AboutUsBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -28,6 +27,5 @@ class About_Us:Fragment() {
                 findNavController().navigate(R.id.action_about_Us_to_informationFragment)
             }
         }
-
     }
 }
